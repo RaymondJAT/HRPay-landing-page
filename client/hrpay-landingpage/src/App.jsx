@@ -1,7 +1,11 @@
+import Hero from "./section/Hero";
+import ScreenshotSection from "./section/Screenshot";
+
 function App() {
   return (
     <>
-      <p className="text-3xl text-center uppercase">Hello</p>
+      <Hero />
+      <ScreenshotSection />
     </>
   );
 }
