@@ -7,11 +7,11 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             One Platform. Total Workforce Control.
           </h1>
-          <p className="text-lg md:text-[1.3rem] text-gray-700 mb-6">
+          <p className="text-md md:text-[1.25rem] text-gray-700 mb-6">
             Modernize your workforce processes with a solution built for today's
             most dynamic teams
           </p>
-          <button className="bg-red-900 text-white px-6 py-3 rounded-[50px] hover:bg-blue-700 transition">
+          <button className="bg-red-900 text-white px-5 py-2 md:px-6 md:py-3 text-sm rounded-[50px] hover:bg-red-700 transition cursor-pointer">
             Request a Demo
           </button>
         </div>
