@@ -3,8 +3,10 @@ import { FiBatteryCharging, FiWifi } from "react-icons/fi";
 
 const MobileAccess = () => {
   return (
-    <section className="bg-gray-50 py-20">
-      <div className="container flex flex-col md:flex-row items-center gap-y-10 md:gap-x-16">
+    <section className="bg-gray-50 py-16">
+      {" "}
+      {/* reduced from py-20 */}
+      <div className="container flex flex-col md:flex-row items-center gap-y-8 md:gap-x-16">
         {/* LEFT SIDE - TEXT */}
         <div className="md:w-1/2 text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -14,7 +16,7 @@ const MobileAccess = () => {
             Access HRPay from your smartphone or tablet. Approve leave requests,
             check payroll, and track attendance anytime, anywhere.
           </p>
-          <button className="bg-red-900 text-white px-6 py-3 rounded-[50px] hover:bg-blue-700 transition">
+          <button className="bg-red-900 text-white px-5 py-2 md:px-6 md:py-3 text-sm rounded-[50px] hover:bg-red-700 transition cursor-pointer">
             Request a Demo
           </button>
         </div>
@@ -38,20 +40,17 @@ const FloatingPhone = () => {
       className="rounded-[24px] bg-red-800"
     >
       <motion.div
-        initial={{
-          transform: "translateZ(8px) translateY(-2px)",
-        }}
-        animate={{
-          transform: "translateZ(32px) translateY(-8px)",
-        }}
+        initial={{ transform: "translateZ(8px) translateY(-2px)" }}
+        animate={{ transform: "translateZ(32px) translateY(-8px)" }}
         transition={{
           repeat: Infinity,
           repeatType: "mirror",
           duration: 2,
           ease: "easeInOut",
         }}
-        className="relative h-96 w-56 rounded-[24px] border-2 border-b-4 border-r-4 border-white border-l-neutral-200 border-t-neutral-200 bg-neutral-900 p-1 pl-[3px] pt-[3px]"
+        className="relative h-80 w-52 rounded-[24px] border-2 border-b-4 border-r-4 border-white border-l-neutral-200 border-t-neutral-200 bg-neutral-900 p-1 pl-[3px] pt-[3px]"
       >
+        {/* reduced from h-96 to h-80 (20rem) and w-56 to w-52 */}
         <HeaderBar />
         <Screen />
       </motion.div>

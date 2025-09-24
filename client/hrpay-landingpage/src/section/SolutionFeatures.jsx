@@ -1,62 +1,9 @@
-import {
-  FaUsers,
-  FaFileInvoiceDollar,
-  FaClock,
-  FaBriefcase,
-  FaBullseye,
-  FaHeart,
-  FaWallet,
-  FaChartBar,
-} from "react-icons/fa";
+import { features } from "../mapping/features";
 
 const SolutionFeatures = () => {
-  const features = [
-    {
-      title: "HR Automation & Efficiency",
-      desc: "Centralized employee database, onboarding/offboarding, analytics.",
-      icon: FaUsers,
-    },
-    {
-      title: "Payroll & Compliance",
-      desc: "Automated salary calculations, tax management, and payslips.",
-      icon: FaFileInvoiceDollar,
-    },
-    {
-      title: "Time & Attendance Tracking",
-      desc: "Track hours, leave, and shifts, integrated with payroll.",
-      icon: FaClock,
-    },
-    {
-      title: "Talent Acquisition & Recruitment",
-      desc: "Job posting, applicant tracking, resume management.",
-      icon: FaBriefcase,
-    },
-    {
-      title: "Performance Management",
-      desc: "Goal tracking, appraisals, skill development.",
-      icon: FaBullseye,
-    },
-    {
-      title: "Employee Engagement",
-      desc: "Feedback collection, reward programs, recognition tools.",
-      icon: FaHeart,
-    },
-    {
-      title: "Compensation & Benefits",
-      desc: "Salary structures, bonuses, benefits management.",
-      icon: FaWallet,
-    },
-    {
-      title: "People Analytics & Insights",
-      desc: "Reports on attendance, performance, turnover, engagement.",
-      icon: FaChartBar,
-    },
-  ];
-
   return (
     <section className="bg-gray-50 py-20">
       <div className="container">
-        {/* Headline + Intro */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Solve HR Challenges with Powerful Tools
@@ -67,7 +14,7 @@ const SolutionFeatures = () => {
           </p>
         </div>
 
-        {/* Features Grid */}
+        {/* Features */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {features.map((feature, index) => {
             const Icon = feature.icon;

@@ -1,3 +1,5 @@
+import shortVideo from "../assets/hrpaychronus.mp4";
+
 const Hero = () => {
   return (
     <div className="bg-gray-50 py-20">
@@ -20,7 +22,7 @@ const Hero = () => {
         <div className="md:w-1/2">
           <video
             className="w-full rounded-lg shadow-lg"
-            src="/path-to-your-video.mp4"
+            src={shortVideo}
             controls
           />
         </div>

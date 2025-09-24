@@ -1,7 +1,7 @@
 const CallToAction = () => {
   return (
-    <section className="bg-red-700 py-20">
-      <div className="container text-center text-white">
+    <section className="bg-gray-50 py-18">
+      <div className="container text-center">
         {/* Headline */}
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Ready to Transform Your HR?
@@ -13,7 +13,7 @@ const CallToAction = () => {
         </p>
 
         {/* CTA Button */}
-        <button className="bg-white text-red-700 font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition">
+        <button className="bg-red-900 text-white px-5 py-2 md:px-6 md:py-3 text-sm rounded-[50px] hover:bg-red-700 transition cursor-pointer">
           Request a Demo
         </button>
       </div>
