@@ -2,7 +2,7 @@ import { benefits } from "../mapping/benefits";
 
 const Benefits = () => {
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="py-20">
       <div className="container">
         {/* Headline */}
         <div className="text-center max-w-2xl mx-auto mb-12">

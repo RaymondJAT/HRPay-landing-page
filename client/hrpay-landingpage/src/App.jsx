@@ -10,7 +10,7 @@ import SolutionFeatures from "./section/SolutionFeatures";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-indigo-50">
       <Navigation />
       <main className="flex-grow">
         <Hero />

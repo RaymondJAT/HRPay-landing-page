@@ -43,6 +43,21 @@ const Footer = () => {
           <ul className="space-y-2">
             <li>
               <a href="#" className="hover:text-white transition">
+                HR Automation
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-white transition">
+                Geofencing
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-white transition">
+                Employee Engagement
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-white transition">
                 Payroll & Compliance
               </a>
             </li>

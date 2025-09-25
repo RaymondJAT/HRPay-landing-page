@@ -1,8 +1,9 @@
 import shortVideo from "../assets/hrpaychronus.mp4";
+import Buttons from "../components/Buttons";
 
 const Hero = () => {
   return (
-    <div className="bg-gray-50 py-20">
+    <div className="py-20">
       <div className="container flex flex-col md:flex-row items-center gap-y-10 md:gap-x-16">
         {/* HEADLINE  */}
         <div className="md:w-1/2 text-center md:text-left">
@@ -13,9 +14,7 @@ const Hero = () => {
             Modernize your workforce processes with a solution built for today's
             most dynamic teams
           </p>
-          <button className="bg-red-900 text-white px-5 py-2 md:px-6 md:py-3 text-sm rounded-[50px] hover:bg-red-700 transition cursor-pointer">
-            Request a Demo
-          </button>
+          <Buttons label="Request a Demo" />
         </div>
 
         {/* VIDEO */}

@@ -1,11 +1,18 @@
+import chronus from "../assets/chronus.png";
 import { motion } from "framer-motion";
 import { FiBatteryCharging, FiWifi } from "react-icons/fi";
+import Buttons from "../components/Buttons";
+import {
+  FaUsers,
+  FaWallet,
+  FaClock,
+  FaBriefcase,
+  FaBullseye,
+} from "react-icons/fa";
 
 const MobileAccess = () => {
   return (
-    <section className="bg-gray-50 py-16">
-      {" "}
-      {/* reduced from py-20 */}
+    <section className="py-16">
       <div className="container flex flex-col md:flex-row items-center gap-y-8 md:gap-x-16">
         {/* LEFT SIDE - TEXT */}
         <div className="md:w-1/2 text-center md:text-left">
@@ -16,9 +23,7 @@ const MobileAccess = () => {
             Access HRPay from your smartphone or tablet. Approve leave requests,
             check payroll, and track attendance anytime, anywhere.
           </p>
-          <button className="bg-red-900 text-white px-5 py-2 md:px-6 md:py-3 text-sm rounded-[50px] hover:bg-red-700 transition cursor-pointer">
-            Request a Demo
-          </button>
+          <Buttons label="Request a Demo" />
         </div>
 
         {/* RIGHT SIDE - FLOATING PHONE */}
@@ -32,29 +37,94 @@ const MobileAccess = () => {
 
 const FloatingPhone = () => {
   return (
-    <div
-      style={{
-        transformStyle: "preserve-3d",
-        transform: "rotateY(-30deg) rotateX(15deg)",
-      }}
-      className="rounded-[24px] bg-red-800"
-    >
-      <motion.div
-        initial={{ transform: "translateZ(8px) translateY(-2px)" }}
-        animate={{ transform: "translateZ(32px) translateY(-8px)" }}
-        transition={{
-          repeat: Infinity,
-          repeatType: "mirror",
-          duration: 2,
-          ease: "easeInOut",
+    <div className="relative flex flex-col items-center">
+      {/* PHONE */}
+      <div
+        style={{
+          transformStyle: "preserve-3d",
+          transform: "rotateY(-30deg) rotateX(15deg)",
         }}
-        className="relative h-80 w-52 rounded-[24px] border-2 border-b-4 border-r-4 border-white border-l-neutral-200 border-t-neutral-200 bg-neutral-900 p-1 pl-[3px] pt-[3px]"
+        className="relative rounded-[24px] bg-red-800"
       >
-        {/* reduced from h-96 to h-80 (20rem) and w-56 to w-52 */}
-        <HeaderBar />
-        <Screen />
-      </motion.div>
+        <motion.div
+          initial={{ transform: "translateZ(8px) translateY(-2px)" }}
+          animate={{ transform: "translateZ(32px) translateY(-8px)" }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+          }}
+          className="relative h-80 w-52 md:h-95 md:w-60 rounded-[24px] border-2 border-b-4 border-r-4 
+                     border-white border-l-neutral-200 border-t-neutral-200 
+                     bg-neutral-900 p-1 pl-[3px] pt-[3px] z-10 mx-auto"
+        >
+          <HeaderBar />
+          <Screen />
+        </motion.div>
+      </div>
+
+      {/* FLOATING FEATURE ICONS (SURROUND in desktop) */}
+      <div className="hidden md:block">
+        {/* top-left */}
+        <div className="absolute -top-8 -left-40 flex items-center gap-2">
+          <span className="text-sm text-gray-600">HR Automation</span>
+          <FloatingIcon icon={FaUsers} delay={0} />
+        </div>
+
+        {/* mid-left */}
+        <div className="absolute top-1/3 -left-40 flex items-center gap-2">
+          <span className="text-sm text-gray-600">Payroll</span>
+          <FloatingIcon icon={FaWallet} delay={0.2} />
+        </div>
+
+        {/* bottom-left */}
+        <div className="absolute bottom-12 -left-40 flex items-center gap-2">
+          <span className="text-sm text-gray-600">Attendance</span>
+          <FloatingIcon icon={FaClock} delay={0.4} />
+        </div>
+
+        {/* top-right */}
+        <div className="absolute -top-6 -right-40 flex items-center gap-2">
+          <FloatingIcon icon={FaBriefcase} delay={0.6} />
+          <span className="text-sm text-gray-600">Performance</span>
+        </div>
+
+        {/* bottom-right */}
+        <div className="absolute bottom-16 -right-40 flex items-center gap-2">
+          <FloatingIcon icon={FaBullseye} delay={0.8} />
+          <span className="text-sm text-gray-600">Geo-Tracking</span>
+        </div>
+      </div>
+
+      {/* FLOATING FEATURE ICONS (BOTTOM in mobile) */}
+      <div className="mt-6 flex justify-center gap-6 md:hidden">
+        <FloatingIcon icon={FaUsers} delay={0} />
+        <FloatingIcon icon={FaWallet} delay={0.2} />
+        <FloatingIcon icon={FaClock} delay={0.4} />
+        <FloatingIcon icon={FaBriefcase} delay={0.6} />
+        <FloatingIcon icon={FaBullseye} delay={0.8} />
+      </div>
     </div>
+  );
+};
+
+// Floating Icon Component
+const FloatingIcon = ({ icon: Icon, delay }) => {
+  return (
+    <motion.div
+      initial={{ y: 0 }}
+      animate={{ y: [0, -12, 0] }}
+      transition={{
+        repeat: Infinity,
+        duration: 3,
+        delay,
+        ease: "easeInOut",
+      }}
+      className="text-red-700 text-3xl"
+    >
+      <Icon />
+    </motion.div>
   );
 };
 
@@ -74,17 +144,7 @@ const Screen = () => {
   return (
     <div className="relative z-0 grid h-full w-full place-content-center overflow-hidden rounded-[20px] bg-white">
       {/* logo */}
-      <svg
-        width="50"
-        height="39"
-        viewBox="0 0 50 39"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="fill-red-700"
-      >
-        <path d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z" />
-        <path d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z" />
-      </svg>
+      <img src={chronus} alt="chronusmtk logo" height={110} width={110} />
 
       <button className="absolute bottom-4 left-4 right-4 z-10 rounded-lg border-[1px] bg-white py-2 text-sm font-medium text-red-800 backdrop-blur">
         Get Started

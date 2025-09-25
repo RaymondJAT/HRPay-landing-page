@@ -7,6 +7,7 @@ import {
   FaHeart,
   FaWallet,
   FaChartBar,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 export const features = [
@@ -24,6 +25,11 @@ export const features = [
     title: "Time & Attendance Tracking",
     desc: "Track hours, leave, and shifts, integrated with payroll.",
     icon: FaClock,
+  },
+  {
+    title: "Geo-Tracking & Geofencing",
+    desc: "Monitor employee locations, set geofences for field teams, and enhance attendance accuracy.",
+    icon: FaMapMarkerAlt,
   },
   {
     title: "Talent Acquisition & Recruitment",
