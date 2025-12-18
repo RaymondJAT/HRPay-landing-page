@@ -1,5 +1,5 @@
-import shortVideo from "../assets/hrpaychronus.mp4";
-import Buttons from "../components/Buttons";
+import shortVideo from '../assets/hrpaychronus.mp4'
+import Buttons from '../components/Buttons'
 
 const Hero = () => {
   return (
@@ -11,23 +11,18 @@ const Hero = () => {
             One Platform. Total Workforce Control.
           </h1>
           <p className="text-md md:text-[1.25rem] text-gray-700 mb-6">
-            Modernize your workforce processes with a solution built for today's
-            most dynamic teams
+            Modernize your workforce processes with a solution built for today's most dynamic teams
           </p>
           <Buttons label="Request a Demo" />
         </div>
 
         {/* VIDEO */}
         <div className="md:w-1/2">
-          <video
-            className="w-full rounded-lg shadow-lg"
-            src={shortVideo}
-            controls
-          />
+          <video className="w-full rounded-lg shadow-lg" src={shortVideo} controls />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
