@@ -1,5 +1,5 @@
-import { FaBuilding } from 'react-icons/fa'
-import Buttons from './Buttons'
+import { FaBuilding } from "react-icons/fa";
+import Buttons from "./Buttons";
 
 const Navigation = () => {
   return (
@@ -7,8 +7,8 @@ const Navigation = () => {
       <div className="container">
         <div
           className="flex items-center justify-between 
-                     bg-white/20 backdrop-blur-md px-6 py-3 
-                     rounded-b-2xl shadow-lg border border-white/30"
+                     bg-slate-50 backdrop-blur-md px-6 py-3 
+                     rounded-b-2xl shadow-lg border border-black/60"
         >
           {/* LEFT */}
           <div className="flex items-center gap-2 cursor-pointer">
@@ -47,7 +47,7 @@ const Navigation = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;
