@@ -8,11 +8,11 @@ export const benefits = [
     desc: "Keep payroll and HR aligned with labor laws.",
   },
   {
-    title: "Boost Productivity",
-    desc: "Streamlined operations free your team to focus on growth.",
+    title: "Employee Engagement",
+    desc: "Engage and motivate your workforce.",
   },
   {
-    title: "Enhance Employee Experience",
-    desc: "Engage and motivate your workforce.",
+    title: "Boost Productivity",
+    desc: "Streamline operations for growth-focused teams.",
   },
 ];

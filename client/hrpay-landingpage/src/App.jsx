@@ -46,8 +46,8 @@ function App() {
       {/* Rest of the content */}
       <main className="flex-grow bg-white relative z-20">
         <SolutionFeatures />
-        <MobileAccess />
         <Benefits />
+        <MobileAccess />
         <CallToAction />
         <Connect />
       </main>
