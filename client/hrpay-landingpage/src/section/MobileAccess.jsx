@@ -23,7 +23,7 @@ const MobileAccess = () => {
             Access HRPay from your smartphone or tablet. Approve leave requests,
             check payroll, and track attendance anytime, anywhere.
           </p>
-          <Buttons label="Request a Demo" />
+          {/* <Buttons label="Request a Demo" /> */}
         </div>
 
         {/* RIGHT SIDE - FLOATING PHONE */}

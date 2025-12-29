@@ -11,8 +11,8 @@ const Connect = () => {
         <div className="md:w-1/2 text-center md:text-left">
           <BlockInText />
 
-          {/* CTA stays aligned with other sections */}
-          <div className="mt-6">
+          {/* CTA */}
+          <div className="mt-6 flex justify-center md:justify-start">
             <Buttons label="Connect with us" />
           </div>
         </div>

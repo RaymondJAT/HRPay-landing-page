@@ -8,11 +8,11 @@ import MobileAccess from "./section/MobileAccess";
 import ScreenshotSection from "./section/Screenshot";
 import SolutionFeatures from "./section/SolutionFeatures";
 
-import heroBg from "./assets/mema.png";
+import heroBg from "./assets/new.png";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen ">
       {/* Background with fade at bottom */}
       <div
         className="absolute inset-0 -z-10"
@@ -37,14 +37,14 @@ function App() {
 
       {/* Hero section */}
       <section className="relative">
-        <main className="relative z-10">
+        <main className="relative z-10 ">
           <Hero />
           <ScreenshotSection />
         </main>
       </section>
 
       {/* Rest of the content */}
-      <main className="flex-grow bg-white relative z-20">
+      <main className="flex-grow relative z-20">
         <SolutionFeatures />
         <Benefits />
         <MobileAccess />

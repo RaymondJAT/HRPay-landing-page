@@ -15,7 +15,9 @@ const CallToAction = () => {
         </p>
 
         {/* CTA Button */}
-        <Buttons label="Request a Demo" />
+        <div className="flex justify-center">
+          <Buttons label="Book a Meeting" />
+        </div>
       </div>
     </section>
   );
