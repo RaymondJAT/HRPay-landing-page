@@ -12,7 +12,7 @@ import {
 
 const MobileAccess = () => {
   return (
-    <section className="py-16">
+    <section className="pt-16">
       <div className="container flex flex-col md:flex-row items-center gap-y-8 md:gap-x-16">
         {/* LEFT SIDE - TEXT */}
         <div className="md:w-1/2 text-center md:text-left">

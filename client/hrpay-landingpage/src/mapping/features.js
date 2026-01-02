@@ -9,12 +9,11 @@ import {
   FaChartBar,
   FaMapMarkerAlt,
   FaUserPlus,
-  FaTrophy,
-  FaSmile,
-  FaMoneyBillWave,
   FaFileAlt,
   FaCheckCircle,
   FaShieldAlt,
+  FaUserCheck,
+  FaCalendarAlt,
 } from "react-icons/fa";
 
 export const features = [
@@ -47,6 +46,10 @@ export const features = [
     icon: FaBriefcase,
   },
   {
+    title: "Employee Onboarding & Offboarding",
+    icon: FaUserCheck,
+  },
+  {
     title: "Performance Management",
     icon: FaBullseye,
   },
@@ -57,6 +60,10 @@ export const features = [
   {
     title: "Compensation & Benefits",
     icon: FaWallet,
+  },
+  {
+    title: "Shift Scheduling & Overtime Management",
+    icon: FaCalendarAlt,
   },
   {
     title: "Digital Employee Records & Documents",
