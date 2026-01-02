@@ -4,6 +4,7 @@ import CallToAction from "./section/CallToAction";
 import Footer from "./section/Footer";
 import Hero from "./section/Hero";
 import MobileAccess from "./section/MobileAccess";
+import ProcessDeck from "./section/ProcessDeck";
 import ScreenshotSection from "./section/Screenshot";
 import SolutionFeatures from "./section/SolutionFeatures";
 
@@ -28,6 +29,7 @@ function App() {
         <SolutionFeatures />
         <Benefits />
         <MobileAccess />
+        <ProcessDeck />
         <CallToAction />
       </main>
 

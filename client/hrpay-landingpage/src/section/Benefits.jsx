@@ -1,5 +1,5 @@
 import { benefits } from "../mapping/benefits";
-import sample from "../assets/mema.png";
+import sample from "../assets/hrpays.png";
 
 const Benefits = () => {
   return (
@@ -15,12 +15,12 @@ const Benefits = () => {
           {/* LEFT */}
           <div className="col-span-12 lg:col-span-6 relative flex justify-center items-center">
             {/* gradient background */}
-            <div className="absolute w-[90%] h-[65%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-red-300 via-rose-200 to-red-400 -rotate-10 rounded-xl shadow-md opacity-70"></div>
+            <div className="absolute w-[80%] h-[65%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-red-300 via-rose-200 to-red-400 -rotate-13 rounded-xl shadow-md opacity-70"></div>
 
             <img
               src={sample}
               alt="HRPay platform preview"
-              className="relative w-full max-w-sm lg:max-w-md xl:max-w-lg rounded-2xl shadow-xl z-10"
+              className="relative w-full max-w-sm xl:max-w-md rounded-2xl shadow-xl z-10"
             />
           </div>
 
