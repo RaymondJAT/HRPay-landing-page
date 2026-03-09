@@ -1,115 +1,126 @@
+import { motion } from "framer-motion";
+
 const Footer = () => {
+  const footerSections = {
+    Product: [
+      { name: "Features", href: "#" },
+      { name: "Pricing", href: "#" },
+      { name: "Integrations", href: "#" },
+      { name: "API", href: "#" },
+    ],
+    Resources: [
+      { name: "Documentation", href: "#" },
+      { name: "Guides", href: "#" },
+      { name: "Support", href: "#" },
+      { name: "API Status", href: "#" },
+    ],
+    Company: [
+      { name: "About", href: "#" },
+      { name: "Blog", href: "#" },
+      { name: "Careers", href: "#" },
+      { name: "Press", href: "#" },
+    ],
+    Legal: [
+      { name: "Privacy", href: "#" },
+      { name: "Terms", href: "#" },
+      { name: "Security", href: "#" },
+      { name: "Cookies", href: "#" },
+    ],
+  };
+
+  const socialLinks = [
+    { icon: "𝕏", name: "X (Twitter)" },
+    { icon: "💼", name: "LinkedIn" },
+    { icon: "📘", name: "Facebook" },
+    { icon: "📸", name: "Instagram" },
+  ];
+
   return (
-    <footer className="bg-red-900 text-gray-100 pt-16 pb-8">
-      <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-        {/* Column 1 - Logo */}
-        <div className="text-center md:text-left">
-          <h3 className="text-2xl font-bold text-white mb-4">HRPay</h3>
-          <p className="text-gray-100 text-sm">
-            Streamline Payroll & Empower Your Workforce Effortlessly.
+    <footer className="bg-gradient-to-b from-white to-[#F8F5F2] border-t border-[#E8E0D9]">
+      <div className="container py-12 md:py-16">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-8 md:mb-12">
+          {/* Brand Column - Left side */}
+          <div className="lg:col-span-4 text-center lg:text-left">
+            <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
+              <div className="w-10 h-10 lg:w-8 lg:h-8 bg-[#D51C3D] rounded-xl lg:rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">HR</span>
+              </div>
+              <span className="text-xl font-semibold text-[#2C2420]">Pay</span>
+            </div>
+
+            <p className="text-[#6B625A] mb-6 max-w-sm mx-auto lg:mx-0 text-sm lg:text-base">
+              Modern HR & Payroll management system designed for growing
+              businesses. Simplify your workforce management today.
+            </p>
+
+            {/* Social Icons */}
+            <div className="flex justify-center lg:justify-start gap-3 mb-8 lg:mb-0">
+              {socialLinks.map((social, i) => (
+                <motion.a
+                  key={i}
+                  href="#"
+                  whileHover={{ y: -3 }}
+                  aria-label={social.name}
+                  className="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-[#6B625A] hover:bg-[#D51C3D] hover:text-white transition-all duration-300 shadow-sm border border-[#E8E0D9]"
+                >
+                  <span className="text-sm">{social.icon}</span>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Links - 2 columns on mobile/tablet, 8 columns on desktop */}
+          <div className="lg:col-span-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+              {Object.entries(footerSections).map(([title, links]) => (
+                <div key={title} className="text-center md:text-left">
+                  <h4 className="font-medium text-[#2C2420] mb-4 text-sm uppercase tracking-wider">
+                    {title}
+                  </h4>
+                  <ul className="space-y-3">
+                    {links.map((link) => (
+                      <li key={link.name}>
+                        <motion.a
+                          href={link.href}
+                          whileHover={{ x: 3 }}
+                          className="text-[#6B625A] hover:text-[#D51C3D] transition-colors text-sm inline-block"
+                        >
+                          {link.name}
+                        </motion.a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Subtle gradient divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E8E0D9] to-transparent my-8" />
+
+        {/* Bottom Bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p className="text-sm text-[#9B8F85] order-2 md:order-1">
+            © {new Date().getFullYear()} PayFlow HRMS. All rights reserved.
           </p>
-        </div>
 
-        {/* Column 2 - Quick Links */}
-        <div className="md:pl-28">
-          <h4 className="text-lg font-semibold text-white mb-4">HRPay</h4>
-          <ul className="space-y-2">
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Home
+          <div className="flex items-center gap-6 order-1 md:order-2">
+            {["Privacy", "Terms", "Cookies"].map((item) => (
+              <a
+                key={item}
+                href="#"
+                className="text-sm text-[#6B625A] hover:text-[#D51C3D] transition-colors"
+              >
+                {item}
               </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Terms of Service
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Column 3 - Features */}
-        <div className="md:pl-28">
-          <h4 className="text-lg font-semibold text-white mb-4">Solutions</h4>
-          <ul className="space-y-2">
-            <li>
-              <a href="#" className="hover:text-white transition">
-                HR Automation
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Geofencing
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Employee Engagement
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Payroll & Compliance
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Time & Attendance
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Performance Management
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Column 4 - Resources */}
-        <div className="md:pl-28">
-          <h4 className="text-lg font-semibold text-white mb-4">Resources</h4>
-          <ul className="space-y-2">
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                Contact Us
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white transition">
-                FAQs
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-50 mt-12 pt-6">
-        <div className="container flex flex-col md:flex-row justify-between items-center text-sm text-gray-50 gap-4">
-          <p>© 2025 HRPay. All Rights Reserved.</p>
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-            <p>1234 Business St, San Pedro City, Laguna, Philippines</p>
-            <span className="hidden md:inline">|</span>
-            <p>+63 912 345 6789</p>
+            ))}
           </div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

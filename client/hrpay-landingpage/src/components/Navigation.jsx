@@ -1,75 +1,128 @@
-import { useEffect, useState } from "react";
-import { FaBuilding } from "react-icons/fa";
-import Buttons from "./Buttons";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Button from "./Buttons";
 
-const Navigation = () => {
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
     };
-
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navItems = ["Features", "About"];
+
   return (
-    <nav className="sticky top-0 z-50">
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
+          : "bg-transparent py-5"
+      }`}
+    >
       <div className="container">
-        <div
-          className={`
-            flex items-center justify-between px-6 py-4 rounded-b-2xl
-            transition-all duration-300
-            ${
-              scrolled
-                ? "bg-slate-50 shadow-lg border border-black/10"
-                : "bg-transparent backdrop-blur-sm"
-            }
-          `}
-        >
-          {/* LEFT */}
-          <div className="flex items-center gap-2 cursor-pointer">
-            <FaBuilding className="text-red-700 h-6 w-6" />
-            <span className="text-xl font-bold text-red-700">HRPay</span>
-          </div>
-
-          {/* MIDDLE */}
-          <ul
-            className={`hidden md:flex gap-8 font-medium transition-colors ${
-              scrolled ? "text-gray-800" : "text-slate-100"
-            }`}
+        <div className="flex justify-between items-center">
+          {/* Logo - HRMS Style */}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="flex items-center gap-2 cursor-pointer"
           >
-            <li>
-              <a href="#home" className="hover:text-red-500 transition">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="hover:text-red-500 transition">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#solutions" className="hover:text-red-500 transition">
-                Solutions
-              </a>
-            </li>
-            <li>
-              <a href="#faq" className="hover:text-red-500 transition">
-                FAQ
-              </a>
-            </li>
-          </ul>
+            <div className="w-8 h-8 bg-[#D51C3D] rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xl">HR</span>
+            </div>
+            <span className="text-xl font-semibold text-[#0D141A]">Pay</span>
+          </motion.div>
 
-          {/* RIGHT */}
-          <div>
-            <Buttons label="Book a Meeting" />
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <motion.a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                whileHover={{ y: -2 }}
+                className="text-[#0D141A]/80 hover:text-[#D51C3D] font-medium transition-colors text-sm"
+              >
+                {item}
+              </motion.a>
+            ))}
+            <Button variant="primary" size="sm">
+              Book a Demo
+            </Button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-[#0D141A]"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden mt-4 bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100"
+            >
+              <div className="flex flex-col p-4 space-y-3">
+                {navItems.map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className="text-[#0D141A] hover:text-[#D51C3D] py-2 transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item}
+                  </a>
+                ))}
+                <div className="pt-2">
+                  <Button
+                    variant="primary"
+                    className="w-full"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Book a Demo
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
-
-export default Navigation;
+export default Navbar;
