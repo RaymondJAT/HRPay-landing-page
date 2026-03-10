@@ -5,6 +5,7 @@ import Button from "./Buttons";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,7 +15,31 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = ["Features", "About"];
+  const navItems = [
+    {
+      name: "Features",
+      hasDropdown: true,
+      items: [
+        { name: "Employee Database", href: "#employee-database" },
+        { name: "Payroll Automation", href: "#payroll" },
+        { name: "Time Tracking", href: "#time-tracking" },
+        { name: "Performance Reviews", href: "#performance" },
+        { name: "Benefits Administration", href: "#benefits" },
+      ],
+    },
+    {
+      name: "Solutions",
+      hasDropdown: true,
+      items: [
+        { name: "For Small Business", href: "#small-business" },
+        { name: "For Enterprise", href: "#enterprise" },
+        { name: "For HR Teams", href: "#hr-teams" },
+        { name: "For Payroll Managers", href: "#payroll-managers" },
+        { name: "For Remote Teams", href: "#remote-teams" },
+      ],
+    },
+    { name: "About", hasDropdown: false },
+  ];
 
   return (
     <motion.nav
@@ -27,7 +52,7 @@ const Navbar = () => {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="container">
+      <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center">
           {/* Logo - HRMS Style */}
           <motion.div
@@ -40,18 +65,71 @@ const Navbar = () => {
             <span className="text-xl font-semibold text-[#0D141A]">Pay</span>
           </motion.div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Menu - Centered */}
+          <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-10">
             {navItems.map((item) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                whileHover={{ y: -2 }}
-                className="text-[#0D141A]/80 hover:text-[#D51C3D] font-medium transition-colors text-sm"
+              <div
+                key={item.name}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(item.name)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                {item}
-              </motion.a>
+                <motion.a
+                  href={!item.hasDropdown ? `#${item.name.toLowerCase()}` : "#"}
+                  whileHover={{ y: -2 }}
+                  className="text-[#0D141A]/80 hover:text-[#D51C3D] font-medium transition-colors text-sm flex items-center gap-1 cursor-pointer"
+                >
+                  {item.name}
+                  {item.hasDropdown && (
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${
+                        activeDropdown === item.name ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  )}
+                </motion.a>
+
+                {/* Dropdown Menu */}
+                <AnimatePresence>
+                  {item.hasDropdown && activeDropdown === item.name && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
+                    >
+                      <div className="py-2">
+                        {item.items.map((dropdownItem) => (
+                          <a
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            className="block px-4 py-2.5 text-sm text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] transition-colors"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {dropdownItem.name}
+                          </a>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             ))}
+          </div>
+
+          {/* CTA Button - Right Side */}
+          <div className="hidden md:block">
             <Button variant="primary" size="sm">
               Book a Demo
             </Button>
@@ -99,14 +177,35 @@ const Navbar = () => {
             >
               <div className="flex flex-col p-4 space-y-3">
                 {navItems.map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    className="text-[#0D141A] hover:text-[#D51C3D] py-2 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item}
-                  </a>
+                  <div key={item.name} className="space-y-2">
+                    {item.hasDropdown ? (
+                      <>
+                        <div className="text-[#0D141A] font-medium py-2">
+                          {item.name}
+                        </div>
+                        <div className="pl-4 space-y-2 border-l-2 border-[#D51C3D]/20">
+                          {item.items.map((dropdownItem) => (
+                            <a
+                              key={dropdownItem.name}
+                              href={dropdownItem.href}
+                              className="block text-[#0D141A]/70 hover:text-[#D51C3D] py-1.5 text-sm transition-colors"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {dropdownItem.name}
+                            </a>
+                          ))}
+                        </div>
+                      </>
+                    ) : (
+                      <a
+                        href={`#${item.name.toLowerCase()}`}
+                        className="block text-[#0D141A] hover:text-[#D51C3D] py-2 transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    )}
+                  </div>
                 ))}
                 <div className="pt-2">
                   <Button
@@ -125,4 +224,5 @@ const Navbar = () => {
     </motion.nav>
   );
 };
+
 export default Navbar;

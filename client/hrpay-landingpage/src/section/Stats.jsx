@@ -120,19 +120,6 @@ const Stats = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Honest message */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <span className="text-xs text-[#9B8F85]">
-            🇵🇭 New Philippine platform • Growing with our first clients •
-            <span className="text-[#D51C3D] ml-1">Join us today</span>
-          </span>
-        </motion.div>
       </div>
     </section>
   );
