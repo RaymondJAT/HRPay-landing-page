@@ -79,7 +79,7 @@ const Why = () => {
   return (
     <section className="py-20 md:py-24 bg-gradient-to-b from-white to-[#F8F5F2]">
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Side - Text Content */}
           <motion.div
             initial="hidden"
@@ -87,50 +87,53 @@ const Why = () => {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInVariants}
             transition={{ duration: 0.6 }}
+            className="flex flex-col justify-between h-full"
           >
-            {/* Section Label */}
-            <div className="inline-flex items-center gap-2 bg-[#D51C3D]/10 px-4 py-2 rounded-full mb-6">
-              <span className="w-2 h-2 bg-[#D51C3D] rounded-full"></span>
-              <span className="text-sm font-medium text-[#D51C3D] uppercase tracking-wider">
-                Why Choose Us
-              </span>
-            </div>
+            <div>
+              {/* Section Label */}
+              <div className="inline-flex items-center gap-2 bg-[#D51C3D]/10 px-4 py-2 rounded-full mb-6">
+                <span className="w-2 h-2 bg-[#D51C3D] rounded-full"></span>
+                <span className="text-sm font-medium text-[#D51C3D] uppercase tracking-wider">
+                  Why Choose Us
+                </span>
+              </div>
 
-            {/* Main Heading */}
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#2C2420] mb-6 tracking-tight leading-[1.1]">
-              Keep Track of Your{" "}
-              <span className="text-[#D51C3D]">Employee Data</span>
-            </h2>
+              {/* Main Heading */}
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#2C2420] mb-6 tracking-tight leading-[1.1]">
+                Keep Track of Your{" "}
+                <span className="text-[#D51C3D]">Employee Data</span>
+              </h2>
 
-            {/* Subheading */}
-            <p className="text-lg md:text-xl text-[#6B625A] mb-8 leading-relaxed">
-              HRPay Companion transforms how you manage your workforce. From
-              hiring to payroll, we provide the tools you need to focus on what
-              matters most — your people.
-            </p>
+              {/* Subheading */}
+              <p className="text-md md:text-lg text-[#6B625A] mb-8 leading-relaxed">
+                HRPay Companion transforms how you manage your workforce. From
+                hiring to payroll, we provide the tools you need to focus on
+                what matters most — your people.
+              </p>
 
-            {/* Features List */}
-            <div className="space-y-6 mb-8">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                  className="flex gap-4"
-                >
-                  <div className="flex-shrink-0 w-12 h-12 bg-[#D51C3D]/10 rounded-xl flex items-center justify-center text-[#D51C3D]">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-[#2C2420] mb-1">
-                      {feature.title}
-                    </h3>
-                    <p className="text-[#6B625A]">{feature.description}</p>
-                  </div>
-                </motion.div>
-              ))}
+              {/* Features List */}
+              <div className="space-y-6 mb-8">
+                {features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                    className="flex gap-4"
+                  >
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#D51C3D]/10 rounded-xl flex items-center justify-center text-[#D51C3D]">
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-[#2C2420] mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-[#6B625A]">{feature.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
             {/* CTA Button */}
@@ -146,74 +149,56 @@ const Why = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Image */}
+          {/* Right Side - Image with enhanced styling */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInRightVariants}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative flex items-center h-full"
           >
-            {/* Background decoration */}
-            <div className="absolute -inset-6 bg-gradient-to-br from-[#D51C3D]/10 via-transparent to-transparent rounded-[40px] blur-3xl" />
+            {/* Enhanced bubble decorations */}
+            <div className="absolute -top-10 -left-10 w-48 h-48 bg-[#D51C3D]/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute -bottom-12 -right-8 w-56 h-56 bg-[#D51C3D]/20 rounded-full blur-3xl" />
+            <div className="absolute top-1/3 -right-12 w-32 h-32 bg-[#D51C3D]/15 rounded-full blur-2xl" />
+            <div className="absolute bottom-1/4 -left-8 w-40 h-40 bg-[#D51C3D]/5 rounded-full blur-2xl" />
 
-            {/* Image container */}
-            <div className="relative bg-white rounded-3xl border border-[#E8E0D9] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)]">
-              <img
-                src={employeeDataImage}
-                alt="HRPay Companion Dashboard"
-                className="w-full h-full object-cover aspect-[4/3]"
-              />
-
-              {/* Floating stats card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -bottom-5 -left-5 bg-white/95 backdrop-blur-sm px-5 py-4 rounded-xl shadow-lg border border-[#E8E0D9]"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#D51C3D]/10 rounded-full flex items-center justify-center">
-                    <span className="text-2xl font-bold text-[#D51C3D]">
-                      98%
-                    </span>
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-[#2C2420]">
-                      Customer Satisfaction
-                    </div>
-                    <div className="text-xs text-[#6B625A]">
-                      Based on 500+ reviews
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Floating feature badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1.0 }}
-                className="absolute -top-5 -right-5 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-xl shadow-lg border border-[#E8E0D9]"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span className="text-sm font-medium text-[#2C2420]">
-                    Real-time updates
-                  </span>
-                </div>
-              </motion.div>
+            {/* Decorative dots pattern */}
+            <div className="absolute top-6 right-6 w-16 h-16 opacity-20">
+              <div className="grid grid-cols-3 gap-1">
+                {[...Array(9)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1.5 h-1.5 bg-[#D51C3D] rounded-full"
+                  />
+                ))}
+              </div>
             </div>
 
-            {/* Trust badge */}
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-[#E8E0D9] flex items-center gap-3">
-              <span className="text-[#D51C3D] font-bold">⭐</span>
-              <span className="text-sm font-medium text-[#2C2420]">
-                Trusted by 500+ companies
-              </span>
+            <div className="absolute bottom-6 left-6 w-16 h-16 opacity-20">
+              <div className="grid grid-cols-3 gap-1">
+                {[...Array(9)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1.5 h-1.5 bg-[#D51C3D] rounded-full"
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Main image container with gradient border */}
+            <div className="relative bg-gradient-to-br from-white to-[#F8F5F2] p-1 rounded-3xl shadow-2xl">
+              {/* Inner image with overlay gradient */}
+              <div className="relative bg-white rounded-2xl overflow-hidden">
+                <img
+                  src={employeeDataImage}
+                  alt="HRPay Companion Dashboard"
+                  className="w-full h-full object-cover aspect-[4/3] transform hover:scale-105 transition-transform duration-700"
+                />
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent pointer-events-none" />
+              </div>
             </div>
           </motion.div>
         </div>

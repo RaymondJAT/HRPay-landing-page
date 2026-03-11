@@ -61,7 +61,7 @@ const Hero = () => {
           <motion.p
             variants={fadeUpVariants}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg md:text-xl text-[#6B625A] max-w-3xl mx-auto leading-relaxed"
+            className="text-md md:text-lg text-[#6B625A] max-w-3xl mx-auto leading-relaxed"
           >
             Centralize employee data, automate payroll, and streamline HR tasks
             with a platform built for growing companies.
@@ -194,7 +194,6 @@ const Hero = () => {
                 playsInline
                 controls
                 preload="auto"
-                loop
                 onPause={() => setIsPlaying(false)}
                 onPlay={() => setIsPlaying(true)}
               >
