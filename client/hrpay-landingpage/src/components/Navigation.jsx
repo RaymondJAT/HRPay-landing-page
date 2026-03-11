@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Buttons";
 
-const Navbar = () => {
+const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -48,25 +48,27 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
-          : "bg-transparent py-5"
+          ? "bg-white/95 backdrop-blur-md shadow-sm py-4"
+          : "bg-transparent py-12 md:py-14"
       }`}
     >
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center">
-          {/* Logo - HRMS Style */}
+          {/* Logo - HRPayCompanion - Increased size */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-3 cursor-pointer"
           >
-            <div className="w-8 h-8 bg-[#D51C3D] rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-[#D51C3D] rounded-xl flex items-center justify-center shadow-md">
               <span className="text-white font-bold text-xl">HR</span>
             </div>
-            <span className="text-xl font-semibold text-[#0D141A]">Pay</span>
+            <span className="text-2xl font-semibold text-[#0D141A] tracking-tight">
+              Pay<span className="text-[#D51C3D]">Companion</span>
+            </span>
           </motion.div>
 
-          {/* Desktop Menu - Centered */}
-          <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-10">
+          {/* Desktop Menu - Centered - Increased spacing and size */}
+          <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-12">
             {navItems.map((item) => (
               <div
                 key={item.name}
@@ -77,12 +79,12 @@ const Navbar = () => {
                 <motion.a
                   href={!item.hasDropdown ? `#${item.name.toLowerCase()}` : "#"}
                   whileHover={{ y: -2 }}
-                  className="text-[#0D141A]/80 hover:text-[#D51C3D] font-medium transition-colors text-sm flex items-center gap-1 cursor-pointer"
+                  className="text-[#0D141A]/80 hover:text-[#D51C3D] font-medium transition-colors text-base flex items-center gap-1.5 cursor-pointer"
                 >
                   {item.name}
                   {item.hasDropdown && (
                     <svg
-                      className={`w-4 h-4 transition-transform duration-200 ${
+                      className={`w-5 h-5 transition-transform duration-200 ${
                         activeDropdown === item.name ? "rotate-180" : ""
                       }`}
                       fill="none"
@@ -99,7 +101,7 @@ const Navbar = () => {
                   )}
                 </motion.a>
 
-                {/* Dropdown Menu */}
+                {/* Dropdown Menu - Slightly larger */}
                 <AnimatePresence>
                   {item.hasDropdown && activeDropdown === item.name && (
                     <motion.div
@@ -107,14 +109,14 @@ const Navbar = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
+                      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 w-72 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
                     >
-                      <div className="py-2">
+                      <div className="py-3">
                         {item.items.map((dropdownItem) => (
                           <a
                             key={dropdownItem.name}
                             href={dropdownItem.href}
-                            className="block px-4 py-2.5 text-sm text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] transition-colors"
+                            className="block px-5 py-3 text-base text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] transition-colors"
                             onClick={() => setActiveDropdown(null)}
                           >
                             {dropdownItem.name}
@@ -128,21 +130,25 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button - Right Side */}
+          {/* CTA Button - Right Side - Larger */}
           <div className="hidden md:block">
-            <Button variant="primary" size="sm">
+            <Button
+              variant="primary"
+              size="md"
+              className="px-6 py-2.5 text-base"
+            >
               Book a Demo
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-[#0D141A]"
+            className="md:hidden text-[#0D141A] p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6"
+              className="w-7 h-7"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -166,29 +172,29 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Larger */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100"
+              className="md:hidden mt-6 bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100"
             >
-              <div className="flex flex-col p-4 space-y-3">
+              <div className="flex flex-col p-5 space-y-4">
                 {navItems.map((item) => (
-                  <div key={item.name} className="space-y-2">
+                  <div key={item.name} className="space-y-3">
                     {item.hasDropdown ? (
                       <>
-                        <div className="text-[#0D141A] font-medium py-2">
+                        <div className="text-[#0D141A] font-semibold text-base py-2">
                           {item.name}
                         </div>
-                        <div className="pl-4 space-y-2 border-l-2 border-[#D51C3D]/20">
+                        <div className="pl-5 space-y-3 border-l-2 border-[#D51C3D]/20">
                           {item.items.map((dropdownItem) => (
                             <a
                               key={dropdownItem.name}
                               href={dropdownItem.href}
-                              className="block text-[#0D141A]/70 hover:text-[#D51C3D] py-1.5 text-sm transition-colors"
+                              className="block text-[#0D141A]/70 hover:text-[#D51C3D] py-1.5 text-base transition-colors"
                               onClick={() => setIsOpen(false)}
                             >
                               {dropdownItem.name}
@@ -199,7 +205,7 @@ const Navbar = () => {
                     ) : (
                       <a
                         href={`#${item.name.toLowerCase()}`}
-                        className="block text-[#0D141A] hover:text-[#D51C3D] py-2 transition-colors"
+                        className="block text-[#0D141A] hover:text-[#D51C3D] py-2 text-base font-medium transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.name}
@@ -207,10 +213,10 @@ const Navbar = () => {
                     )}
                   </div>
                 ))}
-                <div className="pt-2">
+                <div className="pt-4">
                   <Button
                     variant="primary"
-                    className="w-full"
+                    className="w-full py-3 text-base"
                     onClick={() => setIsOpen(false)}
                   >
                     Book a Demo
@@ -225,4 +231,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navigation;
