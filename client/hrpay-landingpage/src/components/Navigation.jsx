@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Buttons";
+import logo from "../assets/logo.png"; // Import your logo image
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,20 +55,16 @@ const Navigation = () => {
     >
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center">
-          {/* Logo - HRPayCompanion - Increased size */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="flex items-center gap-3 cursor-pointer"
-          >
-            <div className="w-10 h-10 bg-[#D51C3D] rounded-xl flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-xl">HR</span>
-            </div>
-            <span className="text-2xl font-semibold text-[#0D141A] tracking-tight">
-              Pay<span className="text-[#D51C3D]">Companion</span>
-            </span>
+          {/* Logo - Using image */}
+          <motion.div whileHover={{ scale: 1.02 }} className="cursor-pointer">
+            <img
+              src={logo}
+              alt="HRPayCompanion Logo"
+              className="h-10 md:h-12 w-auto"
+            />
           </motion.div>
 
-          {/* Desktop Menu - Centered - Increased spacing and size */}
+          {/* Desktop Menu - Centered */}
           <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-12">
             {navItems.map((item) => (
               <div
@@ -101,7 +98,7 @@ const Navigation = () => {
                   )}
                 </motion.a>
 
-                {/* Dropdown Menu - Slightly larger */}
+                {/* Dropdown Menu */}
                 <AnimatePresence>
                   {item.hasDropdown && activeDropdown === item.name && (
                     <motion.div
@@ -130,7 +127,7 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button - Right Side - Larger */}
+          {/* CTA Button - Right Side */}
           <div className="hidden md:block">
             <Button
               variant="primary"
@@ -172,7 +169,7 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Mobile Menu - Larger */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div

@@ -37,25 +37,25 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-b from-white to-[#F8F5F2] border-t border-[#E8E0D9]">
-      <div className="container py-12 md:py-16">
+      <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 py-12 md:py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-8 md:mb-12">
           {/* Brand Column - Left side */}
-          <div className="lg:col-span-4 text-center lg:text-left">
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
-              <div className="w-10 h-10 lg:w-8 lg:h-8 bg-[#D51C3D] rounded-xl lg:rounded-lg flex items-center justify-center">
+          <div className="lg:col-span-4 text-left">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-10 h-10 bg-[#D51C3D] rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-xl">HR</span>
               </div>
               <span className="text-xl font-semibold text-[#2C2420]">Pay</span>
             </div>
 
-            <p className="text-[#6B625A] mb-6 max-w-sm mx-auto lg:mx-0 text-sm lg:text-base">
+            <p className="text-[#6B625A] mb-6 max-w-sm text-sm lg:text-base">
               Modern HR & Payroll management system designed for growing
               businesses. Simplify your workforce management today.
             </p>
 
             {/* Social Icons */}
-            <div className="flex justify-center lg:justify-start gap-3 mb-8 lg:mb-0">
+            <div className="flex gap-3">
               {socialLinks.map((social, i) => (
                 <motion.a
                   key={i}
@@ -74,7 +74,7 @@ const Footer = () => {
           <div className="lg:col-span-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {Object.entries(footerSections).map(([title, links]) => (
-                <div key={title} className="text-center md:text-left">
+                <div key={title} className="text-left">
                   <h4 className="font-medium text-[#2C2420] mb-4 text-sm uppercase tracking-wider">
                     {title}
                   </h4>
@@ -101,7 +101,7 @@ const Footer = () => {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E8E0D9] to-transparent my-8" />
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-[#9B8F85] order-2 md:order-1">
             © {new Date().getFullYear()} PayFlow HRMS. All rights reserved.
           </p>

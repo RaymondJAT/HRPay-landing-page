@@ -1,84 +1,62 @@
 import {
-  FaUsers,
-  FaFileInvoiceDollar,
-  FaClock,
-  FaBriefcase,
-  FaBullseye,
-  FaHeart,
-  FaWallet,
-  FaChartBar,
-  FaMapMarkerAlt,
-  FaUserPlus,
-  FaFileAlt,
-  FaCheckCircle,
-  FaShieldAlt,
-  FaUserCheck,
-  FaCalendarAlt,
-} from "react-icons/fa";
+  Users,
+  Clock,
+  CalendarCheck,
+  Wallet,
+  FileText,
+  Smartphone,
+  Receipt,
+  Star,
+  GraduationCap,
+  FileSpreadsheet,
+  Link,
+  HeadphonesIcon,
+} from "lucide-react";
 
-export const features = [
+export const mainFeatures = [
   {
-    title: "HR Automation & Efficiency",
-    icon: FaUsers,
+    name: "Core HR",
+    description: "Employee records, history & org structure",
+    icon: Users,
+    color: "from-blue-500 to-blue-600",
   },
   {
-    title: "Payroll & Compliance",
-    icon: FaFileInvoiceDollar,
+    name: "Time & Attendance",
+    description: "Biometrics, scheduling & overtime",
+    icon: Clock,
+    color: "from-green-500 to-green-600",
   },
   {
-    title: "Time & Attendance Tracking",
-    icon: FaClock,
+    name: "Leave Management",
+    description: "Types, approvals & balance tracking",
+    icon: CalendarCheck,
+    color: "from-yellow-500 to-yellow-600",
   },
   {
-    title: "Geo-Tracking & Geofencing",
-    icon: FaMapMarkerAlt,
+    name: "Payroll",
+    description: "Auto-computation & government contributions",
+    icon: Wallet,
+    color: "from-red-500 to-red-600",
   },
   {
-    title: "Leave & Absence Management",
-    icon: FaBriefcase,
+    name: "Reports",
+    description: "Attendance, leave & compliance reports",
+    icon: FileText,
+    color: "from-purple-500 to-purple-600",
   },
   {
-    title: "Employee Self-Service Portal",
-    icon: FaUserPlus,
+    name: "Mobile App",
+    description: "GPS attendance & employee self-service",
+    icon: Smartphone,
+    color: "from-orange-500 to-orange-600",
   },
-  {
-    title: "Talent Acquisition & Recruitment",
-    icon: FaBriefcase,
-  },
-  {
-    title: "Employee Onboarding & Offboarding",
-    icon: FaUserCheck,
-  },
-  {
-    title: "Performance Management",
-    icon: FaBullseye,
-  },
-  {
-    title: "Employee Engagement",
-    icon: FaHeart,
-  },
-  {
-    title: "Compensation & Benefits",
-    icon: FaWallet,
-  },
-  {
-    title: "Shift Scheduling & Overtime Management",
-    icon: FaCalendarAlt,
-  },
-  {
-    title: "Digital Employee Records & Documents",
-    icon: FaFileAlt,
-  },
-  {
-    title: "Workflow & Approval Management",
-    icon: FaCheckCircle,
-  },
-  {
-    title: "People Analytics & Insights",
-    icon: FaChartBar,
-  },
-  {
-    title: "System Security & Data Privacy",
-    icon: FaShieldAlt,
-  },
+];
+
+export const addOns = [
+  { name: "Expense Management", icon: Receipt },
+  { name: "Performance Reviews", icon: Star },
+  { name: "Training", icon: GraduationCap },
+  { name: "Documents", icon: FileSpreadsheet },
+  { name: "Integrations", icon: Link },
+  { name: "Support", icon: HeadphonesIcon },
 ];

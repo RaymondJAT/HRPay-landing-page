@@ -5,6 +5,8 @@ import Stats from "./section/Stats";
 import CTA from "./section/CTA";
 import Footer from "./section/Footer";
 import Why from "./section/Why";
+import Solutions from "./section/Solutions";
+import MobileApp from "./section/MobileApp";
 
 function App() {
   return (
@@ -12,9 +14,10 @@ function App() {
       <Navigation />
       <main>
         <Hero />
-        <Why />
+        <Solutions />
         <Features />
-        <Stats />
+        <MobileApp />
+        <Why />
         <CTA />
       </main>
       <Footer />
