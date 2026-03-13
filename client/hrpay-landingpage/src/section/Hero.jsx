@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import Button from "../components/Buttons";
 import shortVideo from "../assets/hrpaychronus.mp4";
-import extra from "../assets/table.png";
+import employee from "../assets/employee.png";
+import government from "../assets/government.png";
+import clockinout from "../assets/clockinout.png";
+import geomap from "../assets/geo.png";
 import { useRef, useState, useEffect } from "react";
 
 const Hero = () => {
@@ -24,19 +27,72 @@ const Hero = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  // Animation variants for staggered images
+  const imageContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const imageItemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
+      },
+    },
+  };
+
+  // Video animation variants - appears after images
+  const videoVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: 40 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 15,
+        delay: 1.2, // Delayed to appear after images
+      },
+    },
+  };
+
   return (
-    <section className="relative min-h-[900px] md:min-h-[1000px] flex items-end bg-[#FAF6F0]">
+    <section className="relative min-h-[900px] md:min-h-[1000px] flex items-end bg-[#faf7f2]">
       {/* Subtle pattern overlay - very light */}
-      <div className="absolute inset-0 bg-[radial-gradient(#E0D2C4_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />
+      <div className="absolute inset-0 bg-[radial-gradient(#a41313_1px,transparent_1px)] [background-size:24px_24px] opacity-5" />
 
-      {/* Warm gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F0] to-[#F5EFE8]" />
+      {/* Warm gradient overlay - much lighter */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#faf7f2] to-[#f5f0e8]" />
 
-      {/* Full-height Rounded Container - more visible */}
+      {/* Full-height Rounded Container */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 m-4 md:m-6 lg:m-8 bg-white/85 backdrop-blur-sm rounded-[3rem] border border-white/80 shadow-[0_8px_30px_-5px_rgba(0,0,0,0.05)]">
-          {/* Inner glow effect */}
-          <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-b from-white/90 to-[#FDF5ED]/20 pointer-events-none" />
+        <div className="absolute inset-0 m-4 md:m-6 lg:m-8">
+          {/* Main container */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#faf7f2] rounded-2xl md:rounded-3xl shadow-[0_20px_50px_-15px_rgba(164,19,19,0.15)]">
+            {/* Inner container with spotlight effect */}
+            <div className="absolute inset-[1px] bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden">
+              {/* STATIC SPOTLIGHT EFFECT - Center-focused glow with softer red */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_#a41313_0%,_transparent_70%)] opacity-5 pointer-events-none" />
+
+              {/* Secondary softer glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_#d62828_0%,_transparent_70%)] opacity-8 pointer-events-none" />
+
+              {/* Main content area */}
+              <div className="relative z-10"></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -50,58 +106,38 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-4xl mx-auto mt-32 md:mt-36 lg:mt-40 mb-8 md:mb-10"
         >
-          {/* Warm badge */}
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 bg-[#E8D9CC] px-4 py-2 rounded-full mb-6 shadow-sm"
-          >
-            <span className="w-2 h-2 bg-[#D51C3D] rounded-full"></span>
-            <span className="text-sm font-medium text-[#7A5F4A] uppercase tracking-wider">
-              HR & Payroll Platform
-            </span>
-          </motion.div>
-
           {/* Headline */}
           <motion.h1
             variants={fadeUpVariants}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#2C2420] mb-6 tracking-tight leading-[1.1]"
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#2b2d42] mb-6 tracking-tight leading-[1.1]"
           >
             Empower Your Team with <br className="hidden sm:block" />
-            <span className="text-[#D51C3D]">Smarter HR Management</span>
+            <span className="text-[#d62828]">Smarter HR Management</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
             variants={fadeUpVariants}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-md md:text-lg text-[#7A5F4A] max-w-3xl mx-auto leading-relaxed"
+            className="text-md md:text-lg text-[#4a4e69] max-w-3xl mx-auto leading-relaxed"
           >
             Centralize employee data, automate payroll, and streamline HR tasks
             with a platform built for growing companies.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* Single CTA Button - Centered and slightly smaller */}
           <motion.div
             variants={fadeUpVariants}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
+            className="flex justify-center mt-8"
           >
             <Button
               variant="primary"
-              size="lg"
-              className="min-w-[180px] bg-[#D51C3D] hover:bg-[#B5172E] text-white shadow-md"
+              size="md"
+              className="min-w-[160px] bg-[#d62828] hover:bg-[#a41313] text-white shadow-md px-6 py-2.5"
             >
               Book a Demo
-            </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              className="min-w-[180px] bg-white border-2 border-[#E0D2C4] text-[#5C4E42] hover:bg-white hover:border-[#D51C3D]/30 transition-all"
-            >
-              Learn More
             </Button>
           </motion.div>
         </motion.div>
@@ -114,59 +150,61 @@ const Hero = () => {
           className="grid grid-cols-12 gap-3 md:gap-4 lg:gap-5 items-end relative"
         >
           {/* Left Side - Stacked Images */}
-          <div className="col-span-3 hidden lg:flex flex-col gap-4 justify-end h-full -ml-4 md:-ml-6 lg:-ml-8 z-0">
+          <motion.div
+            variants={imageContainerVariants}
+            initial="hidden"
+            animate="visible"
+            className="col-span-3 hidden lg:flex flex-col gap-4 justify-end h-full -ml-4 md:-ml-6 lg:-ml-8 z-0"
+          >
             {/* Top Left Image */}
             <motion.div
+              variants={imageItemVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
               className="relative group w-[110%]"
             >
-              <div className="relative bg-white rounded-2xl border border-[#E0D2C4] overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl border border-[#a41313]/10 overflow-hidden shadow-sm">
                 <img
-                  src={extra}
+                  src={employee}
                   alt="HR Dashboard Preview"
                   className="w-full h-full object-cover aspect-[16/9]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-[#7A5F4A] border border-[#E0D2C4]">
-                  Employee Directory
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#d62828]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
 
             {/* Bottom Left Image */}
             <motion.div
+              variants={imageItemVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
               className="relative group w-[110%]"
             >
-              <div className="relative bg-white rounded-2xl border border-[#E0D2C4] overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl border border-[#a41313]/10 overflow-hidden shadow-sm">
                 <img
-                  src={extra}
+                  src={clockinout}
                   alt="HR Dashboard Preview"
                   className="w-full h-full object-cover aspect-[16/9]"
                 />
                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-white/80 to-transparent opacity-60 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-[#7A5F4A] border border-[#E0D2C4]">
-                  Time Tracking
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#d62828]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Center Video - Spotlight */}
           <motion.div
+            variants={videoVariants}
+            initial="hidden"
+            animate="visible"
             whileHover={{ y: -8 }}
             transition={{ duration: 0.3 }}
             className="col-span-12 lg:col-span-6 relative group z-10"
           >
-            {/* Glow effect */}
-            <div className="absolute -inset-4 bg-gradient-to-br from-[#D51C3D]/15 via-[#F0E0D0]/20 to-transparent rounded-[40px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* Static spotlight glow - with softer red */}
+            <div className="absolute -inset-6 bg-gradient-to-br from-[#d62828]/10 via-[#a41313]/5 to-transparent rounded-[40px] blur-3xl" />
 
-            <div className="relative bg-white rounded-2xl border-2 border-[#E0D2C4] overflow-hidden shadow-md transform group-hover:scale-[1.02] transition-all duration-500">
+            <div className="relative bg-white rounded-xl border-2 border-[#a41313]/15 overflow-hidden shadow-lg transform group-hover:scale-[1.02] transition-all duration-500">
               {/* Play button overlay */}
               {!isPlaying && (
                 <div className="absolute inset-0 flex items-center justify-center bg-white/20 backdrop-blur-sm z-10">
@@ -177,30 +215,30 @@ const Hero = () => {
                         setIsPlaying(true);
                       }
                     }}
-                    className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300 cursor-pointer group"
+                    className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-xl transform hover:scale-110 transition-transform duration-300 cursor-pointer group"
                     aria-label="Play video"
                   >
-                    <div className="w-0 h-0 border-t-16 border-b-16 border-l-24 border-t-transparent border-b-transparent border-l-[#D51C3D] ml-2 group-hover:border-l-[#B5172E] transition-colors" />
+                    <div className="w-0 h-0 border-t-16 border-b-16 border-l-24 border-t-transparent border-b-transparent border-l-[#d62828] ml-2 group-hover:border-l-[#a41313] transition-colors" />
                   </button>
                 </div>
               )}
 
               {/* Compelling badge */}
               {!isPlaying ? (
-                <div className="absolute top-4 right-4 bg-[#2C2420]/90 backdrop-blur-sm px-4 py-2 rounded-full z-10 flex items-center gap-2 border border-white/20">
+                <div className="absolute top-4 right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-4 py-2 rounded-full z-10 flex items-center gap-2 border border-white/20">
                   <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D51C3D] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#D51C3D]"></span>
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#d62828] opacity-50"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#d62828]"></span>
                   </span>
                   <span className="text-white text-sm font-medium tracking-wide">
                     Watch Introduction
                   </span>
                 </div>
               ) : (
-                <div className="absolute top-4 right-4 bg-[#2C2420]/90 backdrop-blur-sm px-4 py-2 rounded-full z-10 flex items-center gap-2 border border-white/20">
+                <div className="absolute top-4 right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-4 py-2 rounded-full z-10 flex items-center gap-2 border border-white/20">
                   <span className="relative flex h-3 w-3">
-                    <span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-[#E0D2C4] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#E0D2C4]"></span>
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#4a4e69] opacity-50"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#4a4e69]"></span>
                   </span>
                   <span className="text-white text-sm font-medium">
                     Now Playing
@@ -225,48 +263,47 @@ const Hero = () => {
           </motion.div>
 
           {/* Right Side - Stacked Images */}
-          <div className="col-span-3 hidden lg:flex flex-col gap-4 justify-end h-full -mr-4 md:-mr-6 lg:-mr-8 z-0">
+          <motion.div
+            variants={imageContainerVariants}
+            initial="hidden"
+            animate="visible"
+            className="col-span-3 hidden lg:flex flex-col gap-4 justify-end h-full -mr-4 md:-mr-6 lg:-mr-8 z-0"
+          >
             {/* Top Right Image */}
             <motion.div
+              variants={imageItemVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
               className="relative group w-[110%] self-end"
             >
-              <div className="relative bg-white rounded-2xl border border-[#E0D2C4] overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl border border-[#a41313]/10 overflow-hidden shadow-sm">
                 <img
-                  src={extra}
+                  src={geomap}
                   alt="Analytics Dashboard Preview"
                   className="w-full h-full object-cover aspect-[16/9]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-[#7A5F4A] border border-[#E0D2C4]">
-                  Analytics
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#d62828]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
 
             {/* Bottom Right Image */}
             <motion.div
+              variants={imageItemVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
               className="relative group w-[110%] self-end"
             >
-              <div className="relative bg-white rounded-2xl border border-[#E0D2C4] overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl border border-[#a41313]/10 overflow-hidden shadow-sm">
                 <img
-                  src={extra}
+                  src={government}
                   alt="Reports Dashboard"
                   className="w-full h-full object-cover aspect-[16/9]"
                 />
                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-white/80 to-transparent opacity-60 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-[#7A5F4A] border border-[#E0D2C4]">
-                  Reports
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#d62828]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

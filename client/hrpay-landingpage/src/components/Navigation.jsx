@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Buttons";
-import logo from "../assets/logo.png"; // Import your logo image
+import logo from "../assets/finallogo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +60,7 @@ const Navigation = () => {
             <img
               src={logo}
               alt="HRPayCompanion Logo"
-              className="h-10 md:h-12 w-auto"
+              className="h-13 md:h-14 w-auto"
             />
           </motion.div>
 

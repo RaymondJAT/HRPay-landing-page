@@ -41,20 +41,20 @@ const MobileApp = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#FAF6F0] relative overflow-hidden">
-      {/* Decorative background - matching hero */}
+    <section className="py-20 bg-[#fdf0d5] relative overflow-hidden">
+      {/* Warm decorative background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#D51C3D]/5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#D51C3D]/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-[#E8D9CC]/20 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#c1121f]/5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#780000]/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-[#669bbc]/5 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Solid background */}
-      <div className="absolute inset-0 bg-[#FAF6F0]" />
+      {/* Warm overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#fdf0d5] to-[#f5e6d3] opacity-50" />
 
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left side - Mobile Image with wave and bubble background */}
+          {/* Left side - Mobile Image */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -63,7 +63,7 @@ const MobileApp = () => {
             transition={{ duration: 0.6 }}
             className="relative flex justify-center"
           >
-            {/* Wave pattern background - behind everything */}
+            {/* Warm wave pattern */}
             <div className="absolute inset-0 flex items-center justify-center z-0">
               <svg
                 width="400"
@@ -75,14 +75,14 @@ const MobileApp = () => {
               >
                 <path
                   d="M0 200C40 180 80 170 120 180C160 190 200 220 240 220C280 220 320 190 360 180C400 170 440 180 480 200"
-                  stroke="#D51C3D"
+                  stroke="#c1121f"
                   strokeWidth="2"
                   strokeLinecap="round"
                   className="animate-wave-slow"
                 />
                 <path
                   d="M0 250C60 230 120 210 180 230C240 250 300 290 360 270C420 250 480 210 540 230"
-                  stroke="#D51C3D"
+                  stroke="#780000"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   className="animate-wave-slower"
@@ -91,54 +91,37 @@ const MobileApp = () => {
                   cx="280"
                   cy="150"
                   r="30"
-                  fill="#D51C3D"
+                  fill="#c1121f"
                   fillOpacity="0.1"
                 />
                 <circle
                   cx="180"
                   cy="300"
                   r="50"
-                  fill="#D51C3D"
+                  fill="#669bbc"
                   fillOpacity="0.08"
                 />
                 <circle
                   cx="320"
                   cy="280"
                   r="20"
-                  fill="#D51C3D"
+                  fill="#780000"
                   fillOpacity="0.12"
-                />
-                <circle
-                  cx="120"
-                  cy="180"
-                  r="40"
-                  fill="#D51C3D"
-                  fillOpacity="0.05"
-                />
-                <circle
-                  cx="380"
-                  cy="120"
-                  r="25"
-                  fill="#D51C3D"
-                  fillOpacity="0.07"
                 />
               </svg>
             </div>
 
-            {/* Additional glow/bubble effects - placed behind the image */}
+            {/* Warm glow effects */}
             <div className="absolute inset-0 flex items-center justify-center z-0">
-              <div className="absolute top-10 right-5 w-32 h-32 bg-[#D51C3D]/10 rounded-full blur-2xl"></div>
-              <div className="absolute bottom-5 left-0 w-40 h-40 bg-[#D51C3D]/8 rounded-full blur-2xl"></div>
-              <div className="absolute top-1/3 left-10 w-24 h-24 bg-[#E8D9CC]/30 rounded-full blur-xl"></div>
-              <div className="absolute bottom-1/3 right-0 w-36 h-36 bg-[#D51C3D]/6 rounded-full blur-2xl"></div>
-              <div className="absolute top-20 left-20 w-16 h-16 bg-[#D51C3D]/15 rounded-full blur-lg"></div>
-              <div className="absolute bottom-10 right-10 w-28 h-28 bg-[#E8D9CC]/25 rounded-full blur-xl"></div>
+              <div className="absolute top-10 right-5 w-32 h-32 bg-[#c1121f]/10 rounded-full blur-2xl"></div>
+              <div className="absolute bottom-5 left-0 w-40 h-40 bg-[#669bbc]/10 rounded-full blur-2xl"></div>
+              <div className="absolute top-1/3 left-10 w-24 h-24 bg-[#780000]/10 rounded-full blur-xl"></div>
             </div>
 
-            {/* Shadow under the phone */}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-48 h-6 bg-black/10 rounded-full blur-xl z-5"></div>
+            {/* Soft shadow under phone */}
+            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-48 h-6 bg-[#780000]/20 rounded-full blur-xl z-5"></div>
 
-            {/* Main phone image - slightly larger */}
+            {/* Main phone image */}
             <img
               src={mobileAppImage}
               alt="ChronusMTK Mobile App"
@@ -154,27 +137,28 @@ const MobileApp = () => {
             variants={fadeInRightVariants}
             transition={{ duration: 0.6 }}
           >
-            {/* Badge - updated to match hero */}
+            {/* Warm badge */}
             <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-[#E8D9CC] px-4 py-2 rounded-full mb-6"
+              className="flex items-center gap-3 mb-4"
             >
-              <Smartphone className="w-4 h-4 text-[#7A5F4A]" />
-              <span className="text-sm font-medium text-[#7A5F4A] uppercase tracking-wider">
+              <div className="w-8 h-0.5 bg-[#c1121f]"></div>
+              <span className="text-xs font-medium text-[#c1121f] uppercase tracking-[0.2em]">
                 ChronusMTK Mobile
               </span>
+              <div className="w-8 h-0.5 bg-[#c1121f]"></div>
             </motion.div>
 
             {/* Headline */}
-            <h2 className="text-3xl md:text-4xl font-medium text-[#2C2420] mb-4 tracking-tight">
-              <span className="text-[#D51C3D]">ChronusMTK</span> in Your Pocket
+            <h2 className="text-3xl md:text-4xl font-medium text-[#2b2d42] mb-4 tracking-tight">
+              <span className="text-[#c1121f]">ChronusMTK</span> in Your Pocket
             </h2>
 
-            {/* Description - updated text color */}
-            <p className="text-lg text-[#7A5F4A] mb-8 leading-relaxed">
+            {/* Description */}
+            <p className="text-lg text-[#4a4e69] mb-8 leading-relaxed">
               Employees can manage their HR needs anywhere, anytime. The
               ChronusMTK mobile app puts workforce management at their
               fingertips.
@@ -191,10 +175,10 @@ const MobileApp = () => {
                   transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
                   className="flex items-start gap-2"
                 >
-                  <div className="flex-shrink-0 w-5 h-5 bg-[#D51C3D]/10 rounded-full flex items-center justify-center">
-                    <CheckCircle className="w-3 h-3 text-[#D51C3D]" />
+                  <div className="flex-shrink-0 w-5 h-5 bg-[#c1121f]/10 rounded-full flex items-center justify-center">
+                    <CheckCircle className="w-3 h-3 text-[#c1121f]" />
                   </div>
-                  <span className="text-sm text-[#7A5F4A]">{feature.text}</span>
+                  <span className="text-sm text-[#4a4e69]">{feature.text}</span>
                 </motion.div>
               ))}
             </div>
@@ -209,7 +193,7 @@ const MobileApp = () => {
             >
               <a
                 href="#"
-                className="flex items-center gap-2 bg-[#0D141A] text-white px-4 py-2 rounded-xl hover:bg-[#1a2634] transition-colors shadow-sm"
+                className="flex items-center gap-2 bg-[#2b2d42] text-white px-4 py-2 rounded-xl hover:bg-[#4a4e69] transition-colors shadow-sm"
               >
                 <Apple className="w-6 h-6" />
                 <div>
@@ -220,7 +204,7 @@ const MobileApp = () => {
 
               <a
                 href="#"
-                className="flex items-center gap-2 bg-[#0D141A] text-white px-4 py-2 rounded-xl hover:bg-[#1a2634] transition-colors shadow-sm"
+                className="flex items-center gap-2 bg-[#2b2d42] text-white px-4 py-2 rounded-xl hover:bg-[#4a4e69] transition-colors shadow-sm"
               >
                 <Play className="w-6 h-6" />
                 <div>
@@ -233,7 +217,7 @@ const MobileApp = () => {
         </div>
       </div>
 
-      {/* Add keyframes for wave animations */}
+      {/* Wave animations */}
       <style jsx>{`
         @keyframes wave-slow {
           0%,
@@ -244,7 +228,6 @@ const MobileApp = () => {
             transform: translateX(10px) translateY(-5px);
           }
         }
-
         @keyframes wave-slower {
           0%,
           100% {
@@ -254,11 +237,9 @@ const MobileApp = () => {
             transform: translateX(-10px) translateY(5px);
           }
         }
-
         .animate-wave-slow {
           animation: wave-slow 8s ease-in-out infinite;
         }
-
         .animate-wave-slower {
           animation: wave-slower 12s ease-in-out infinite;
         }

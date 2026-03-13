@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import finallogo from "../assets/finallogo.png";
 
 const Footer = () => {
   const footerSections = {
@@ -43,10 +44,11 @@ const Footer = () => {
           {/* Brand Column - Left side */}
           <div className="lg:col-span-4 text-left">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-[#D51C3D] rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">HR</span>
-              </div>
-              <span className="text-xl font-semibold text-[#2C2420]">Pay</span>
+              <img
+                src={finallogo}
+                alt="HRPay Companion"
+                className="h-10 w-auto"
+              />
             </div>
 
             <p className="text-[#6B625A] mb-6 max-w-sm text-sm lg:text-base">
@@ -103,7 +105,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-[#9B8F85] order-2 md:order-1">
-            © {new Date().getFullYear()} PayFlow HRMS. All rights reserved.
+            © {new Date().getFullYear()} HRPay Companion. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6 order-1 md:order-2">
