@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Button from "../components/Buttons";
 import employeeDataImage from "../assets/mobilelogo.png";
+import { Users, Calculator, Workflow } from "lucide-react";
 
 const Why = () => {
   const fadeInVariants = {
@@ -18,67 +19,25 @@ const Why = () => {
       title: "Centralized Employee Database",
       description:
         "All your employee information in one secure, easily accessible location.",
-      icon: (
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-          />
-        </svg>
-      ),
+      icon: Users,
     },
     {
       title: "Automated Payroll Processing",
       description:
         "Save time and reduce errors with fully automated payroll calculations and tax filings.",
-      icon: (
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      ),
+      icon: Calculator,
     },
     {
       title: "Streamlined HR Workflows",
       description:
         "From onboarding to performance reviews, automate and track every HR process.",
-      icon: (
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-          />
-        </svg>
-      ),
+      icon: Workflow,
     },
   ];
 
   return (
-    <section className="py-20 md:py-24 bg-white relative overflow-hidden">
-      {/* Decorative background - warm red accents */}
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white relative overflow-hidden">
+      {/* Decorative background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#d62828]/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#a41313]/5 rounded-full blur-3xl"></div>
@@ -88,128 +47,134 @@ const Why = () => {
       {/* Subtle pattern overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(#a41313_1px,transparent_1px)] [background-size:24px_24px] opacity-5" />
 
-      <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left Side - Text Content */}
+      <div className="container max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
+          {/* Left Content */}
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             variants={fadeInVariants}
             transition={{ duration: 0.6 }}
-            className="flex flex-col justify-between h-full"
+            className="flex flex-col order-2 lg:order-1"
           >
             <div>
-              {/* Section Label - updated line style to match other sections */}
+              {/* Section Label */}
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex items-center gap-3 mb-4"
+                className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-3 sm:mb-4"
               >
-                <div className="w-8 h-0.5 bg-[#a41313]"></div>
-                <span className="text-xs font-medium text-[#a41313] uppercase tracking-[0.2em]">
+                <div className="w-6 sm:w-8 h-0.5 bg-[#a41313]"></div>
+                <span className="text-[10px] sm:text-xs font-medium text-[#a41313] uppercase tracking-[0.2em]">
                   Why Choose Us
                 </span>
-                <div className="w-8 h-0.5 bg-[#a41313]"></div>
+                <div className="w-6 sm:w-8 h-0.5 bg-[#a41313]"></div>
               </motion.div>
 
               {/* Main Heading */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#2b2d42] mb-6 tracking-tight leading-[1.1]">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#2b2d42] mb-3 sm:mb-4 md:mb-6 tracking-tight leading-[1.1] text-center lg:text-left px-4 sm:px-6 lg:px-0">
                 Keep Track of Your{" "}
                 <span className="text-[#d62828]">Employee Data</span>
               </h2>
 
               {/* Subheading */}
-              <p className="text-md md:text-lg text-[#4a4e69] mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-[#4a4e69] mb-6 sm:mb-8 leading-relaxed text-center lg:text-left px-4 sm:px-6 lg:px-0">
                 HRPay Companion transforms how you manage your workforce. From
                 hiring to payroll, we provide the tools you need to focus on
                 what matters most — your people.
               </p>
 
               {/* Features List */}
-              <div className="space-y-6 mb-8">
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                    className="flex gap-4"
-                  >
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#d62828]/10 rounded-xl flex items-center justify-center text-[#d62828]">
-                      {feature.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-[#2b2d42] mb-1">
-                        {feature.title}
-                      </h3>
-                      <p className="text-[#4a4e69]">{feature.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
+              <div className="space-y-4 sm:space-y-5 md:space-y-6 mb-6 sm:mb-8 px-4 sm:px-6 lg:px-0">
+                {features.map((feature, index) => {
+                  const IconComponent = feature.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                      className="flex gap-3 sm:gap-4"
+                    >
+                      <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-[#d62828]/10 rounded-lg sm:rounded-xl flex items-center justify-center text-[#d62828]">
+                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-[#2b2d42] mb-0.5 sm:mb-1">
+                          {feature.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-[#4a4e69] leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
 
-            {/* CTA Button - Changed to Book a Demo and reduced size */}
+            {/* CTA Button - centered on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6 }}
+              className="flex justify-center lg:justify-start px-4 sm:px-6 lg:px-0"
             >
               <Button
                 variant="primary"
                 size="md"
-                className="min-w-[160px] bg-[#d62828] hover:bg-[#a41313] text-white shadow-md px-6 py-2.5"
+                className="min-w-[140px] sm:min-w-[160px] bg-[#d62828] hover:bg-[#a41313] text-white shadow-md px-5 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base"
               >
                 Book a Demo
               </Button>
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Image with enhanced styling */}
+          {/* Right Side - Image */}
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             variants={fadeInRightVariants}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative flex items-center h-full"
+            className="relative flex items-center order-1 lg:order-2 mb-6 sm:mb-8 lg:mb-0 px-4 sm:px-6 lg:px-0"
           >
-            {/* Enhanced bubble decorations - warm colors */}
-            <div className="absolute -top-10 -left-10 w-48 h-48 bg-[#d62828]/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-12 -right-8 w-56 h-56 bg-[#a41313]/10 rounded-full blur-3xl" />
-            <div className="absolute top-1/3 -right-12 w-32 h-32 bg-[#f5e6d3] rounded-full blur-2xl" />
-            <div className="absolute bottom-1/4 -left-8 w-40 h-40 bg-[#f5e6d3] rounded-full blur-2xl" />
+            {/* Enhanced bubble decorations - scaled for mobile */}
+            <div className="absolute -top-6 sm:-top-10 -left-4 sm:-left-6 lg:-left-10 w-24 sm:w-32 lg:w-48 h-24 sm:h-32 lg:h-48 bg-[#d62828]/10 rounded-full blur-xl sm:blur-2xl lg:blur-3xl" />
+            <div className="absolute -bottom-6 sm:-bottom-8 lg:-bottom-12 -right-4 sm:-right-6 lg:-right-8 w-28 sm:w-40 lg:w-56 h-28 sm:h-40 lg:h-56 bg-[#a41313]/10 rounded-full blur-xl sm:blur-2xl lg:blur-3xl" />
+            <div className="absolute top-1/3 -right-4 sm:-right-8 lg:-right-12 w-16 sm:w-24 lg:w-32 h-16 sm:h-24 lg:h-32 bg-[#f5e6d3] rounded-full blur-lg sm:blur-xl lg:blur-2xl" />
+            <div className="absolute bottom-1/4 -left-4 sm:-left-6 lg:-left-8 w-20 sm:w-28 lg:w-40 h-20 sm:h-28 lg:h-40 bg-[#f5e6d3] rounded-full blur-lg sm:blur-xl lg:blur-2xl" />
 
-            {/* Decorative dots pattern */}
-            <div className="absolute top-6 right-6 w-16 h-16 opacity-15">
-              <div className="grid grid-cols-3 gap-1">
+            {/* Decorative dots pattern - scaled for mobile */}
+            <div className="absolute top-3 sm:top-4 lg:top-6 right-3 sm:right-4 lg:right-6 w-10 sm:w-12 lg:w-16 h-10 sm:h-12 lg:h-16 opacity-15">
+              <div className="grid grid-cols-3 gap-0.5 sm:gap-1">
                 {[...Array(9)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-1.5 h-1.5 bg-[#d62828] rounded-full"
+                    className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-[#d62828] rounded-full"
                   />
                 ))}
               </div>
             </div>
 
-            <div className="absolute bottom-6 left-6 w-16 h-16 opacity-15">
-              <div className="grid grid-cols-3 gap-1">
+            <div className="absolute bottom-3 sm:bottom-4 lg:bottom-6 left-3 sm:left-4 lg:left-6 w-10 sm:w-12 lg:w-16 h-10 sm:h-12 lg:h-16 opacity-15">
+              <div className="grid grid-cols-3 gap-0.5 sm:gap-1">
                 {[...Array(9)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-1.5 h-1.5 bg-[#d62828] rounded-full"
+                    className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-[#d62828] rounded-full"
                   />
                 ))}
               </div>
             </div>
 
-            {/* Main image container - warm card style */}
-            <div className="relative bg-white rounded-3xl border border-[#a41313]/10 shadow-lg overflow-hidden group">
+            {/* Main image container */}
+            <div className="relative bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl border border-[#a41313]/10 shadow-md sm:shadow-lg overflow-hidden group w-full">
               {/* Inner image with overlay gradient */}
               <div className="relative">
                 <img
@@ -221,9 +186,9 @@ const Why = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent pointer-events-none" />
               </div>
 
-              {/* Decorative corner accent */}
-              <div className="absolute top-3 right-3 w-8 h-8 border-r-2 border-t-2 border-[#d62828]/20 rounded-tr-lg"></div>
-              <div className="absolute bottom-3 left-3 w-8 h-8 border-l-2 border-b-2 border-[#d62828]/20 rounded-bl-lg"></div>
+              {/* Decorative corner accent - scaled for mobile */}
+              <div className="absolute top-2 sm:top-3 right-2 sm:right-3 w-4 sm:w-5 lg:w-8 h-4 sm:h-5 lg:h-8 border-r-2 border-t-2 border-[#d62828]/20 rounded-tr-md sm:rounded-tr-lg"></div>
+              <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 w-4 sm:w-5 lg:w-8 h-4 sm:h-5 lg:h-8 border-l-2 border-b-2 border-[#d62828]/20 rounded-bl-md sm:rounded-bl-lg"></div>
             </div>
           </motion.div>
         </div>

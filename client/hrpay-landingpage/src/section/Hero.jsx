@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Button from "../components/Buttons";
 import shortVideo from "../assets/hrpaychronus.mp4";
-import employee from "../assets/employee.png";
+import employee from "../assets/table.png";
 import government from "../assets/government.png";
 import clockinout from "../assets/clockinout.png";
 import geomap from "../assets/geo.png";
@@ -69,7 +69,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[900px] md:min-h-[1000px] flex items-end bg-[#faf7f2]">
+    <section className="relative min-h-[900px] md:min-h-[1000px] flex items-center md:items-end bg-[#faf7f2]">
       {/* Subtle pattern overlay - very light */}
       <div className="absolute inset-0 bg-[radial-gradient(#a41313_1px,transparent_1px)] [background-size:24px_24px] opacity-5" />
 
@@ -97,45 +97,45 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 relative z-10 pb-12 md:pb-16 lg:pb-20">
-        {/* Centered Content */}
+      <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 relative z-10 py-8 md:py-0 md:pb-12 lg:pb-20">
+        {/* Centered Content - Adjusted for mobile */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeUpVariants}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-4xl mx-auto mt-32 md:mt-36 lg:mt-40 mb-8 md:mb-10"
+          className="text-center max-w-4xl mx-auto mt-0 md:mt-24 lg:mt-32 mb-6 md:mb-8 lg:mb-10"
         >
-          {/* Headline */}
+          {/* Headline - Smaller on mobile */}
           <motion.h1
             variants={fadeUpVariants}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#2b2d42] mb-6 tracking-tight leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-[#2b2d42] mb-4 md:mb-6 tracking-tight leading-[1.1] px-4 sm:px-0"
           >
             Empower Your Team with <br className="hidden sm:block" />
             <span className="text-[#d62828]">Smarter HR Management</span>
           </motion.h1>
 
-          {/* Subheadline */}
+          {/* Subheadline - Smaller on mobile */}
           <motion.p
             variants={fadeUpVariants}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-md md:text-lg text-[#4a4e69] max-w-3xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base md:text-lg text-[#4a4e69] max-w-3xl mx-auto leading-relaxed px-6 sm:px-8 md:px-0"
           >
             Centralize employee data, automate payroll, and streamline HR tasks
             with a platform built for growing companies.
           </motion.p>
 
-          {/* Single CTA Button - Centered and slightly smaller */}
+          {/* Single CTA Button */}
           <motion.div
             variants={fadeUpVariants}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex justify-center mt-8"
+            className="flex justify-center mt-6 md:mt-8"
           >
             <Button
               variant="primary"
               size="md"
-              className="min-w-[160px] bg-[#d62828] hover:bg-[#a41313] text-white shadow-md px-6 py-2.5"
+              className="min-w-[140px] sm:min-w-[160px] bg-[#d62828] hover:bg-[#a41313] text-white shadow-md px-5 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base"
             >
               Book a Demo
             </Button>
@@ -197,15 +197,15 @@ const Hero = () => {
             variants={videoVariants}
             initial="hidden"
             animate="visible"
-            whileHover={{ y: -8 }}
+            whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
-            className="col-span-12 lg:col-span-6 relative group z-10"
+            className="col-span-12 lg:col-span-6 relative group z-10 px-2 sm:px-4 lg:px-0"
           >
-            {/* Static spotlight glow - with softer red */}
-            <div className="absolute -inset-6 bg-gradient-to-br from-[#d62828]/10 via-[#a41313]/5 to-transparent rounded-[40px] blur-3xl" />
+            {/* Static spotlight glow - adjusted for mobile */}
+            <div className="absolute -inset-3 sm:-inset-4 lg:-inset-6 bg-gradient-to-br from-[#d62828]/10 via-[#a41313]/5 to-transparent rounded-[30px] sm:rounded-[40px] blur-3xl" />
 
-            <div className="relative bg-white rounded-xl border-2 border-[#a41313]/15 overflow-hidden shadow-lg transform group-hover:scale-[1.02] transition-all duration-500">
-              {/* Play button overlay */}
+            <div className="relative bg-white rounded-lg sm:rounded-xl border-2 border-[#a41313]/15 overflow-hidden shadow-md sm:shadow-lg transform group-hover:scale-[1.01] sm:group-hover:scale-[1.02] transition-all duration-500">
+              {/* Play button overlay - smaller on mobile */}
               {!isPlaying && (
                 <div className="absolute inset-0 flex items-center justify-center bg-white/20 backdrop-blur-sm z-10">
                   <button
@@ -215,32 +215,32 @@ const Hero = () => {
                         setIsPlaying(true);
                       }
                     }}
-                    className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-xl transform hover:scale-110 transition-transform duration-300 cursor-pointer group"
+                    className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white rounded-full flex items-center justify-center shadow-xl transform hover:scale-110 transition-transform duration-300 cursor-pointer group"
                     aria-label="Play video"
                   >
-                    <div className="w-0 h-0 border-t-16 border-b-16 border-l-24 border-t-transparent border-b-transparent border-l-[#d62828] ml-2 group-hover:border-l-[#a41313] transition-colors" />
+                    <div className="w-0 h-0 border-t-12 border-b-12 border-l-16 sm:border-t-14 sm:border-b-14 sm:border-l-20 lg:border-t-16 lg:border-b-16 lg:border-l-24 border-t-transparent border-b-transparent border-l-[#d62828] ml-1 sm:ml-1.5 lg:ml-2 group-hover:border-l-[#a41313] transition-colors" />
                   </button>
                 </div>
               )}
 
-              {/* Compelling badge */}
+              {/* Compelling badge - smaller on mobile */}
               {!isPlaying ? (
-                <div className="absolute top-4 right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-4 py-2 rounded-full z-10 flex items-center gap-2 border border-white/20">
-                  <span className="relative flex h-3 w-3">
+                <div className="absolute top-2 right-2 sm:top-3 sm:right-3 lg:top-4 lg:right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full z-10 flex items-center gap-1 sm:gap-1.5 lg:gap-2 border border-white/20">
+                  <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-[#d62828] opacity-50"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#d62828]"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 bg-[#d62828]"></span>
                   </span>
-                  <span className="text-white text-sm font-medium tracking-wide">
-                    Watch Introduction
+                  <span className="text-white text-[10px] sm:text-xs lg:text-sm font-medium tracking-wide">
+                    Watch Intro
                   </span>
                 </div>
               ) : (
-                <div className="absolute top-4 right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-4 py-2 rounded-full z-10 flex items-center gap-2 border border-white/20">
-                  <span className="relative flex h-3 w-3">
+                <div className="absolute top-2 right-2 sm:top-3 sm:right-3 lg:top-4 lg:right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full z-10 flex items-center gap-1 sm:gap-1.5 lg:gap-2 border border-white/20">
+                  <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-[#4a4e69] opacity-50"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#4a4e69]"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 bg-[#4a4e69]"></span>
                   </span>
-                  <span className="text-white text-sm font-medium">
+                  <span className="text-white text-[10px] sm:text-xs lg:text-sm font-medium">
                     Now Playing
                   </span>
                 </div>
