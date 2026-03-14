@@ -36,21 +36,21 @@ const Solutions = () => {
       </div>
 
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header - Centered */}
+        {/* Header - Centered on mobile/tablet, left-aligned on desktop */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUpVariants}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto text-center mb-6 md:mb-8"
+          className="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left mb-6 md:mb-8"
         >
           <motion.div
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center justify-center gap-2 md:gap-3 mb-3 md:mb-4"
+            className="flex items-center justify-center lg:justify-start gap-2 md:gap-3 mb-3 md:mb-4"
           >
             <div className="w-6 md:w-8 h-0.5 bg-[#a41313]"></div>
             <span className="text-[10px] md:text-xs font-medium text-[#a41313] uppercase tracking-[0.2em]">

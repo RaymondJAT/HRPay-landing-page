@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom"; // Add this import
 import Button from "./Buttons";
 import logo from "../assets/finallogo.png";
 import {
@@ -29,6 +30,7 @@ const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [selectedTab, setSelectedTab] = useState(null);
   const [dir, setDir] = useState(null);
+  const navigate = useNavigate(); // Add this
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,6 +59,12 @@ const Navigation = () => {
       setDir(null);
     }
     setSelectedTab(val);
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    setIsOpen(false);
+    setSelectedTab(null);
   };
 
   const tabs = [
@@ -91,10 +99,11 @@ const Navigation = () => {
       >
         <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12">
           <div className="flex justify-between items-center">
-            {/* Logo */}
+            {/* Logo - Link to home */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="cursor-pointer relative z-50"
+              onClick={() => handleNavigation("/")}
             >
               <img
                 src={logo}
@@ -111,13 +120,13 @@ const Navigation = () => {
               {tabs.map((tab) => {
                 if (tab.title === "About") {
                   return (
-                    <a
+                    <button
                       key={tab.id}
-                      href="#about"
+                      onClick={() => handleNavigation("/about")}
                       className="px-4 py-2 text-[#0D141A]/80 hover:text-[#D51C3D] font-medium transition-colors text-base"
                     >
                       {tab.title}
-                    </a>
+                    </button>
                   );
                 }
                 return (
@@ -134,7 +143,12 @@ const Navigation = () => {
 
               <AnimatePresence>
                 {selectedTab && (
-                  <Content dir={dir} selected={selectedTab} tabs={tabs} />
+                  <Content
+                    dir={dir}
+                    selected={selectedTab}
+                    tabs={tabs}
+                    onNavigate={handleNavigation}
+                  />
                 )}
               </AnimatePresence>
             </div>
@@ -145,6 +159,7 @@ const Navigation = () => {
                 variant="primary"
                 size="md"
                 className="px-6 py-2.5 text-base"
+                onClick={() => handleNavigation("/book-demo")}
               >
                 Book a Demo
               </Button>
@@ -180,7 +195,7 @@ const Navigation = () => {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Mobile Menu Panel - No logo in header */}
+            {/* Mobile Menu Panel */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -199,7 +214,7 @@ const Navigation = () => {
                 </button>
               </div>
 
-              {/* Scrollable Content - Added pt-2 for spacing */}
+              {/* Scrollable Content */}
               <div className="flex-1 overflow-y-auto py-2 px-5">
                 <div className="flex flex-col space-y-6">
                   {/* Features Mobile */}
@@ -208,48 +223,46 @@ const Navigation = () => {
                       Features
                     </div>
                     <div className="pl-4 space-y-2 border-l-2 border-[#D51C3D]/20">
-                      <a
-                        href="#core-hr"
-                        className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                        onClick={() => setIsOpen(false)}
+                      <button
+                        onClick={() => handleNavigation("/features/core-hr")}
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                       >
                         Core HR
-                      </a>
-                      <a
-                        href="#time-attendance"
-                        className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                        onClick={() => setIsOpen(false)}
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleNavigation("/features/time-attendance")
+                        }
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                       >
                         Time & Attendance
-                      </a>
-                      <a
-                        href="#leave-management"
-                        className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                        onClick={() => setIsOpen(false)}
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleNavigation("/features/leave-management")
+                        }
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                       >
                         Leave Management
-                      </a>
-                      <a
-                        href="#payroll"
-                        className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                        onClick={() => setIsOpen(false)}
+                      </button>
+                      <button
+                        onClick={() => handleNavigation("/features/payroll")}
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                       >
                         Payroll
-                      </a>
-                      <a
-                        href="#reports"
-                        className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                        onClick={() => setIsOpen(false)}
+                      </button>
+                      <button
+                        onClick={() => handleNavigation("/features/reports")}
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                       >
                         Reports & Analytics
-                      </a>
-                      <a
-                        href="#mobile-app"
-                        className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                        onClick={() => setIsOpen(false)}
+                      </button>
+                      <button
+                        onClick={() => handleNavigation("/features/mobile-app")}
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                       >
                         Mobile App
-                      </a>
+                      </button>
                     </div>
                   </div>
 
@@ -264,34 +277,40 @@ const Navigation = () => {
                           By Industry
                         </div>
                         <div className="space-y-1">
-                          <a
-                            href="#retail"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          <button
+                            onClick={() =>
+                              handleNavigation("/solutions/retail")
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Retail & Hospitality
-                          </a>
-                          <a
-                            href="#construction"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleNavigation("/solutions/construction")
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Construction & Field
-                          </a>
-                          <a
-                            href="#healthcare"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleNavigation("/solutions/healthcare")
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Healthcare
-                          </a>
-                          <a
-                            href="#professional-services"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleNavigation(
+                                "/solutions/professional-services",
+                              )
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Professional Services
-                          </a>
+                          </button>
                         </div>
                       </div>
 
@@ -300,27 +319,30 @@ const Navigation = () => {
                           By Company Size
                         </div>
                         <div className="space-y-1">
-                          <a
-                            href="#startups"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          <button
+                            onClick={() =>
+                              handleNavigation("/solutions/startups")
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Startups & Small Business
-                          </a>
-                          <a
-                            href="#mid-market"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleNavigation("/solutions/mid-market")
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Mid-Market
-                          </a>
-                          <a
-                            href="#enterprise"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleNavigation("/solutions/enterprise")
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Enterprise
-                          </a>
+                          </button>
                         </div>
                       </div>
 
@@ -329,47 +351,50 @@ const Navigation = () => {
                           By Challenge
                         </div>
                         <div className="space-y-1">
-                          <a
-                            href="#reduce-admin"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          <button
+                            onClick={() =>
+                              handleNavigation("/solutions/reduce-admin")
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Reduce Admin Work
-                          </a>
-                          <a
-                            href="#labor-costs"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleNavigation("/solutions/labor-costs")
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Control Labor Costs
-                          </a>
-                          <a
-                            href="#compliance"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleNavigation("/solutions/compliance")
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Stay Compliant
-                          </a>
-                          <a
-                            href="#engagement"
-                            className="block text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                            onClick={() => setIsOpen(false)}
+                          </button>
+                          <button
+                            onClick={() =>
+                              handleNavigation("/solutions/engagement")
+                            }
+                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
                           >
                             Improve Engagement
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* About Mobile */}
-                  <a
-                    href="#about"
-                    className="block text-[#0D141A] hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-3 px-3 rounded-lg text-lg font-medium transition-colors"
-                    onClick={() => setIsOpen(false)}
+                  <button
+                    onClick={() => handleNavigation("/about")}
+                    className="block w-full text-left text-[#0D141A] hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-3 px-3 rounded-lg text-lg font-medium transition-colors"
                   >
                     About
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -378,7 +403,7 @@ const Navigation = () => {
                 <Button
                   variant="primary"
                   className="w-full py-3.5 text-base"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => handleNavigation("/book-demo")}
                 >
                   Book a Demo
                 </Button>
@@ -391,7 +416,7 @@ const Navigation = () => {
   );
 };
 
-// Tab Component - Removed capsule background effect
+// Tab Component
 const Tab = ({ children, tab, handleSetSelected, selected }) => {
   return (
     <button
@@ -414,8 +439,8 @@ const Tab = ({ children, tab, handleSetSelected, selected }) => {
   );
 };
 
-// Content Component - Fixed width dropdown
-const Content = ({ selected, dir, tabs }) => {
+// Content Component - Updated to accept onNavigate prop
+const Content = ({ selected, dir, tabs, onNavigate }) => {
   const [left, setLeft] = useState(0);
 
   useEffect(() => {
@@ -470,7 +495,7 @@ const Content = ({ selected, dir, tabs }) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.25, ease: "easeInOut" }}
               >
-                <t.Component />
+                <t.Component onNavigate={onNavigate} />
               </motion.div>
             )}
           </div>
@@ -497,8 +522,8 @@ const Nub = ({ left }) => {
   );
 };
 
-// Features Content
-const FeaturesContent = () => {
+// Features Content - Updated with navigation
+const FeaturesContent = ({ onNavigate }) => {
   return (
     <div>
       <div className="grid grid-cols-2 gap-6">
@@ -507,9 +532,9 @@ const FeaturesContent = () => {
             Core Modules
           </h3>
           <div className="space-y-2">
-            <a
-              href="#core-hr"
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            <button
+              onClick={() => onNavigate("/features/core-hr")}
+              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Users className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
               <div>
@@ -520,10 +545,10 @@ const FeaturesContent = () => {
                   Employee records & org structure
                 </p>
               </div>
-            </a>
-            <a
-              href="#time-attendance"
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/features/time-attendance")}
+              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Clock className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
               <div>
@@ -534,10 +559,10 @@ const FeaturesContent = () => {
                   Biometrics & scheduling
                 </p>
               </div>
-            </a>
-            <a
-              href="#leave-management"
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/features/leave-management")}
+              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Calendar className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
               <div>
@@ -548,7 +573,7 @@ const FeaturesContent = () => {
                   Types, approvals & balance
                 </p>
               </div>
-            </a>
+            </button>
           </div>
         </div>
         <div>
@@ -556,9 +581,9 @@ const FeaturesContent = () => {
             Premium
           </h3>
           <div className="space-y-2">
-            <a
-              href="#payroll"
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            <button
+              onClick={() => onNavigate("/features/payroll")}
+              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Wallet className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
               <div>
@@ -569,10 +594,10 @@ const FeaturesContent = () => {
                   Auto-computation & contributions
                 </p>
               </div>
-            </a>
-            <a
-              href="#reports"
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/features/reports")}
+              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <BarChart className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
               <div>
@@ -581,10 +606,10 @@ const FeaturesContent = () => {
                 </p>
                 <p className="text-xs text-[#4a4e69]">Compliance & insights</p>
               </div>
-            </a>
-            <a
-              href="#mobile-app"
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/features/mobile-app")}
+              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Smartphone className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
               <div>
@@ -595,11 +620,14 @@ const FeaturesContent = () => {
                   GPS attendance & self-service
                 </p>
               </div>
-            </a>
+            </button>
           </div>
         </div>
       </div>
-      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-[#D51C3D] font-medium hover:gap-2 transition-all p-2 rounded-lg hover:bg-[#F8F5F2]">
+      <button
+        onClick={() => onNavigate("/features")}
+        className="ml-auto mt-4 flex items-center gap-1 text-sm text-[#D51C3D] font-medium hover:gap-2 transition-all p-2 rounded-lg hover:bg-[#F8F5F2]"
+      >
         <span>View all features</span>
         <ArrowRight className="w-4 h-4" />
       </button>
@@ -607,8 +635,8 @@ const FeaturesContent = () => {
   );
 };
 
-// Solutions Content
-const SolutionsContent = () => {
+// Solutions Content - Updated with navigation
+const SolutionsContent = ({ onNavigate }) => {
   return (
     <div>
       <div className="grid grid-cols-3 gap-6">
@@ -617,34 +645,34 @@ const SolutionsContent = () => {
             By Industry
           </h3>
           <div className="space-y-1">
-            <a
-              href="#retail"
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            <button
+              onClick={() => onNavigate("/solutions/retail")}
+              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Home className="w-4 h-4 text-[#D51C3D]" />
               <span>Retail & Hospitality</span>
-            </a>
-            <a
-              href="#construction"
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/solutions/construction")}
+              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <HardHat className="w-4 h-4 text-[#D51C3D]" />
               <span>Construction & Field</span>
-            </a>
-            <a
-              href="#healthcare"
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/solutions/healthcare")}
+              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Heart className="w-4 h-4 text-[#D51C3D]" />
               <span>Healthcare</span>
-            </a>
-            <a
-              href="#professional-services"
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/solutions/professional-services")}
+              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Briefcase className="w-4 h-4 text-[#D51C3D]" />
               <span>Professional Services</span>
-            </a>
+            </button>
           </div>
         </div>
         <div>
@@ -652,27 +680,27 @@ const SolutionsContent = () => {
             By Company Size
           </h3>
           <div className="space-y-1">
-            <a
-              href="#startups"
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            <button
+              onClick={() => onNavigate("/solutions/startups")}
+              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Home className="w-4 h-4 text-[#D51C3D]" />
               <span>Startups</span>
-            </a>
-            <a
-              href="#mid-market"
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/solutions/mid-market")}
+              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <TrendingUp className="w-4 h-4 text-[#D51C3D]" />
               <span>Mid-Market</span>
-            </a>
-            <a
-              href="#enterprise"
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/solutions/enterprise")}
+              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Globe className="w-4 h-4 text-[#D51C3D]" />
               <span>Enterprise</span>
-            </a>
+            </button>
           </div>
         </div>
         <div>
@@ -680,31 +708,34 @@ const SolutionsContent = () => {
             By Challenge
           </h3>
           <div className="space-y-1">
-            <a
-              href="#reduce-admin"
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            <button
+              onClick={() => onNavigate("/solutions/reduce-admin")}
+              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Gauge className="w-4 h-4 text-[#D51C3D]" />
               <span>Reduce Admin</span>
-            </a>
-            <a
-              href="#compliance"
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/solutions/compliance")}
+              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Shield className="w-4 h-4 text-[#D51C3D]" />
               <span>Stay Compliant</span>
-            </a>
-            <a
-              href="#engagement"
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors"
+            </button>
+            <button
+              onClick={() => onNavigate("/solutions/engagement")}
+              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
             >
               <Target className="w-4 h-4 text-[#D51C3D]" />
               <span>Improve Engagement</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
-      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-[#D51C3D] font-medium hover:gap-2 transition-all p-2 rounded-lg hover:bg-[#F8F5F2]">
+      <button
+        onClick={() => onNavigate("/solutions")}
+        className="ml-auto mt-4 flex items-center gap-1 text-sm text-[#D51C3D] font-medium hover:gap-2 transition-all p-2 rounded-lg hover:bg-[#F8F5F2]"
+      >
         <span>View all solutions</span>
         <ArrowRight className="w-4 h-4" />
       </button>
