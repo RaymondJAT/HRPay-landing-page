@@ -176,7 +176,7 @@ const MobileApp = () => {
                   className="flex items-start gap-1.5 sm:gap-2"
                 >
                   <div className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 bg-[#c1121f]/10 rounded-full flex items-center justify-center">
-                    <CheckCircle className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#c1121f]" />
+                    <CheckCircle className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#a41313]" />
                   </div>
                   <span className="text-xs sm:text-sm text-[#4a4e69] text-left">
                     {feature.text}

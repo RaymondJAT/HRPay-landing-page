@@ -118,7 +118,7 @@ const Why = () => {
                       transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                       className="flex gap-3 sm:gap-4"
                     >
-                      <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-[#d62828]/10 rounded-lg sm:rounded-xl flex items-center justify-center text-[#d62828]">
+                      <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 flex items-center justify-center text-[#a41313]">
                         <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                       </div>
                       <div className="flex-1">

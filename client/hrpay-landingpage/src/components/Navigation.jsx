@@ -1,26 +1,21 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom"; // Add this import
+import { useNavigate } from "react-router-dom";
 import Button from "./Buttons";
 import logo from "../assets/finallogo.png";
 import {
-  ArrowRight,
   ChevronDown,
   Users,
-  Clock,
-  Calendar,
   Wallet,
-  BarChart,
-  Smartphone,
-  Home,
+  Award,
+  Layers,
+  Building2,
+  Factory,
   HardHat,
+  Truck,
   Heart,
-  Briefcase,
-  TrendingUp,
-  Globe,
-  Shield,
-  Target,
-  Gauge,
+  GraduationCap,
+  Cpu,
   X,
   Menu,
 } from "lucide-react";
@@ -30,7 +25,7 @@ const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [selectedTab, setSelectedTab] = useState(null);
   const [dir, setDir] = useState(null);
-  const navigate = useNavigate(); // Add this
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +35,6 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -70,18 +64,18 @@ const Navigation = () => {
   const tabs = [
     {
       id: 1,
-      title: "Features",
-      Component: FeaturesContent,
-    },
-    {
-      id: 2,
       title: "Solutions",
       Component: SolutionsContent,
     },
     {
+      id: 2,
+      title: "Industries",
+      Component: IndustriesContent,
+    },
+    {
       id: 3,
       title: "About",
-      Component: null, // No dropdown for About
+      Component: null,
     },
   ];
 
@@ -99,7 +93,7 @@ const Navigation = () => {
       >
         <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12">
           <div className="flex justify-between items-center">
-            {/* Logo - Link to home */}
+            {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="cursor-pointer relative z-50"
@@ -112,7 +106,7 @@ const Navigation = () => {
               />
             </motion.div>
 
-            {/* Desktop Menu - Centered */}
+            {/* Desktop Menu */}
             <div
               onMouseLeave={() => handleSetSelected(null)}
               className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2 gap-2"
@@ -153,7 +147,7 @@ const Navigation = () => {
               </AnimatePresence>
             </div>
 
-            {/* CTA Button - Right Side Desktop */}
+            {/* CTA Button */}
             <div className="hidden md:block">
               <Button
                 variant="primary"
@@ -181,21 +175,18 @@ const Navigation = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
               className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Mobile Menu Panel */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -203,188 +194,153 @@ const Navigation = () => {
               transition={{ type: "tween", duration: 0.3 }}
               className="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-40 md:hidden overflow-hidden flex flex-col"
             >
-              {/* Simple header with just close button */}
               <div className="flex items-center justify-end p-5 border-b border-gray-100">
                 <button
                   onClick={() => setIsOpen(false)}
                   className="p-2 hover:bg-[#F8F5F2] rounded-lg transition-colors"
-                  aria-label="Close menu"
                 >
                   <X className="w-5 h-5 text-[#0D141A]" />
                 </button>
               </div>
 
-              {/* Scrollable Content */}
               <div className="flex-1 overflow-y-auto py-2 px-5">
                 <div className="flex flex-col space-y-6">
-                  {/* Features Mobile */}
-                  <div className="space-y-3">
-                    <div className="text-[#0D141A] font-semibold text-lg">
-                      Features
-                    </div>
-                    <div className="pl-4 space-y-2 border-l-2 border-[#D51C3D]/20">
-                      <button
-                        onClick={() => handleNavigation("/features/core-hr")}
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                      >
-                        Core HR
-                      </button>
-                      <button
-                        onClick={() =>
-                          handleNavigation("/features/time-attendance")
-                        }
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                      >
-                        Time & Attendance
-                      </button>
-                      <button
-                        onClick={() =>
-                          handleNavigation("/features/leave-management")
-                        }
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                      >
-                        Leave Management
-                      </button>
-                      <button
-                        onClick={() => handleNavigation("/features/payroll")}
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                      >
-                        Payroll
-                      </button>
-                      <button
-                        onClick={() => handleNavigation("/features/reports")}
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                      >
-                        Reports & Analytics
-                      </button>
-                      <button
-                        onClick={() => handleNavigation("/features/mobile-app")}
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                      >
-                        Mobile App
-                      </button>
-                    </div>
-                  </div>
-
                   {/* Solutions Mobile */}
                   <div className="space-y-3">
                     <div className="text-[#0D141A] font-semibold text-lg">
                       Solutions
                     </div>
                     <div className="pl-4 space-y-3 border-l-2 border-[#D51C3D]/20">
-                      <div>
-                        <div className="text-xs font-semibold text-[#D51C3D] uppercase tracking-wider mb-2">
-                          By Industry
-                        </div>
-                        <div className="space-y-1">
-                          <button
-                            onClick={() =>
-                              handleNavigation("/solutions/retail")
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Retail & Hospitality
-                          </button>
-                          <button
-                            onClick={() =>
-                              handleNavigation("/solutions/construction")
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Construction & Field
-                          </button>
-                          <button
-                            onClick={() =>
-                              handleNavigation("/solutions/healthcare")
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Healthcare
-                          </button>
-                          <button
-                            onClick={() =>
-                              handleNavigation(
-                                "/solutions/professional-services",
-                              )
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Professional Services
-                          </button>
-                        </div>
-                      </div>
+                      <button
+                        onClick={() =>
+                          handleNavigation("/solutions/hr-management")
+                        }
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
+                      >
+                        HR Management
+                      </button>
+                      <button
+                        onClick={() => handleNavigation("/solutions/payroll")}
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
+                      >
+                        Payroll & Compliance
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleNavigation("/solutions/employee-experience")
+                        }
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
+                      >
+                        Employee Experience
+                      </button>
+                      <button
+                        onClick={() => handleNavigation("/solutions/platform")}
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
+                      >
+                        Platform & Integrations
+                      </button>
+                    </div>
+                  </div>
 
-                      <div className="pt-2">
-                        <div className="text-xs font-semibold text-[#D51C3D] uppercase tracking-wider mb-2">
-                          By Company Size
-                        </div>
-                        <div className="space-y-1">
-                          <button
-                            onClick={() =>
-                              handleNavigation("/solutions/startups")
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Startups & Small Business
-                          </button>
-                          <button
-                            onClick={() =>
-                              handleNavigation("/solutions/mid-market")
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Mid-Market
-                          </button>
-                          <button
-                            onClick={() =>
-                              handleNavigation("/solutions/enterprise")
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Enterprise
-                          </button>
-                        </div>
-                      </div>
-
-                      <div className="pt-2">
-                        <div className="text-xs font-semibold text-[#D51C3D] uppercase tracking-wider mb-2">
-                          By Challenge
-                        </div>
-                        <div className="space-y-1">
-                          <button
-                            onClick={() =>
-                              handleNavigation("/solutions/reduce-admin")
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Reduce Admin Work
-                          </button>
-                          <button
-                            onClick={() =>
-                              handleNavigation("/solutions/labor-costs")
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Control Labor Costs
-                          </button>
-                          <button
-                            onClick={() =>
-                              handleNavigation("/solutions/compliance")
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Stay Compliant
-                          </button>
-                          <button
-                            onClick={() =>
-                              handleNavigation("/solutions/engagement")
-                            }
-                            className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
-                          >
-                            Improve Engagement
-                          </button>
-                        </div>
-                      </div>
+                  {/* Industries Mobile */}
+                  <div className="space-y-3">
+                    <div className="text-[#0D141A] font-semibold text-lg">
+                      Industries
+                    </div>
+                    <div className="pl-4 space-y-3 border-l-2 border-[#D51C3D]/20">
+                      <button
+                        onClick={() => handleNavigation("/industries/retail")}
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                      >
+                        <span className="font-medium text-[#0D141A]">
+                          Retail
+                        </span>
+                        <span className="block text-xs text-[#4a4e69] mt-0.5">
+                          Manage retail teams across multiple branches with
+                          ease.
+                        </span>
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleNavigation("/industries/manufacturing")
+                        }
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                      >
+                        <span className="font-medium text-[#0D141A]">
+                          Manufacturing
+                        </span>
+                        <span className="block text-xs text-[#4a4e69] mt-0.5">
+                          Optimize workforce management in production
+                          environments.
+                        </span>
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleNavigation("/industries/construction")
+                        }
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                      >
+                        <span className="font-medium text-[#0D141A]">
+                          Construction
+                        </span>
+                        <span className="block text-xs text-[#4a4e69] mt-0.5">
+                          Support field workers and project-based teams
+                          efficiently.
+                        </span>
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleNavigation("/industries/logistics")
+                        }
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                      >
+                        <span className="font-medium text-[#0D141A]">
+                          Logistics & Delivery
+                        </span>
+                        <span className="block text-xs text-[#4a4e69] mt-0.5">
+                          Keep your mobile workforce organized and productive.
+                        </span>
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleNavigation("/industries/healthcare")
+                        }
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                      >
+                        <span className="font-medium text-[#0D141A]">
+                          Healthcare
+                        </span>
+                        <span className="block text-xs text-[#4a4e69] mt-0.5">
+                          Simplify HR operations for healthcare organizations.
+                        </span>
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleNavigation("/industries/education")
+                        }
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                      >
+                        <span className="font-medium text-[#0D141A]">
+                          Education
+                        </span>
+                        <span className="block text-xs text-[#4a4e69] mt-0.5">
+                          Streamline HR processes for schools and educational
+                          institutions.
+                        </span>
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleNavigation("/industries/technology")
+                        }
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                      >
+                        <span className="font-medium text-[#0D141A]">
+                          Technology & Startups
+                        </span>
+                        <span className="block text-xs text-[#4a4e69] mt-0.5">
+                          Empower growing tech companies with modern HR tools.
+                        </span>
+                      </button>
                     </div>
                   </div>
 
@@ -398,7 +354,6 @@ const Navigation = () => {
                 </div>
               </div>
 
-              {/* CTA Button at Bottom */}
               <div className="p-5 border-t border-gray-100">
                 <Button
                   variant="primary"
@@ -416,7 +371,6 @@ const Navigation = () => {
   );
 };
 
-// Tab Component
 const Tab = ({ children, tab, handleSetSelected, selected }) => {
   return (
     <button
@@ -439,7 +393,6 @@ const Tab = ({ children, tab, handleSetSelected, selected }) => {
   );
 };
 
-// Content Component - Updated to accept onNavigate prop
 const Content = ({ selected, dir, tabs, onNavigate }) => {
   const [left, setLeft] = useState(0);
 
@@ -451,14 +404,10 @@ const Content = ({ selected, dir, tabs, onNavigate }) => {
     if (selected) {
       const hoveredTab = document.getElementById(`shift-tab-${selected}`);
       const overlayContent = document.getElementById("overlay-content");
-
       if (!hoveredTab || !overlayContent) return;
-
       const tabRect = hoveredTab.getBoundingClientRect();
       const { left: contentLeft } = overlayContent.getBoundingClientRect();
-
       const tabCenter = tabRect.left + tabRect.width / 2 - contentLeft;
-
       setLeft(tabCenter);
     }
   };
@@ -466,41 +415,29 @@ const Content = ({ selected, dir, tabs, onNavigate }) => {
   return (
     <motion.div
       id="overlay-content"
-      initial={{
-        opacity: 0,
-        y: 8,
-      }}
-      animate={{
-        opacity: 1,
-        y: 0,
-      }}
-      exit={{
-        opacity: 0,
-        y: 8,
-      }}
-      className="absolute left-1/2 transform -translate-x-1/2 top-[calc(100%_+_16px)] w-[600px] rounded-2xl bg-white shadow-xl border border-gray-200 p-6"
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 8 }}
+      className="absolute left-1/2 transform -translate-x-1/2 top-[calc(100%_+_16px)] w-[700px] rounded-2xl bg-white shadow-xl border border-gray-200 p-6"
     >
       <Bridge />
       <Nub left={left} />
-
-      {tabs.map((t) => {
-        return (
-          <div className="overflow-hidden" key={t.id}>
-            {selected === t.id && (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: dir === "l" ? 50 : dir === "r" ? -50 : 0,
-                }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-              >
-                <t.Component onNavigate={onNavigate} />
-              </motion.div>
-            )}
-          </div>
-        );
-      })}
+      {tabs.map((t) => (
+        <div className="overflow-hidden" key={t.id}>
+          {selected === t.id && (
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: dir === "l" ? 50 : dir === "r" ? -50 : 0,
+              }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              <t.Component onNavigate={onNavigate} />
+            </motion.div>
+          )}
+        </div>
+      ))}
     </motion.div>
   );
 };
@@ -509,238 +446,185 @@ const Bridge = () => (
   <div className="absolute -top-[16px] left-0 right-0 h-[16px]" />
 );
 
-const Nub = ({ left }) => {
-  return (
-    <motion.span
-      style={{
-        clipPath: "polygon(0 0, 100% 0, 50% 50%, 0% 100%)",
-      }}
-      animate={{ left }}
-      transition={{ duration: 0.25, ease: "easeInOut" }}
-      className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-tl border-t border-l border-gray-200 bg-white"
-    />
-  );
-};
+const Nub = ({ left }) => (
+  <motion.span
+    style={{ clipPath: "polygon(0 0, 100% 0, 50% 50%, 0% 100%)" }}
+    animate={{ left }}
+    transition={{ duration: 0.25 }}
+    className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-tl border-t border-l border-gray-200 bg-white"
+  />
+);
 
-// Features Content - Updated with navigation
-const FeaturesContent = ({ onNavigate }) => {
-  return (
-    <div>
-      <div className="grid grid-cols-2 gap-6">
-        <div>
-          <h3 className="mb-3 text-sm font-semibold text-[#D51C3D] uppercase tracking-wider">
-            Core Modules
-          </h3>
-          <div className="space-y-2">
-            <button
-              onClick={() => onNavigate("/features/core-hr")}
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Users className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#D51C3D]">
-                  Core HR
-                </p>
-                <p className="text-xs text-[#4a4e69]">
-                  Employee records & org structure
-                </p>
-              </div>
-            </button>
-            <button
-              onClick={() => onNavigate("/features/time-attendance")}
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Clock className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#D51C3D]">
-                  Time & Attendance
-                </p>
-                <p className="text-xs text-[#4a4e69]">
-                  Biometrics & scheduling
-                </p>
-              </div>
-            </button>
-            <button
-              onClick={() => onNavigate("/features/leave-management")}
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Calendar className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#D51C3D]">
-                  Leave Management
-                </p>
-                <p className="text-xs text-[#4a4e69]">
-                  Types, approvals & balance
-                </p>
-              </div>
-            </button>
-          </div>
-        </div>
-        <div>
-          <h3 className="mb-3 text-sm font-semibold text-[#D51C3D] uppercase tracking-wider">
-            Premium
-          </h3>
-          <div className="space-y-2">
-            <button
-              onClick={() => onNavigate("/features/payroll")}
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Wallet className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#D51C3D]">
-                  Payroll
-                </p>
-                <p className="text-xs text-[#4a4e69]">
-                  Auto-computation & contributions
-                </p>
-              </div>
-            </button>
-            <button
-              onClick={() => onNavigate("/features/reports")}
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <BarChart className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#D51C3D]">
-                  Reports & Analytics
-                </p>
-                <p className="text-xs text-[#4a4e69]">Compliance & insights</p>
-              </div>
-            </button>
-            <button
-              onClick={() => onNavigate("/features/mobile-app")}
-              className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Smartphone className="w-5 h-5 text-[#D51C3D] flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#D51C3D]">
-                  Mobile App
-                </p>
-                <p className="text-xs text-[#4a4e69]">
-                  GPS attendance & self-service
-                </p>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
+const SolutionsContent = ({ onNavigate }) => (
+  <div className="grid grid-cols-2 gap-6">
+    <div className="space-y-4">
       <button
-        onClick={() => onNavigate("/features")}
-        className="ml-auto mt-4 flex items-center gap-1 text-sm text-[#D51C3D] font-medium hover:gap-2 transition-all p-2 rounded-lg hover:bg-[#F8F5F2]"
+        onClick={() => onNavigate("/solutions/hr-management")}
+        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
       >
-        <span>View all features</span>
-        <ArrowRight className="w-4 h-4" />
+        <Users className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            HR Management
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            Core HR, employee records, and workforce management
+          </p>
+        </div>
+      </button>
+      <button
+        onClick={() => onNavigate("/solutions/payroll")}
+        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      >
+        <Wallet className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            Payroll & Compliance
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            Automated payroll, tax filings, and compliance management
+          </p>
+        </div>
       </button>
     </div>
-  );
-};
-
-// Solutions Content - Updated with navigation
-const SolutionsContent = ({ onNavigate }) => {
-  return (
-    <div>
-      <div className="grid grid-cols-3 gap-6">
-        <div>
-          <h3 className="mb-3 text-sm font-semibold text-[#D51C3D] uppercase tracking-wider">
-            By Industry
-          </h3>
-          <div className="space-y-1">
-            <button
-              onClick={() => onNavigate("/solutions/retail")}
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Home className="w-4 h-4 text-[#D51C3D]" />
-              <span>Retail & Hospitality</span>
-            </button>
-            <button
-              onClick={() => onNavigate("/solutions/construction")}
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <HardHat className="w-4 h-4 text-[#D51C3D]" />
-              <span>Construction & Field</span>
-            </button>
-            <button
-              onClick={() => onNavigate("/solutions/healthcare")}
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Heart className="w-4 h-4 text-[#D51C3D]" />
-              <span>Healthcare</span>
-            </button>
-            <button
-              onClick={() => onNavigate("/solutions/professional-services")}
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Briefcase className="w-4 h-4 text-[#D51C3D]" />
-              <span>Professional Services</span>
-            </button>
-          </div>
-        </div>
-        <div>
-          <h3 className="mb-3 text-sm font-semibold text-[#D51C3D] uppercase tracking-wider">
-            By Company Size
-          </h3>
-          <div className="space-y-1">
-            <button
-              onClick={() => onNavigate("/solutions/startups")}
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Home className="w-4 h-4 text-[#D51C3D]" />
-              <span>Startups</span>
-            </button>
-            <button
-              onClick={() => onNavigate("/solutions/mid-market")}
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <TrendingUp className="w-4 h-4 text-[#D51C3D]" />
-              <span>Mid-Market</span>
-            </button>
-            <button
-              onClick={() => onNavigate("/solutions/enterprise")}
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Globe className="w-4 h-4 text-[#D51C3D]" />
-              <span>Enterprise</span>
-            </button>
-          </div>
-        </div>
-        <div>
-          <h3 className="mb-3 text-sm font-semibold text-[#D51C3D] uppercase tracking-wider">
-            By Challenge
-          </h3>
-          <div className="space-y-1">
-            <button
-              onClick={() => onNavigate("/solutions/reduce-admin")}
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Gauge className="w-4 h-4 text-[#D51C3D]" />
-              <span>Reduce Admin</span>
-            </button>
-            <button
-              onClick={() => onNavigate("/solutions/compliance")}
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Shield className="w-4 h-4 text-[#D51C3D]" />
-              <span>Stay Compliant</span>
-            </button>
-            <button
-              onClick={() => onNavigate("/solutions/engagement")}
-              className="flex items-center gap-2 text-sm text-[#2b2d42] hover:text-[#D51C3D] p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
-            >
-              <Target className="w-4 h-4 text-[#D51C3D]" />
-              <span>Improve Engagement</span>
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className="space-y-4">
       <button
-        onClick={() => onNavigate("/solutions")}
-        className="ml-auto mt-4 flex items-center gap-1 text-sm text-[#D51C3D] font-medium hover:gap-2 transition-all p-2 rounded-lg hover:bg-[#F8F5F2]"
+        onClick={() => onNavigate("/solutions/employee-experience")}
+        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
       >
-        <span>View all solutions</span>
-        <ArrowRight className="w-4 h-4" />
+        <Award className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            Employee Experience
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            Engagement, performance, and career development
+          </p>
+        </div>
+      </button>
+      <button
+        onClick={() => onNavigate("/solutions/platform")}
+        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      >
+        <Layers className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            Platform & Integrations
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            APIs, third-party integrations, and mobile access
+          </p>
+        </div>
       </button>
     </div>
-  );
-};
+  </div>
+);
+
+const IndustriesContent = ({ onNavigate }) => (
+  <div className="grid grid-cols-2 gap-4">
+    <div className="space-y-4">
+      <button
+        onClick={() => onNavigate("/industries/retail")}
+        className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      >
+        <Building2 className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            Retail
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            Manage retail teams across multiple branches with ease.
+          </p>
+        </div>
+      </button>
+      <button
+        onClick={() => onNavigate("/industries/manufacturing")}
+        className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      >
+        <Factory className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            Manufacturing
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            Optimize workforce management in production environments.
+          </p>
+        </div>
+      </button>
+      <button
+        onClick={() => onNavigate("/industries/construction")}
+        className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      >
+        <HardHat className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            Construction
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            Support field workers and project-based teams efficiently.
+          </p>
+        </div>
+      </button>
+      <button
+        onClick={() => onNavigate("/industries/logistics")}
+        className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      >
+        <Truck className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            Logistics & Delivery
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            Keep your mobile workforce organized and productive.
+          </p>
+        </div>
+      </button>
+    </div>
+    <div className="space-y-4">
+      <button
+        onClick={() => onNavigate("/industries/healthcare")}
+        className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      >
+        <Heart className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            Healthcare
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            Simplify HR operations for healthcare organizations.
+          </p>
+        </div>
+      </button>
+      <button
+        onClick={() => onNavigate("/industries/education")}
+        className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      >
+        <GraduationCap className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            Education
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            Streamline HR processes for schools and educational institutions.
+          </p>
+        </div>
+      </button>
+      <button
+        onClick={() => onNavigate("/industries/technology")}
+        className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      >
+        <Cpu className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+        <div>
+          <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+            Technology & Startups
+          </p>
+          <p className="text-xs text-[#4a4e69]">
+            Empower growing tech companies with modern HR tools.
+          </p>
+        </div>
+      </button>
+    </div>
+  </div>
+);
 
 export default Navigation;

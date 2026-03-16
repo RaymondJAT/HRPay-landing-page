@@ -69,23 +69,23 @@ const Features = () => {
                 className="group"
               >
                 <div className="relative bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-[#a41313]/30 group-hover:border-[#d62828]/40 group-hover:shadow-md transition-all duration-300 h-full flex flex-col items-center text-center">
-                  {/* Icon */}
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mb-2 sm:mb-3 bg-[#d62828]/5 rounded-lg sm:rounded-xl flex items-center justify-center text-[#d62828] group-hover:bg-[#d62828]/10 group-hover:scale-110 transition-all duration-300">
+                  {/* Icon - removed background box */}
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mb-2 sm:mb-3 flex items-center justify-center text-[#a41313] group-hover:scale-110 transition-all duration-300">
                     <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xs sm:text-sm font-semibold text-[#2b2d42] group-hover:text-[#d62828] transition-colors duration-300 mb-0.5 sm:mb-1">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#2b2d42] group-hover:text-[#d62828] transition-colors duration-300 mb-0.5 sm:mb-1">
                     {feature.name}
                   </h3>
 
                   {/* Description */}
-                  <p className="hidden sm:block text-[10px] sm:text-xs text-[#4a4e69] leading-relaxed">
+                  <p className="hidden sm:block text-xs sm:text-sm text-[#4a4e69] leading-relaxed">
                     {feature.description}
                   </p>
 
                   {/* Mobile-only indicator */}
-                  <span className="sm:hidden text-[8px] text-[#4a4e69] mt-0.5">
+                  <span className="sm:hidden text-[10px] text-[#4a4e69] mt-0.5">
                     {feature.description.split(" ")[0]}...
                   </span>
                 </div>

@@ -5,12 +5,12 @@ import {
   Wallet,
   FileText,
   Smartphone,
-  Receipt,
   Star,
   GraduationCap,
   FileSpreadsheet,
   Link,
   HeadphonesIcon,
+  ReceiptText,
 } from "lucide-react";
 
 export const mainFeatures = [
@@ -53,7 +53,7 @@ export const mainFeatures = [
 ];
 
 export const addOns = [
-  { name: "Expense Management", icon: Receipt },
+  { name: "Expense Management", icon: ReceiptText },
   { name: "Performance Reviews", icon: Star },
   { name: "Training", icon: GraduationCap },
   { name: "Documents", icon: FileSpreadsheet },

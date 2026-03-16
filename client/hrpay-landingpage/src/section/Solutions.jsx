@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { solutions, customizationOptions } from "../mapping/solutions";
-import { Check, ArrowRight } from "lucide-react";
+import { Check } from "lucide-react";
 
 const Solutions = () => {
   const fadeUpVariants = {
@@ -82,7 +82,7 @@ const Solutions = () => {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className="flex items-center gap-3 md:gap-4 p-3 md:p-3.5 hover:bg-[#f5e6d3]/30 rounded-lg transition-colors"
               >
-                <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 bg-[#d62828]/10 rounded-lg flex items-center justify-center text-[#d62828]">
+                <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center text-[#a41313]">
                   <IconComponent className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div className="text-left flex-1">
@@ -112,7 +112,7 @@ const Solutions = () => {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-white rounded-lg sm:rounded-xl p-5 sm:p-6 border border-[#a41313]/30 group-hover:shadow-md group-hover:border-[#d62828]/40 transition-all duration-300 h-full cursor-pointer">
+                <div className="bg-white rounded-lg sm:rounded-xl p-5 sm:p-6 border border-[#a41313]/30 group-hover:shadow-md group-hover:border-[#d62828]/40 transition-all duration-300 h-full">
                   {/* Icon */}
                   <div className="relative w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4">
                     <div className="absolute inset-0 bg-[#d62828]/5 rounded-lg sm:rounded-xl"></div>
@@ -121,7 +121,8 @@ const Solutions = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-semibold text-[#2b2d42] mb-2 sm:mb-3">
+                  {/* Title with hover effect */}
+                  <h3 className="text-base sm:text-lg font-semibold text-[#2b2d42] group-hover:text-[#d62828] transition-colors duration-300 mb-2 sm:mb-3">
                     {item.title}
                   </h3>
 
@@ -130,7 +131,7 @@ const Solutions = () => {
                   </p>
 
                   {/* Benefits */}
-                  <div className="space-y-2 sm:space-y-2.5 mb-3 sm:mb-4">
+                  <div className="space-y-2 sm:space-y-2.5">
                     {item.benefits
                       .slice(0, window.innerWidth < 640 ? 2 : 3)
                       .map((benefit, i) => (
@@ -144,12 +145,6 @@ const Solutions = () => {
                           </span>
                         </div>
                       ))}
-                  </div>
-
-                  {/* Learn more */}
-                  <div className="text-sm text-[#d62828] font-medium flex items-center gap-1.5 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-                    <span>Learn more</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                 </div>
               </motion.div>

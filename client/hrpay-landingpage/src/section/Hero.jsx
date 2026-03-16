@@ -142,14 +142,14 @@ const Hero = () => {
             animate="visible"
             className="col-span-3 hidden lg:flex flex-col gap-4 justify-end h-full -ml-4 md:-ml-6 lg:-ml-8 z-0"
           >
-            {/* Top Left Image */}
+            {/* Top Left Image with enhanced gradient border */}
             <motion.div
               variants={imageItemVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
-              className="relative group w-[110%]"
+              className="relative group w-[110%] p-[4px] rounded-xl bg-gradient-to-br from-[#ffe5e5] via-[#a41313] to-[#1a2634]"
             >
-              <div className="relative bg-white rounded-xl border-2 border-[#a41313]/20 overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl overflow-hidden shadow-sm h-full">
                 <img
                   src={employee}
                   alt="HR Dashboard Preview"
@@ -159,14 +159,14 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Bottom Left Image */}
+            {/* Bottom Left Image with enhanced gradient border */}
             <motion.div
               variants={imageItemVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
-              className="relative group w-[110%]"
+              className="relative group w-[110%] p-[4px] rounded-xl bg-gradient-to-br from-[#ffe5e5] via-[#a41313] to-[#1a2634]"
             >
-              <div className="relative bg-white rounded-xl border-2 border-[#a41313]/20 overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl overflow-hidden shadow-sm h-full">
                 <img
                   src={clockinout}
                   alt="HR Dashboard Preview"
@@ -178,7 +178,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Center Video */}
+          {/* Center Video with enhanced gradient border */}
           <motion.div
             variants={videoVariants}
             initial="hidden"
@@ -189,61 +189,63 @@ const Hero = () => {
           >
             <div className="absolute -inset-3 sm:-inset-4 lg:-inset-6 bg-gradient-to-br from-[#d62828]/10 via-[#a41313]/5 to-transparent rounded-[30px] sm:rounded-[40px] blur-3xl" />
 
-            <div className="relative bg-white rounded-lg sm:rounded-xl border-2 border-[#a41313]/30 overflow-hidden shadow-md sm:shadow-lg transform group-hover:scale-[1.01] sm:group-hover:scale-[1.02] transition-all duration-500">
-              {/* Play button overlay */}
-              {!isPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center bg-white/20 backdrop-blur-sm z-10">
-                  <button
-                    onClick={() => {
-                      if (videoRef.current) {
-                        videoRef.current.play();
-                        setIsPlaying(true);
-                      }
-                    }}
-                    className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white rounded-full flex items-center justify-center shadow-xl transform hover:scale-110 transition-transform duration-300 cursor-pointer group"
-                    aria-label="Play video"
-                  >
-                    <div className="w-0 h-0 border-t-12 border-b-12 border-l-16 sm:border-t-14 sm:border-b-14 sm:border-l-20 lg:border-t-16 lg:border-b-16 lg:border-l-24 border-t-transparent border-b-transparent border-l-[#d62828] ml-1 sm:ml-1.5 lg:ml-2 group-hover:border-l-[#a41313] transition-colors" />
-                  </button>
-                </div>
-              )}
+            <div className="relative p-[4px] rounded-lg sm:rounded-xl bg-gradient-to-br from-[#ffe5e5] via-[#a41313] to-[#1a2634]">
+              <div className="relative bg-white rounded-lg sm:rounded-xl overflow-hidden shadow-md sm:shadow-lg transform group-hover:scale-[1.01] sm:group-hover:scale-[1.02] transition-all duration-500">
+                {/* Play button overlay */}
+                {!isPlaying && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/20 backdrop-blur-sm z-10">
+                    <button
+                      onClick={() => {
+                        if (videoRef.current) {
+                          videoRef.current.play();
+                          setIsPlaying(true);
+                        }
+                      }}
+                      className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white rounded-full flex items-center justify-center shadow-xl transform hover:scale-110 transition-transform duration-300 cursor-pointer group"
+                      aria-label="Play video"
+                    >
+                      <div className="w-0 h-0 border-t-12 border-b-12 border-l-16 sm:border-t-14 sm:border-b-14 sm:border-l-20 lg:border-t-16 lg:border-b-16 lg:border-l-24 border-t-transparent border-b-transparent border-l-[#d62828] ml-1 sm:ml-1.5 lg:ml-2 group-hover:border-l-[#a41313] transition-colors" />
+                    </button>
+                  </div>
+                )}
 
-              {/* Compelling badge */}
-              {!isPlaying ? (
-                <div className="absolute top-2 right-2 sm:top-3 sm:right-3 lg:top-4 lg:right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full z-10 flex items-center gap-1 sm:gap-1.5 lg:gap-2 border border-white/20">
-                  <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#d62828] opacity-50"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 bg-[#d62828]"></span>
-                  </span>
-                  <span className="text-white text-[10px] sm:text-xs lg:text-sm font-medium tracking-wide">
-                    Watch Intro
-                  </span>
-                </div>
-              ) : (
-                <div className="absolute top-2 right-2 sm:top-3 sm:right-3 lg:top-4 lg:right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full z-10 flex items-center gap-1 sm:gap-1.5 lg:gap-2 border border-white/20">
-                  <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#4a4e69] opacity-50"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 bg-[#4a4e69]"></span>
-                  </span>
-                  <span className="text-white text-[10px] sm:text-xs lg:text-sm font-medium">
-                    Now Playing
-                  </span>
-                </div>
-              )}
+                {/* Compelling badge */}
+                {!isPlaying ? (
+                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 lg:top-4 lg:right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full z-10 flex items-center gap-1 sm:gap-1.5 lg:gap-2 border border-white/20">
+                    <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-[#d62828] opacity-50"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 bg-[#d62828]"></span>
+                    </span>
+                    <span className="text-white text-[10px] sm:text-xs lg:text-sm font-medium tracking-wide">
+                      Watch Intro
+                    </span>
+                  </div>
+                ) : (
+                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 lg:top-4 lg:right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full z-10 flex items-center gap-1 sm:gap-1.5 lg:gap-2 border border-white/20">
+                    <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-[#4a4e69] opacity-50"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 bg-[#4a4e69]"></span>
+                    </span>
+                    <span className="text-white text-[10px] sm:text-xs lg:text-sm font-medium">
+                      Now Playing
+                    </span>
+                  </div>
+                )}
 
-              <video
-                ref={videoRef}
-                className="w-full h-full object-cover aspect-video"
-                src={shortVideo}
-                playsInline
-                controls
-                preload="auto"
-                onPause={() => setIsPlaying(false)}
-                onPlay={() => setIsPlaying(true)}
-              >
-                <source src={shortVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover aspect-video"
+                  src={shortVideo}
+                  playsInline
+                  controls
+                  preload="auto"
+                  onPause={() => setIsPlaying(false)}
+                  onPlay={() => setIsPlaying(true)}
+                >
+                  <source src={shortVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </motion.div>
 
@@ -253,14 +255,14 @@ const Hero = () => {
             animate="visible"
             className="col-span-3 hidden lg:flex flex-col gap-4 justify-end h-full -mr-4 md:-mr-6 lg:-mr-8 z-0"
           >
-            {/* Top Right Image */}
+            {/* Top Right Image with enhanced gradient border */}
             <motion.div
               variants={imageItemVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
-              className="relative group w-[110%] self-end"
+              className="relative group w-[110%] self-end p-[4px] rounded-xl bg-gradient-to-br from-[#ffe5e5] via-[#a41313] to-[#1a2634]"
             >
-              <div className="relative bg-white rounded-xl border-2 border-[#a41313]/20 overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl overflow-hidden shadow-sm h-full">
                 <img
                   src={geomap}
                   alt="Analytics Dashboard Preview"
@@ -270,14 +272,14 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Bottom Right Image */}
+            {/* Bottom Right Image with enhanced gradient border */}
             <motion.div
               variants={imageItemVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
-              className="relative group w-[110%] self-end"
+              className="relative group w-[110%] self-end p-[4px] rounded-xl bg-gradient-to-br from-[#ffe5e5] via-[#a41313] to-[#1a2634]"
             >
-              <div className="relative bg-white rounded-xl border-2 border-[#a41313]/20 overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl overflow-hidden shadow-sm h-full">
                 <img
                   src={government}
                   alt="Reports Dashboard"
