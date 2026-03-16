@@ -12,10 +12,8 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
-    // Attempt to autoplay when component mounts
     if (videoRef.current) {
       videoRef.current.play().catch((error) => {
-        // Autoplay was prevented, update state accordingly
         console.log("Autoplay prevented:", error);
         setIsPlaying(false);
       });
@@ -27,7 +25,6 @@ const Hero = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  // Animation variants for staggered images
   const imageContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -52,7 +49,6 @@ const Hero = () => {
     },
   };
 
-  // Video animation variants - appears after images
   const videoVariants = {
     hidden: { opacity: 0, scale: 0.9, y: 40 },
     visible: {
@@ -63,30 +59,26 @@ const Hero = () => {
         type: "spring",
         stiffness: 80,
         damping: 15,
-        delay: 1.2, // Delayed to appear after images
+        delay: 1.2,
       },
     },
   };
 
   return (
     <section className="relative min-h-[900px] md:min-h-[1000px] flex items-center md:items-end bg-[#faf7f2]">
-      {/* Subtle pattern overlay - very light */}
       <div className="absolute inset-0 bg-[radial-gradient(#a41313_1px,transparent_1px)] [background-size:24px_24px] opacity-5" />
 
-      {/* Warm gradient overlay - much lighter */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#faf7f2] to-[#f5f0e8]" />
 
-      {/* Full-height Rounded Container */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 m-4 md:m-6 lg:m-8">
-          {/* Main container */}
+          {/* main container */}
           <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#faf7f2] rounded-2xl md:rounded-3xl shadow-[0_20px_50px_-15px_rgba(164,19,19,0.15)]">
-            {/* Inner container with spotlight effect */}
+            {/* inner container */}
             <div className="absolute inset-[1px] bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden">
-              {/* STATIC SPOTLIGHT EFFECT - Center-focused glow with softer red */}
+              {/* spotlight effect */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_#a41313_0%,_transparent_70%)] opacity-5 pointer-events-none" />
 
-              {/* Secondary softer glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_#d62828_0%,_transparent_70%)] opacity-8 pointer-events-none" />
 
               {/* Main content area */}
@@ -96,9 +88,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Content */}
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 relative z-10 py-8 md:py-0 md:pb-12 lg:pb-20">
-        {/* Centered Content - Adjusted for mobile */}
         <motion.div
           initial="hidden"
           animate="visible"
@@ -106,7 +96,6 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-4xl mx-auto mt-0 md:mt-24 lg:mt-32 mb-6 md:mb-8 lg:mb-10"
         >
-          {/* Headline - Smaller on mobile */}
           <motion.h1
             variants={fadeUpVariants}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -116,7 +105,6 @@ const Hero = () => {
             <span className="text-[#d62828]">Smarter HR Management</span>
           </motion.h1>
 
-          {/* Subheadline - Smaller on mobile */}
           <motion.p
             variants={fadeUpVariants}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -126,7 +114,7 @@ const Hero = () => {
             with a platform built for growing companies.
           </motion.p>
 
-          {/* Single CTA Button */}
+          {/* Button */}
           <motion.div
             variants={fadeUpVariants}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -142,14 +130,12 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* 3 Column Layout */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="grid grid-cols-12 gap-3 md:gap-4 lg:gap-5 items-end relative"
         >
-          {/* Left Side - Stacked Images */}
           <motion.div
             variants={imageContainerVariants}
             initial="hidden"
@@ -163,7 +149,7 @@ const Hero = () => {
               transition={{ duration: 0.3 }}
               className="relative group w-[110%]"
             >
-              <div className="relative bg-white rounded-xl border border-[#a41313]/10 overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl border-2 border-[#a41313]/20 overflow-hidden shadow-sm">
                 <img
                   src={employee}
                   alt="HR Dashboard Preview"
@@ -180,7 +166,7 @@ const Hero = () => {
               transition={{ duration: 0.3 }}
               className="relative group w-[110%]"
             >
-              <div className="relative bg-white rounded-xl border border-[#a41313]/10 overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl border-2 border-[#a41313]/20 overflow-hidden shadow-sm">
                 <img
                   src={clockinout}
                   alt="HR Dashboard Preview"
@@ -192,7 +178,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Center Video - Spotlight */}
+          {/* Center Video */}
           <motion.div
             variants={videoVariants}
             initial="hidden"
@@ -201,11 +187,10 @@ const Hero = () => {
             transition={{ duration: 0.3 }}
             className="col-span-12 lg:col-span-6 relative group z-10 px-2 sm:px-4 lg:px-0"
           >
-            {/* Static spotlight glow - adjusted for mobile */}
             <div className="absolute -inset-3 sm:-inset-4 lg:-inset-6 bg-gradient-to-br from-[#d62828]/10 via-[#a41313]/5 to-transparent rounded-[30px] sm:rounded-[40px] blur-3xl" />
 
-            <div className="relative bg-white rounded-lg sm:rounded-xl border-2 border-[#a41313]/15 overflow-hidden shadow-md sm:shadow-lg transform group-hover:scale-[1.01] sm:group-hover:scale-[1.02] transition-all duration-500">
-              {/* Play button overlay - smaller on mobile */}
+            <div className="relative bg-white rounded-lg sm:rounded-xl border-2 border-[#a41313]/30 overflow-hidden shadow-md sm:shadow-lg transform group-hover:scale-[1.01] sm:group-hover:scale-[1.02] transition-all duration-500">
+              {/* Play button overlay */}
               {!isPlaying && (
                 <div className="absolute inset-0 flex items-center justify-center bg-white/20 backdrop-blur-sm z-10">
                   <button
@@ -223,7 +208,7 @@ const Hero = () => {
                 </div>
               )}
 
-              {/* Compelling badge - smaller on mobile */}
+              {/* Compelling badge */}
               {!isPlaying ? (
                 <div className="absolute top-2 right-2 sm:top-3 sm:right-3 lg:top-4 lg:right-4 bg-[#2b2d42]/90 backdrop-blur-sm px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-full z-10 flex items-center gap-1 sm:gap-1.5 lg:gap-2 border border-white/20">
                   <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3">
@@ -262,7 +247,6 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right Side - Stacked Images */}
           <motion.div
             variants={imageContainerVariants}
             initial="hidden"
@@ -276,7 +260,7 @@ const Hero = () => {
               transition={{ duration: 0.3 }}
               className="relative group w-[110%] self-end"
             >
-              <div className="relative bg-white rounded-xl border border-[#a41313]/10 overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl border-2 border-[#a41313]/20 overflow-hidden shadow-sm">
                 <img
                   src={geomap}
                   alt="Analytics Dashboard Preview"
@@ -293,7 +277,7 @@ const Hero = () => {
               transition={{ duration: 0.3 }}
               className="relative group w-[110%] self-end"
             >
-              <div className="relative bg-white rounded-xl border border-[#a41313]/10 overflow-hidden shadow-sm">
+              <div className="relative bg-white rounded-xl border-2 border-[#a41313]/20 overflow-hidden shadow-sm">
                 <img
                   src={government}
                   alt="Reports Dashboard"

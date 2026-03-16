@@ -25,12 +25,9 @@ const Footer = () => {
     Legal: [
       { name: "Privacy", href: "#" },
       { name: "Terms", href: "#" },
-      { name: "Security", href: "#" },
-      { name: "Cookies", href: "#" },
     ],
   };
 
-  // Only Facebook with proper icon
   const socialLinks = [{ icon: Facebook, name: "Facebook", href: "#" }];
 
   return (
@@ -38,7 +35,6 @@ const Footer = () => {
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16">
         {/* Main Footer Content */}
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 mb-6 md:mb-8 lg:mb-12">
-          {/* Brand Column - Left on mobile/desktop, center on tablet */}
           <div className="lg:col-span-4 text-left md:text-center lg:text-left">
             <div className="flex items-center justify-start md:justify-center lg:justify-start gap-2 mb-4">
               <img
@@ -53,7 +49,7 @@ const Footer = () => {
               businesses. Simplify your workforce management today.
             </p>
 
-            {/* Social Icons - Single Facebook icon */}
+            {/* Social Icons */}
             <div className="flex justify-start md:justify-center lg:justify-start gap-2 sm:gap-3">
               {socialLinks.map((social, i) => {
                 const IconComponent = social.icon;
@@ -105,7 +101,7 @@ const Footer = () => {
         {/* Subtle gradient divider */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E8E0D9] to-transparent my-6 sm:my-7 md:my-8" />
 
-        {/* Bottom Bar - Left aligned on mobile */}
+        {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 sm:gap-4">
           <p className="text-xs sm:text-sm text-[#9B8F85] order-2 md:order-1 text-left">
             © {new Date().getFullYear()} HRPay Companion. All rights reserved.

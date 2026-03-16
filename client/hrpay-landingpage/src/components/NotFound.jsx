@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Home, ArrowLeft, Search } from "lucide-react";
+import { Home, Search } from "lucide-react";
 import Button from "./Buttons";
 
 const NotFound = () => {
@@ -12,7 +12,6 @@ const NotFound = () => {
         transition={{ duration: 0.5 }}
         className="text-center max-w-2xl mx-auto w-full"
       >
-        {/* Animated 404 */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -100,16 +99,8 @@ const NotFound = () => {
               Go to Homepage
             </Button>
           </Link>
-          <button
-            onClick={() => window.history.back()}
-            className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-2.5 border-2 border-[#D51C3D] text-[#D51C3D] hover:bg-[#D51C3D] hover:text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2 text-sm sm:text-base"
-          >
-            <ArrowLeft className="w-4 h-4 sm:w-4 sm:h-4" />
-            Go Back
-          </button>
         </motion.div>
 
-        {/* Decorative elements - adjusted for mobile */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
           <div className="absolute -top-20 sm:-top-30 md:-top-40 -right-20 sm:-right-30 md:-right-40 w-40 sm:w-60 md:w-80 h-40 sm:h-60 md:h-80 bg-[#D51C3D]/5 rounded-full blur-2xl sm:blur-3xl"></div>
           <div className="absolute -bottom-20 sm:-bottom-30 md:-bottom-40 -left-20 sm:-left-30 md:-left-40 w-40 sm:w-60 md:w-80 h-40 sm:h-60 md:h-80 bg-[#780000]/5 rounded-full blur-2xl sm:blur-3xl"></div>

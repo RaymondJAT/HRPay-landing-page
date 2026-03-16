@@ -41,7 +41,7 @@ const MobileApp = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-[#fdf0d5] relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
       {/* Warm decorative background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#c1121f]/5 rounded-full blur-3xl"></div>
@@ -50,7 +50,7 @@ const MobileApp = () => {
       </div>
 
       {/* Warm overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#fdf0d5] to-[#f5e6d3] opacity-50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#faf7f2] to-[#f5f0e8] opacity-50" />
 
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
@@ -146,7 +146,7 @@ const MobileApp = () => {
               className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-3 sm:mb-4"
             >
               <div className="w-6 sm:w-8 h-0.5 bg-[#c1121f]"></div>
-              <span className="text-[10px] sm:text-xs font-medium text-[#c1121f] uppercase tracking-[0.2em]">
+              <span className="text-xs sm:text-sm font-medium text-[#c1121f] uppercase tracking-[0.2em]">
                 ChronusMTK Mobile
               </span>
               <div className="w-6 sm:w-8 h-0.5 bg-[#c1121f]"></div>
@@ -199,10 +199,10 @@ const MobileApp = () => {
               >
                 <Apple className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                 <div>
-                  <div className="text-[8px] sm:text-[10px] lg:text-xs">
+                  <div className="text-[10px] sm:text-xs lg:text-sm">
                     Download on the
                   </div>
-                  <div className="text-[10px] sm:text-xs lg:text-sm font-semibold">
+                  <div className="text-xs sm:text-sm lg:text-base font-semibold">
                     App Store
                   </div>
                 </div>
@@ -214,10 +214,10 @@ const MobileApp = () => {
               >
                 <Play className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                 <div>
-                  <div className="text-[8px] sm:text-[10px] lg:text-xs">
+                  <div className="text-[10px] sm:text-xs lg:text-sm">
                     Get it on
                   </div>
-                  <div className="text-[10px] sm:text-xs lg:text-sm font-semibold">
+                  <div className="text-xs sm:text-sm lg:text-base font-semibold">
                     Google Play
                   </div>
                 </div>
