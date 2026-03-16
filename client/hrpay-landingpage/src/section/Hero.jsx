@@ -94,7 +94,7 @@ const Hero = () => {
           animate="visible"
           variants={fadeUpVariants}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-4xl mx-auto mt-0 md:mt-24 lg:mt-32 mb-6 md:mb-8 lg:mb-10"
+          className="text-center max-w-4xl mx-auto mt-8 md:mt-28 lg:mt-36 mb-6 md:mb-8 lg:mb-10"
         >
           <motion.h1
             variants={fadeUpVariants}
