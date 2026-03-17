@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Home, Search } from "lucide-react";
+import { Home } from "lucide-react";
 import Button from "./Buttons";
 
 const NotFound = () => {
@@ -46,42 +46,6 @@ const NotFound = () => {
         >
           Oops! The page you're looking for doesn't exist or has been moved.
         </motion.p>
-
-        {/* Search suggestion */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="bg-[#F8F5F2] rounded-xl p-4 sm:p-5 md:p-6 mb-6 sm:mb-7 md:mb-8 mx-2 sm:mx-4 md:mx-0"
-        >
-          <div className="flex items-center justify-center sm:justify-start gap-2 sm:gap-3 mb-2 sm:mb-3">
-            <Search className="w-4 h-4 sm:w-5 sm:h-5 text-[#D51C3D]" />
-            <span className="text-xs sm:text-sm font-medium text-[#2b2d42]">
-              Looking for something?
-            </span>
-          </div>
-          <p className="text-xs sm:text-sm text-[#4a4e69] text-center sm:text-left">
-            Try checking out our{" "}
-            <Link
-              to="/solutions"
-              className="text-[#D51C3D] hover:underline font-medium"
-            >
-              Solutions
-            </Link>
-            ,{" "}
-            <Link
-              to="/features"
-              className="text-[#D51C3D] hover:underline font-medium"
-            >
-              Features
-            </Link>
-            , or go back to the{" "}
-            <Link to="/" className="text-[#D51C3D] hover:underline font-medium">
-              homepage
-            </Link>
-            .
-          </p>
-        </motion.div>
 
         {/* Action buttons */}
         <motion.div

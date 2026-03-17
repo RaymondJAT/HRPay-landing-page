@@ -39,7 +39,7 @@ const Contact = () => {
       variants={containerVariants}
       className="w-full mb-16 md:mb-20 lg:mb-24"
     >
-      <div className="relative bg-gradient-to-br from-[#0D141A] to-[#1a2634] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl">
+      <div className="relative bg-gradient-to-br from-[#0D141A] to-[#1a2634] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl">
         {/* Decorative elements */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0 bg-[radial-gradient(#E5E1DC_1px,transparent_1px)] [background-size:24px_24px]" />

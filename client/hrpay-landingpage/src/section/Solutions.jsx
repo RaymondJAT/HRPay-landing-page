@@ -63,13 +63,14 @@ const Solutions = () => {
           </p>
         </motion.div>
 
+        {/* Customization Options */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUpVariants}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10 bg-[#f5e6d3]/20 backdrop-blur-sm rounded-xl p-4 md:p-5 border border-[#a41313]/30 shadow-sm mx-2 sm:mx-0"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10 bg-[#f5e6d3]/20 backdrop-blur-sm rounded-xl p-4 md:p-5 border-2 border-[#780000] shadow-sm mx-2 sm:mx-0"
         >
           {customizationOptions.map((option, index) => {
             const IconComponent = option.icon;
@@ -112,7 +113,7 @@ const Solutions = () => {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-white rounded-lg sm:rounded-xl p-5 sm:p-6 border border-[#a41313]/30 group-hover:shadow-md group-hover:border-[#d62828]/40 transition-all duration-300 h-full">
+                <div className="bg-white rounded-lg sm:rounded-xl p-5 sm:p-6 border-2 border-[#780000] group-hover:border-[#d62828]/40 group-hover:shadow-md transition-all duration-300 h-full">
                   {/* Icon */}
                   <div className="relative w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4">
                     <div className="absolute inset-0 bg-[#d62828]/5 rounded-lg sm:rounded-xl"></div>

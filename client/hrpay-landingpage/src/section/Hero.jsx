@@ -72,8 +72,8 @@ const Hero = () => {
 
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 m-4 md:m-6 lg:m-8">
-          {/* main container */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#faf7f2] rounded-2xl md:rounded-3xl shadow-[0_20px_50px_-15px_rgba(164,19,19,0.15)]">
+          {/* main container with maroon border */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#faf7f2] rounded-2xl md:rounded-3xl shadow-[0_20px_50px_-15px_rgba(164,19,19,0.15)] border-2 border-[#780000]">
             {/* inner container */}
             <div className="absolute inset-[1px] bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden">
               {/* spotlight effect */}

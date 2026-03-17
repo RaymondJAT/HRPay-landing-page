@@ -1,7 +1,19 @@
 import { motion } from "framer-motion";
-import Button from "../components/Buttons";
 import mobileAppImage from "../assets/mobile.png";
-import { Smartphone, CheckCircle, Apple, Play } from "lucide-react";
+import { Smartphone, CheckCircle } from "lucide-react";
+
+// App Store and Google Play SVG logos
+const AppStoreIcon = () => (
+  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.008-2.117 3.675-.546 9.106 1.52 12.09 1.013 1.454 2.217 3.09 3.798 3.03 1.52-.06 2.09-.98 3.937-.98 1.838 0 2.355.98 3.968.95 1.64-.03 2.677-1.485 3.677-2.95 1.15-1.68 1.62-3.31 1.65-3.4-.037-.01-3.16-1.22-3.19-4.84-.03-3.04 2.48-4.48 2.6-4.55-1.43-2.09-3.62-2.32-4.39-2.38-1.99-.16-3.66 1.09-4.63 1.09zM15.552 1.92c.75-.91 1.26-2.17 1.12-3.43-1.08.04-2.38.72-3.15 1.62-.69.8-1.3 2.09-1.13 3.32 1.19.09 2.4-.62 3.16-1.51z" />
+  </svg>
+);
+
+const GooglePlayIcon = () => (
+  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202c.633.357.633 1.237 0 1.594zM6.259 6.467l8.163 8.145-4.644 2.627c-.948.536-2.146.213-2.682-.735-.074-.13-.127-.27-.163-.413l-.001-.002v-9.624c0-1.092.886-1.978 1.978-1.978.335 0 .662.085.95.247l4.645 2.628-8.163 8.145c-.574-.673-.574-1.692 0-2.365l.001-.002 3.128-3.129-3.128-3.129c-.574-.673-.574-1.692 0-2.365zM3.258 18.509c-.947.535-2.145.213-2.681-.735-.075-.13-.127-.27-.164-.413v-9.624c0-1.093.886-1.979 1.979-1.979.335 0 .662.085.949.247l4.646 2.628-3.128 3.129-3.128 3.129c-.574.674-.574 1.693 0 2.366v-.001z" />
+  </svg>
+);
 
 const MobileApp = () => {
   const fadeUpVariants = {
@@ -185,7 +197,7 @@ const MobileApp = () => {
               ))}
             </div>
 
-            {/* App Store badges - centered on mobile */}
+            {/* App Store badges - matching ChronusMTK style */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -195,31 +207,25 @@ const MobileApp = () => {
             >
               <a
                 href="#"
-                className="flex items-center gap-1 sm:gap-2 bg-[#2b2d42] text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl hover:bg-[#4a4e69] transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 bg-[#2b2d42] hover:bg-[#4a4e69] text-white px-5 py-2.5 rounded-lg transition-colors shadow-md"
               >
-                <Apple className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
-                <div>
-                  <div className="text-[10px] sm:text-xs lg:text-sm">
+                <AppStoreIcon />
+                <div className="text-left">
+                  <div className="text-[8px] text-white/70">
                     Download on the
                   </div>
-                  <div className="text-xs sm:text-sm lg:text-base font-semibold">
-                    App Store
-                  </div>
+                  <div className="text-xs font-semibold">App Store</div>
                 </div>
               </a>
 
               <a
                 href="#"
-                className="flex items-center gap-1 sm:gap-2 bg-[#2b2d42] text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl hover:bg-[#4a4e69] transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 bg-[#2b2d42] hover:bg-[#4a4e69] text-white px-5 py-2.5 rounded-lg transition-colors shadow-md"
               >
-                <Play className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
-                <div>
-                  <div className="text-[10px] sm:text-xs lg:text-sm">
-                    Get it on
-                  </div>
-                  <div className="text-xs sm:text-sm lg:text-base font-semibold">
-                    Google Play
-                  </div>
+                <GooglePlayIcon />
+                <div className="text-left">
+                  <div className="text-[8px] text-white/70">Get it on</div>
+                  <div className="text-xs font-semibold">Google Play</div>
                 </div>
               </a>
             </motion.div>

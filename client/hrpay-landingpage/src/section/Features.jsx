@@ -68,7 +68,7 @@ const Features = () => {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="group"
               >
-                <div className="relative bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-[#a41313]/30 group-hover:border-[#d62828]/40 group-hover:shadow-md transition-all duration-300 h-full flex flex-col items-center text-center">
+                <div className="relative bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border-2 border-[#780000] group-hover:border-[#d62828]/40 group-hover:shadow-md transition-all duration-300 h-full flex flex-col items-center text-center">
                   {/* Icon - removed background box */}
                   <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mb-2 sm:mb-3 flex items-center justify-center text-[#a41313] group-hover:scale-110 transition-all duration-300">
                     <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5" />
@@ -103,7 +103,7 @@ const Features = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-6 md:mb-8 lg:mb-10 px-2 sm:px-0"
         >
-          <div className="bg-[#f5e6d3]/30 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-[#a41313]/30">
+          <div className="bg-[#f5e6d3]/30 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border-2 border-[#780000]">
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                 <span className="text-xs sm:text-sm font-medium text-[#d62828] uppercase tracking-wider">
@@ -122,7 +122,7 @@ const Features = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: i * 0.1 }}
-                      className="inline-flex items-center gap-1 px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 bg-white text-[#4a4e69] text-xs sm:text-sm rounded-full border border-[#a41313]/20 shadow-sm"
+                      className="inline-flex items-center gap-1 px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 bg-white text-[#4a4e69] text-xs sm:text-sm rounded-full border-2 border-[#780000] shadow-sm"
                     >
                       <IconComponent className="w-3 h-3 sm:w-4 sm:h-4 text-[#d62828]" />
                       {item.name}
