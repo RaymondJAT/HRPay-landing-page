@@ -21,11 +21,10 @@ import PlatformIntegration from "./pages/PlatformIntegration";
 // industries
 import Retail from "./pages/Industries/Retails";
 import Manufacturing from "./pages/industries/Manufacturing";
-import Construction from "./pages/industries/Construction";
-import Logistics from "./pages/industries/Logistics";
 import Healthcare from "./pages/industries/Healthcare";
 import Education from "./pages/industries/Education";
 import Technology from "./pages/industries/Technology";
+import Finance from "./pages/industries/Finance";
 
 function App() {
   return (
@@ -100,18 +99,10 @@ function App() {
             }
           />
           <Route
-            path="/industries/construction"
+            path="/industries/finance"
             element={
               <main className="flex-grow">
-                <Construction />
-              </main>
-            }
-          />
-          <Route
-            path="/industries/logistics"
-            element={
-              <main className="flex-grow">
-                <Logistics />
+                <Finance />
               </main>
             }
           />

@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import Button from "../components/Buttons";
 import mobileAppImage from "../assets/mobilelogo.png";
+import mobileApp from "../assets/Mobile App.png";
 import Contact from "../components/Contact";
 
 const EmployeeExperience = () => {
@@ -188,20 +189,16 @@ const EmployeeExperience = () => {
               </div>
             </div>
 
-            {/* Image - Right side */}
+            {/* Image - Right side - no container */}
             <motion.div
               variants={fadeInRightVariants}
               className="order-1 lg:order-2 flex justify-center w-full"
             >
-              <div className="relative w-[80%] sm:w-80 md:w-[400px]">
-                <div className="bg-white rounded-2xl border border-[#a41313]/20 overflow-hidden shadow-lg">
-                  <img
-                    src={mobileAppImage}
-                    alt="Mobile App Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
+              <img
+                src={mobileApp}
+                alt="Mobile App Dashboard"
+                className="w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px] h-auto object-contain"
+              />
             </motion.div>
           </div>
         </motion.div>
@@ -214,20 +211,16 @@ const EmployeeExperience = () => {
           className="mb-16 md:mb-20"
         >
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Image - Left side */}
+            {/* Image - Left side - no container */}
             <motion.div
               variants={fadeInLeftVariants}
               className="order-1 flex justify-center w-full"
             >
-              <div className="relative w-[80%] sm:w-80 md:w-[400px]">
-                <div className="bg-white rounded-2xl border border-[#a41313]/20 overflow-hidden shadow-lg">
-                  <img
-                    src={mobileAppImage}
-                    alt="Expense Management Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
+              <img
+                src={mobileAppImage}
+                alt="Expense Management Dashboard"
+                className="w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px] h-auto object-contain"
+              />
             </motion.div>
 
             {/* Content - Right side */}
@@ -316,20 +309,16 @@ const EmployeeExperience = () => {
               </div>
             </div>
 
-            {/* Image - Right side */}
+            {/* Image - Right side - no container */}
             <motion.div
               variants={fadeInRightVariants}
               className="order-1 lg:order-2 flex justify-center w-full"
             >
-              <div className="relative w-[80%] sm:w-80 md:w-[400px]">
-                <div className="bg-white rounded-2xl border border-[#a41313]/20 overflow-hidden shadow-lg">
-                  <img
-                    src={mobileAppImage}
-                    alt="Performance Management Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
+              <img
+                src={mobileAppImage}
+                alt="Performance Management Dashboard"
+                className="w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px] h-auto object-contain"
+              />
             </motion.div>
           </div>
         </motion.div>
@@ -342,20 +331,16 @@ const EmployeeExperience = () => {
           className="mb-16 md:mb-20"
         >
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Image - Left side */}
+            {/* Image - Left side - no container */}
             <motion.div
               variants={fadeInLeftVariants}
               className="order-1 flex justify-center w-full"
             >
-              <div className="relative w-[80%] sm:w-80 md:w-[400px]">
-                <div className="bg-white rounded-2xl border border-[#a41313]/20 overflow-hidden shadow-lg">
-                  <img
-                    src={mobileAppImage}
-                    alt="Learning Management Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
+              <img
+                src={mobileAppImage}
+                alt="Learning Management Dashboard"
+                className="w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px] h-auto object-contain"
+              />
             </motion.div>
 
             {/* Content - Right side */}
@@ -444,20 +429,16 @@ const EmployeeExperience = () => {
               </div>
             </div>
 
-            {/* Image - Right side */}
+            {/* Image - Right side - no container */}
             <motion.div
               variants={fadeInRightVariants}
               className="order-1 lg:order-2 flex justify-center w-full"
             >
-              <div className="relative w-[80%] sm:w-80 md:w-[400px]">
-                <div className="bg-white rounded-2xl border border-[#a41313]/20 overflow-hidden shadow-lg">
-                  <img
-                    src={mobileAppImage}
-                    alt="Document Management Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
+              <img
+                src={mobileAppImage}
+                alt="Document Management Dashboard"
+                className="w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px] h-auto object-contain"
+              />
             </motion.div>
           </div>
         </motion.div>
