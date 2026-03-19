@@ -151,7 +151,7 @@ const Navigation = () => {
               <Button
                 variant="primary"
                 size="md"
-                className="px-6 py-2.5 text-base bg-[#f12121] hover:bg-[#a41313]"
+                className="px-6 py-2.5 text-base bg-[#a41313] hover:bg-[#780000]"
                 onClick={() => handleNavigation("/book-demo")}
               >
                 Book a Demo
@@ -204,7 +204,7 @@ const Navigation = () => {
 
               <div className="flex-1 overflow-y-auto py-2 px-5">
                 <div className="flex flex-col space-y-6">
-                  {/* About Mobile - Moved to top */}
+                  {/* About Mobile */}
                   <button
                     onClick={() => handleNavigation("/about")}
                     className="block w-full text-left text-[#0D141A] hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-3 px-3 rounded-lg text-lg font-medium transition-colors"
@@ -341,7 +341,7 @@ const Navigation = () => {
               <div className="p-5 border-t border-gray-100">
                 <Button
                   variant="primary"
-                  className="w-full py-3.5 text-base bg-[#f12121] hover:bg-[#a41313]"
+                  className="w-full py-3.5 text-base bg-[#a41313] hover:bg-[#780000]"
                   onClick={() => handleNavigation("/book-demo")}
                 >
                   Book a Demo

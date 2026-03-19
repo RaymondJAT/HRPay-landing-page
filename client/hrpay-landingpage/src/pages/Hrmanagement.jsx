@@ -18,7 +18,9 @@ import {
   Award,
 } from "lucide-react";
 import Button from "../components/Buttons";
-import mobileAppImage from "../assets/mobilelogo.png";
+import coreHR from "../assets/Core HR.png";
+import timeAttendance from "../assets/Time & Attendance.png";
+import leaveManagement from "../assets/Leave Management.png";
 import Contact from "../components/Contact";
 
 const HRManagement = () => {
@@ -87,14 +89,13 @@ const HRManagement = () => {
 
   return (
     <div className="min-h-screen bg-white pt-32 sm:pt-36 md:pt-40 pb-0">
-      {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#a41313]/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#780000]/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header Section - Full Width Container with Gradient */}
+        {/* Header Section */}
         <motion.div
           initial="hidden"
           animate="visible"
@@ -121,7 +122,7 @@ const HRManagement = () => {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="bg-[#d62828] hover:bg-[#a41313] text-white shadow-md px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
+                  className="bg-[#a41313] hover:bg-[#780000] text-white shadow-md px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
                 >
                   Book a Demo
                 </Button>
@@ -182,14 +183,12 @@ const HRManagement = () => {
               variants={fadeInRightVariants}
               className="order-1 lg:order-2 flex justify-center w-full"
             >
-              <div className="relative w-[80%] sm:w-80 md:w-[400px]">
-                <div className="bg-white rounded-2xl border border-[#a41313]/20 overflow-hidden shadow-lg">
-                  <img
-                    src={mobileAppImage}
-                    alt="Core HR Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
+              <div className="relative w-[95%] sm:w-[90%] md:w-[600px] lg:w-[650px] xl:w-[700px]">
+                <img
+                  src={coreHR}
+                  alt="Core HR Dashboard"
+                  className="w-full h-auto object-contain drop-shadow-2xl"
+                />
               </div>
             </motion.div>
           </div>
@@ -203,19 +202,17 @@ const HRManagement = () => {
           className="mb-16 md:mb-20"
         >
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Image */}
+            {/* Image Time & Attendance */}
             <motion.div
               variants={fadeInLeftVariants}
               className="order-1 flex justify-center w-full"
             >
-              <div className="relative w-[80%] sm:w-80 md:w-[400px]">
-                <div className="bg-white rounded-2xl border border-[#a41313]/20 overflow-hidden shadow-lg">
-                  <img
-                    src={mobileAppImage}
-                    alt="Time & Attendance Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
+              <div className="relative w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px]">
+                <img
+                  src={timeAttendance}
+                  alt="Time & Attendance Dashboard"
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </motion.div>
 
@@ -306,19 +303,17 @@ const HRManagement = () => {
               </div>
             </div>
 
-            {/* Image */}
+            {/* Image Leave Management */}
             <motion.div
               variants={fadeInRightVariants}
               className="order-1 lg:order-2 flex justify-center w-full"
             >
-              <div className="relative w-[80%] sm:w-80 md:w-[400px]">
-                <div className="bg-white rounded-2xl border border-[#a41313]/20 overflow-hidden shadow-lg">
-                  <img
-                    src={mobileAppImage}
-                    alt="Leave Management Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
+              <div className="relative w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px]">
+                <img
+                  src={leaveManagement}
+                  alt="Leave Management Dashboard"
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </motion.div>
           </div>

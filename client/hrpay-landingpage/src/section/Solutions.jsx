@@ -8,6 +8,11 @@ const Solutions = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const fadeInLeftVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   const featuredSolutions = [
     ...(solutions
       .find((c) => c.category === "By Industry")
@@ -24,41 +29,44 @@ const Solutions = () => {
   ];
 
   return (
-    <section className="py-12 md:py-16 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#a41313]/5 rounded-full blur-3xl"></div>
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-[#780000]/5 rounded-full blur-3xl"></div>
+    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#d62828]/5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#a41313]/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-[#f5e6d3] rounded-full blur-3xl"></div>
       </div>
+
+      <div className="absolute inset-0 bg-[radial-gradient(#a41313_1px,transparent_1px)] [background-size:24px_24px] opacity-5" />
 
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={fadeUpVariants}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left mb-6 md:mb-8"
+          className="max-w-3xl mx-0 text-left mb-10 md:mb-14 lg:mb-16"
         >
           <motion.div
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center justify-center lg:justify-start gap-2 md:gap-3 mb-3 md:mb-4"
+            className="inline-flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4"
           >
-            <div className="w-6 md:w-8 h-0.5 bg-[#a41313]"></div>
+            <div className="w-6 sm:w-8 h-0.5 bg-[#a41313]"></div>
             <span className="text-xs sm:text-sm font-medium text-[#a41313] uppercase tracking-[0.2em]">
               Solutions for Every Need
             </span>
-            <div className="w-6 md:w-8 h-0.5 bg-[#a41313]"></div>
+            <div className="w-6 sm:w-8 h-0.5 bg-[#a41313]"></div>
           </motion.div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#2b2d42] mb-3 md:mb-4 tracking-tight px-4 sm:px-0">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#2b2d42] mb-4 md:mb-5 tracking-tight leading-[1.1] px-4 sm:px-0">
             Solutions That <span className="text-[#d62828]">Fit</span> Your
             Business
           </h2>
-          <p className="text-base sm:text-lg text-[#4a4e69] px-4 sm:px-0 max-w-2xl lg:max-w-none">
+          <p className="text-base sm:text-lg md:text-xl text-[#4a4e69] px-4 sm:px-0 max-w-2xl leading-relaxed">
             Whether by industry, size, or challenge — we have a solution for you
           </p>
         </motion.div>
@@ -67,85 +75,82 @@ const Solutions = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUpVariants}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-10 bg-[#f5e6d3]/20 backdrop-blur-sm rounded-xl p-4 md:p-5 border-2 border-[#780000] shadow-sm mx-2 sm:mx-0"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInLeftVariants}
+          transition={{ duration: 0.6 }}
+          className="mb-10 md:mb-14 lg:mb-16"
         >
-          {customizationOptions.map((option, index) => {
-            const IconComponent = option.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="flex items-center gap-3 md:gap-4 p-3 md:p-3.5 hover:bg-[#f5e6d3]/30 rounded-lg transition-colors"
-              >
-                <div className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center text-[#a41313]">
-                  <IconComponent className="w-5 h-5 md:w-6 md:h-6" />
-                </div>
-                <div className="text-left flex-1">
-                  <h3 className="text-sm md:text-base font-semibold text-[#2b2d42]">
-                    {option.title}
-                  </h3>
-                  <p className="text-xs md:text-sm text-[#4a4e69] line-clamp-2">
-                    {option.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+          <div className="bg-[#f5e6d3]/20 backdrop-blur-sm rounded-xl p-6 md:p-8 border-2 border-[#780000] shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              {customizationOptions.map((option, index) => {
+                const IconComponent = option.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                    className="flex gap-3 sm:gap-4"
+                  >
+                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 flex items-center justify-center text-[#a41313]">
+                      <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-[#2b2d42] mb-0.5 sm:mb-1">
+                        {option.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#4a4e69] leading-relaxed">
+                        {option.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
         </motion.div>
 
         {/* Featured Solutions */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-8 px-2 sm:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
           {featuredSolutions.map((item, index) => {
             const IconComponent = item.icon;
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="group"
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                className="group h-full"
               >
-                <div className="bg-white rounded-lg sm:rounded-xl p-5 sm:p-6 border-2 border-[#780000] group-hover:border-[#d62828]/40 group-hover:shadow-md transition-all duration-300 h-full">
+                <div className="bg-white rounded-lg sm:rounded-xl p-5 sm:p-6 border-2 border-[#780000] group-hover:border-[#d62828] group-hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                   {/* Icon */}
-                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 mb-3 sm:mb-4">
-                    <div className="absolute inset-0 bg-[#d62828]/5 rounded-lg sm:rounded-xl"></div>
-                    <div className="relative w-full h-full bg-white rounded-lg sm:rounded-xl flex items-center justify-center text-[#a41313]">
-                      <IconComponent className="w-6 h-6 sm:w-7 sm:h-7" />
-                    </div>
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#a41313] group-hover:text-[#d62828] group-hover:scale-110 transition-all duration-300 mb-3 sm:mb-4">
+                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
 
-                  {/* Title with hover effect */}
-                  <h3 className="text-base sm:text-lg font-semibold text-[#2b2d42] group-hover:text-[#d62828] transition-colors duration-300 mb-2 sm:mb-3">
-                    {item.title}
-                  </h3>
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="text-base sm:text-lg font-semibold text-[#2b2d42] group-hover:text-[#d62828] transition-colors duration-300 mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-[#4a4e69] mb-4 line-clamp-2">
+                      {item.description}
+                    </p>
 
-                  <p className="text-sm text-[#4a4e69] mb-3 sm:mb-4 line-clamp-3">
-                    {item.description}
-                  </p>
-
-                  {/* Benefits */}
-                  <div className="space-y-2 sm:space-y-2.5">
-                    {item.benefits
-                      .slice(0, window.innerWidth < 640 ? 2 : 3)
-                      .map((benefit, i) => (
-                        <div
-                          key={i}
-                          className="flex items-start gap-2 sm:gap-2.5"
-                        >
-                          <Check className="w-4 h-4 sm:w-5 sm:h-5 text-[#780000] flex-shrink-0 mt-0.5" />
-                          <span className="text-sm text-[#4a4e69] leading-tight">
+                    {/* Benefits */}
+                    <div className="space-y-2">
+                      {item.benefits.slice(0, 2).map((benefit, i) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <Check className="w-4 h-4 text-[#780000] flex-shrink-0 mt-0.5 group-hover:text-[#d62828] transition-colors duration-300" />
+                          <span className="text-xs sm:text-sm text-[#4a4e69] leading-tight">
                             {benefit}
                           </span>
                         </div>
                       ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>

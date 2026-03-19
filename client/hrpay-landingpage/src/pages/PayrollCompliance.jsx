@@ -19,7 +19,8 @@ import {
   Shield,
 } from "lucide-react";
 import Button from "../components/Buttons";
-import mobileAppImage from "../assets/mobilelogo.png";
+import payrollModule from "../assets/Payroll Module.png";
+import reportsCompliance from "../assets/Reports & Compliance.png";
 import Contact from "../components/Contact";
 
 const PayrollCompliance = () => {
@@ -69,14 +70,13 @@ const PayrollCompliance = () => {
 
   return (
     <div className="min-h-screen bg-white pt-32 sm:pt-36 md:pt-40 pb-0">
-      {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#a41313]/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#780000]/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header Section - Full Width Container with Gradient */}
+        {/* Header Section */}
         <motion.div
           initial="hidden"
           animate="visible"
@@ -103,7 +103,7 @@ const PayrollCompliance = () => {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="bg-[#d62828] hover:bg-[#a41313] text-white shadow-md px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
+                  className="bg-[#a41313] hover:bg-[#780000] text-white shadow-md px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
                 >
                   Book a Demo
                 </Button>
@@ -112,7 +112,7 @@ const PayrollCompliance = () => {
           </div>
         </motion.div>
 
-        {/* Payroll Module Section - Image on Left, Content on Right */}
+        {/* Payroll Module Section */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -125,18 +125,16 @@ const PayrollCompliance = () => {
               variants={fadeInLeftVariants}
               className="order-1 flex justify-center w-full"
             >
-              <div className="relative w-[80%] sm:w-80 md:w-[400px]">
-                <div className="bg-white rounded-2xl border border-[#a41313]/20 overflow-hidden shadow-lg">
-                  <img
-                    src={mobileAppImage}
-                    alt="Payroll Module Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
+              <div className="relative w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px]">
+                <img
+                  src={payrollModule}
+                  alt="Payroll Module Dashboard"
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </motion.div>
 
-            {/* Content - Right side */}
+            {/* Content */}
             <div className="order-2 w-full">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#d62828]/10 rounded-xl flex items-center justify-center text-[#d62828]">
@@ -176,7 +174,7 @@ const PayrollCompliance = () => {
           </div>
         </motion.div>
 
-        {/* Reports & Compliance Section - Image on Right, Content on Left */}
+        {/* Reports & Compliance Section */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -184,7 +182,7 @@ const PayrollCompliance = () => {
           className="mb-16 md:mb-20"
         >
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Content - Left side */}
+            {/* Content */}
             <div className="order-2 lg:order-1 w-full">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#d62828]/10 rounded-xl flex items-center justify-center text-[#d62828]">
@@ -222,19 +220,17 @@ const PayrollCompliance = () => {
               </div>
             </div>
 
-            {/* Image - Right side */}
+            {/* Image */}
             <motion.div
               variants={fadeInRightVariants}
               className="order-1 lg:order-2 flex justify-center w-full"
             >
-              <div className="relative w-[80%] sm:w-80 md:w-[400px]">
-                <div className="bg-white rounded-2xl border border-[#a41313]/20 overflow-hidden shadow-lg">
-                  <img
-                    src={mobileAppImage}
-                    alt="Reports & Compliance Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
+              <div className="relative w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px]">
+                <img
+                  src={reportsCompliance}
+                  alt="Reports & Compliance Dashboard"
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </motion.div>
           </div>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Button from "../components/Buttons";
-import employeeDataImage from "../assets/mobilelogo.png";
+import whyChooseImage from "../assets/whychoose.png";
 import { Users, Calculator, Workflow } from "lucide-react";
 
 const Why = () => {
@@ -35,29 +35,8 @@ const Why = () => {
     },
   ];
 
-  const imageBlocks = [
-    { id: 1, position: "0 0" },
-    { id: 2, position: "100% 0" },
-    { id: 3, position: "0 100%" },
-    { id: 4, position: "100% 100%" },
-  ];
-
-  const blockVariants = {
-    hidden: { opacity: 0, scale: 0.8, y: 20 },
-    visible: (i) => ({
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        delay: 0.3 + i * 0.15,
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    }),
-  };
-
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white relative overflow-hidden">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#d62828]/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#a41313]/5 rounded-full blur-3xl"></div>
@@ -146,86 +125,51 @@ const Why = () => {
               <Button
                 variant="primary"
                 size="md"
-                className="min-w-[140px] sm:min-w-[160px] bg-[#d62828] hover:bg-[#a41313] text-white shadow-md px-5 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base"
+                className="min-w-[140px] sm:min-w-[160px] bg-[#a41313] hover:bg-[#780000] text-white shadow-md px-5 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base"
               >
                 Book a Demo
               </Button>
             </motion.div>
           </motion.div>
 
-          {/* Image Blocks */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeInRightVariants}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative flex items-center order-1 lg:order-2 mb-6 sm:mb-8 lg:mb-0 px-4 sm:px-6 lg:px-0"
+            className="relative flex items-center justify-center order-1 lg:order-2 mb-6 sm:mb-8 lg:mb-0"
           >
-            <div className="absolute -top-6 sm:-top-10 -left-4 sm:-left-6 lg:-left-10 w-24 sm:w-32 lg:w-48 h-24 sm:h-32 lg:h-48 bg-[#d62828]/10 rounded-full blur-xl sm:blur-2xl lg:blur-3xl" />
-            <div className="absolute -bottom-6 sm:-bottom-8 lg:-bottom-12 -right-4 sm:-right-6 lg:-right-8 w-28 sm:w-40 lg:w-56 h-28 sm:h-40 lg:h-56 bg-[#a41313]/10 rounded-full blur-xl sm:blur-2xl lg:blur-3xl" />
-            <div className="absolute top-1/3 -right-4 sm:-right-8 lg:-right-12 w-16 sm:w-24 lg:w-32 h-16 sm:h-24 lg:h-32 bg-[#f5e6d3] rounded-full blur-lg sm:blur-xl lg:blur-2xl" />
-            <div className="absolute bottom-1/4 -left-4 sm:-left-6 lg:-left-8 w-20 sm:w-28 lg:w-40 h-20 sm:h-28 lg:h-40 bg-[#f5e6d3] rounded-full blur-lg sm:blur-xl lg:blur-2xl" />
+            <div className="absolute -top-16 -left-16 w-64 h-64 bg-[#d62828]/5 rounded-full blur-3xl" />
+            <div className="absolute -bottom-12 -right-12 w-72 h-72 bg-[#a41313]/5 rounded-full blur-3xl" />
+            <div className="absolute top-1/3 -right-8 w-40 h-40 bg-[#f5e6d3] rounded-full blur-2xl" />
+            <div className="absolute bottom-1/4 -left-12 w-48 h-48 bg-[#f5e6d3] rounded-full blur-2xl" />
 
-            <div className="absolute top-3 sm:top-4 lg:top-6 right-3 sm:right-4 lg:right-6 w-10 sm:w-12 lg:w-16 h-10 sm:h-12 lg:h-16 opacity-15">
-              <div className="grid grid-cols-3 gap-0.5 sm:gap-1">
-                {[...Array(9)].map((_, i) => (
+            <div className="absolute inset-0 opacity-10 pointer-events-none">
+              <div className="absolute top-10 right-16 grid grid-cols-5 gap-1.5">
+                {[...Array(15)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-[#d62828] rounded-full"
+                    className="w-1.5 h-1.5 bg-[#d62828] rounded-full"
+                  />
+                ))}
+              </div>
+              <div className="absolute bottom-16 left-12 grid grid-cols-4 gap-1.5">
+                {[...Array(12)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1.5 h-1.5 bg-[#a41313] rounded-full"
                   />
                 ))}
               </div>
             </div>
 
-            <div className="absolute bottom-3 sm:bottom-4 lg:bottom-6 left-3 sm:left-4 lg:left-6 w-10 sm:w-12 lg:w-16 h-10 sm:h-12 lg:h-16 opacity-15">
-              <div className="grid grid-cols-3 gap-0.5 sm:gap-1">
-                {[...Array(9)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-[#d62828] rounded-full"
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full">
-              {imageBlocks.map((block, index) => {
-                const isOdd = index % 2 === 0;
-                return (
-                  <motion.div
-                    key={block.id}
-                    custom={index}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
-                    variants={blockVariants}
-                    whileHover={{
-                      rotate: isOdd ? "2.5deg" : "-2.5deg",
-                      scale: 1.05,
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="relative bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl border border-[#a41313]/10 shadow-md sm:shadow-lg overflow-hidden group aspect-[4/3] cursor-pointer"
-                  >
-                    <div
-                      className="w-full h-full bg-cover bg-no-repeat"
-                      style={{
-                        backgroundImage: `url(${employeeDataImage})`,
-                        backgroundPosition: block.position,
-                        backgroundSize: "200% 200%",
-                      }}
-                    />
-
-                    {/* Subtle gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    {/* Corner accents */}
-                    <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-[#d62828]/30 rounded-tr-md opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-[#d62828]/30 rounded-bl-md opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </motion.div>
-                );
-              })}
-            </div>
+            {/* Main Image */}
+            <img
+              src={whyChooseImage}
+              alt="Why Choose HRPay Companion"
+              className="relative w-full max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl h-auto object-contain drop-shadow-2xl"
+            />
           </motion.div>
         </div>
       </div>
