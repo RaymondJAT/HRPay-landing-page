@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import Button from "../components/Buttons";
-import ctaBg from "../assets/ctabg.png";
+import Button from "../../components/Buttons";
+import ctaBg from "../../assets/ctabg.png";
 
 const CTA = () => {
   const containerVariants = {

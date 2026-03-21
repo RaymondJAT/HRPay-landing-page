@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import mobileAppImage from "../assets/mobile.png";
+import mobileAppImage from "../../assets/mobile.png";
 import { Smartphone, CheckCircle } from "lucide-react";
 
 const AppStoreIcon = () => (

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import { mainFeatures, addOns } from "../mapping/features";
-import featureVideo from "../assets/hrpaychronus.mp4";
+import { mainFeatures, addOns } from "../../mapping/features";
+import featureVideo from "../../assets/hrpaychronus.mp4";
 
 const Features = () => {
   const videoRef = useRef(null);

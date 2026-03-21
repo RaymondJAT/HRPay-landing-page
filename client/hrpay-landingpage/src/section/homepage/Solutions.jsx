@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { solutions, customizationOptions } from "../mapping/solutions";
+import { solutions, customizationOptions } from "../../mapping/solutions";
 import { Check } from "lucide-react";
 
 const Solutions = () => {

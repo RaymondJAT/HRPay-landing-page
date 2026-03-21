@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import Button from "../components/Buttons";
-import employee from "../assets/clockinout.png";
-import government from "../assets/government.png";
-import clockinout from "../assets/leave.png";
-import geomap from "../assets/geo.png";
-import redbg from "../assets/redbg.png";
-import dashboard from "../assets/dashboard.png";
+import Button from "../../components/Buttons";
+import employee from "../../assets/clockinout.png";
+import government from "../../assets/government.png";
+import clockinout from "../../assets/leave.png";
+import geomap from "../../assets/geo.png";
+import redbg from "../../assets/redbg.png";
+import dashboard from "../../assets/dashboard.png";
 
 const Hero = () => {
   const fadeUpVariants = {

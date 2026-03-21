@@ -4,13 +4,13 @@ import NotFound from "./components/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
 // homepage
-import Hero from "./section/Hero";
-import Features from "./section/Features";
-import CTA from "./section/CTA";
-import Footer from "./section/Footer";
-import Why from "./section/Why";
-import Solutions from "./section/Solutions";
-import MobileApp from "./section/MobileApp";
+import Hero from "./section/homepage/Hero";
+import Features from "./section/homepage/Features";
+import CTA from "./section/homepage/CTA";
+import Footer from "./section/homepage/Footer";
+import Why from "./section/homepage/Why";
+import Solutions from "./section/homepage/Solutions";
+import MobileApp from "./section/homepage/MobileApp";
 
 // solutions
 import HRManagement from "./pages/Hrmanagement";

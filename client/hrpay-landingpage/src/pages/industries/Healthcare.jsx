@@ -16,7 +16,9 @@ import {
   Stethoscope,
 } from "lucide-react";
 import Button from "../../components/Buttons";
-import healthcareImage from "../../assets/chronus.png";
+import healthcareImage from "../../assets/industry/Healthcare.png";
+import redBg from "../../assets/ctabg.png";
+import industryBg from "../../assets/industrybg.png";
 import Contact from "../../components/Contact";
 import ChronusMTK from "../../components/ChronusMTK";
 
@@ -118,79 +120,87 @@ const Healthcare = () => {
       </div>
 
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Hero Section */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeUpVariants}
-          className="w-full mb-12 md:mb-16 lg:mb-20"
+        {/* Hero Section with redbg container */}
+        <div
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden mb-12 md:mb-16 lg:mb-20"
+          style={{
+            backgroundImage: `url(${redBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
-            {/* Left side - Content */}
-            <div className="order-2 lg:order-1">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-[#2b2d42] mb-4 md:mb-6 tracking-tight leading-[1.1] text-center lg:text-left px-4 sm:px-6 lg:px-0">
-                HR & Payroll for{" "}
-                <span className="text-[#d62828]">Healthcare</span>
-              </h1>
+          {/* Semi-transparent overlay for better text contrast */}
+          <div className="absolute inset-0" />
 
-              <p className="text-base sm:text-lg md:text-xl text-[#4a4e69] mb-6 md:mb-8 leading-relaxed text-center lg:text-left px-4 sm:px-6 lg:px-0">
-                A modern HR and payroll system built for healthcare. Simplify
-                complex staffing needs, track certifications, and manage
-                compliance in one place.
-              </p>
+          {/* Content */}
+          <div className="relative z-10 py-8 sm:py-10 md:py-12 lg:py-14 px-4 sm:px-6 md:px-8 lg:px-12">
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+              {/* Left side - Content */}
+              <div className="order-2 lg:order-1">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-[#2b2d42] mb-4 md:mb-6 tracking-tight leading-[1.1] text-center lg:text-left px-4 sm:px-6 lg:px-0">
+                  HR & Payroll for{" "}
+                  <span className="text-[#d62828]">Healthcare</span>
+                </h1>
 
-              {/* Key Benefits - 2 per row grid */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-6 md:mb-8 px-4 sm:px-6 lg:px-0">
-                {benefits.map((benefit, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 + index * 0.1 }}
-                    className="flex items-center gap-1 sm:gap-2 bg-white/80 backdrop-blur-sm px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg border-2 border-[#780000] shadow-sm"
+                <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 leading-relaxed text-center lg:text-left px-4 sm:px-6 lg:px-0">
+                  A modern HR and payroll system built for healthcare. Simplify
+                  complex staffing needs, track certifications, and manage
+                  compliance in one place.
+                </p>
+
+                {/* Key Benefits - 2 per row grid */}
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-6 md:mb-8 px-4 sm:px-6 lg:px-0">
+                  {benefits.map((benefit, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3 + index * 0.1 }}
+                      className="flex items-center gap-1 sm:gap-2 bg-white/80 backdrop-blur-sm px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg border-2 border-[#780000] shadow-sm"
+                    >
+                      <benefit.icon className="w-3 h-3 sm:w-4 sm:h-4 text-[#d62828] flex-shrink-0" />
+                      <span className="text-[10px] sm:text-xs text-[#2b2d42] leading-tight">
+                        {benefit.text}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="flex justify-center lg:justify-start px-4 sm:px-6 lg:px-0"
+                >
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="bg-[#a41313] hover:bg-[#780000] text-white shadow-lg shadow-[#d62828]/30 px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
                   >
-                    <benefit.icon className="w-3 h-3 sm:w-4 sm:h-4 text-[#d62828] flex-shrink-0" />
-                    <span className="text-[10px] sm:text-xs text-[#2b2d42] leading-tight">
-                      {benefit.text}
-                    </span>
-                  </motion.div>
-                ))}
+                    Book a Demo
+                  </Button>
+                </motion.div>
               </div>
 
+              {/* Right side - Hero Image */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="flex justify-center lg:justify-start px-4 sm:px-6 lg:px-0"
+                variants={fadeInRightVariants}
+                className="order-1 lg:order-2 flex justify-center w-full px-4 sm:px-6 lg:px-0 mb-6 lg:mb-0"
               >
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="bg-[#d62828] hover:bg-[#a41313] text-white shadow-md px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
-                >
-                  Book a Demo
-                </Button>
+                <div className="relative w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px]">
+                  <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-br from-[#d62828]/20 via-[#a41313]/10 to-transparent rounded-[30px] sm:rounded-[40px] blur-3xl"></div>
+                  <div className="relative">
+                    <img
+                      src={healthcareImage}
+                      alt="HRPay Companion for Healthcare"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+                </div>
               </motion.div>
             </div>
-
-            {/* Right side - Hero Image */}
-            <motion.div
-              variants={fadeInRightVariants}
-              className="order-1 lg:order-2 flex justify-center w-full px-4 sm:px-6 lg:px-0 mb-6 lg:mb-0"
-            >
-              <div className="relative w-[280px] sm:w-[350px] md:w-[400px] lg:w-[450px]">
-                <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-br from-[#d62828]/20 via-[#a41313]/10 to-transparent rounded-[30px] sm:rounded-[40px] blur-3xl"></div>
-                <div className="relative bg-white rounded-xl sm:rounded-2xl border-2 border-[#a41313]/20 overflow-hidden shadow-xl sm:shadow-2xl">
-                  <img
-                    src={healthcareImage}
-                    alt="HRPay Companion for Healthcare"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
-            </motion.div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Why Choose Us Section */}
         <motion.div
@@ -374,7 +384,7 @@ const Healthcare = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-lg p-3 sm:p-4 border-2 border-[#780000] whitespace-nowrap"
+                    className="bg-white rounded-lg p-3 sm:p-4 border-2 border-[#780000]"
                   >
                     <p className="text-[10px] sm:text-xs text-[#2b2d42] font-medium">
                       {item}
@@ -393,16 +403,26 @@ const Healthcare = () => {
           viewport={{ once: true }}
           className="mb-12 md:mb-16 lg:mb-20 px-4 sm:px-6 lg:px-0"
         >
-          <div className="bg-gradient-to-br from-[#0D141A] to-[#1a2634] rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center border-2 relative overflow-hidden">
+          <div
+            className="relative rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center overflow-hidden"
+            style={{
+              backgroundImage: `url(${industryBg})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            {/* Dark overlay for better text contrast */}
+            <div className="absolute inset-0" />
+
             {/* Decorative elements */}
-            <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#d62828]/10 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-[#d62828]/10 rounded-full blur-3xl"></div>
+            <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#d62828]/20 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-[#a41313]/20 rounded-full blur-3xl"></div>
 
             <div className="relative z-10">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-medium text-white mb-3 sm:mb-4 px-4">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-medium mb-3 sm:mb-4 px-4">
                 Ready to simplify your healthcare HR?
               </h3>
-              <p className="text-sm sm:text-base text-white/70 mb-5 sm:mb-8 max-w-2xl mx-auto px-4">
+              <p className="text-sm sm:text-base mb-5 sm:mb-8 max-w-2xl mx-auto px-4">
                 See how HRPay Companion can help you manage your healthcare
                 workforce.
               </p>

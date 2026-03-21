@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import Button from "../components/Buttons";
+import ctaBg from "../assets/redbg.png";
 
 const Contact = () => {
   const fadeUpVariants = {
@@ -39,21 +40,20 @@ const Contact = () => {
       variants={containerVariants}
       className="w-full mb-16 md:mb-20 lg:mb-24"
     >
-      <div className="relative bg-gradient-to-br from-[#0D141A] to-[#1a2634] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[radial-gradient(#E5E1DC_1px,transparent_1px)] [background-size:24px_24px]" />
-        </div>
-
-        <div className="absolute -top-20 -right-20 w-48 sm:w-64 h-48 sm:h-64 bg-[#D51C3D]/15 rounded-full blur-2xl sm:blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-48 sm:w-64 h-48 sm:h-64 bg-[#D51C3D]/15 rounded-full blur-2xl sm:blur-3xl" />
-
+      <div
+        className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl"
+        style={{
+          backgroundImage: `url(${ctaBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         {/* Content */}
         <div className="relative py-10 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-12 lg:px-16">
           {/* Headline */}
           <motion.h3
             variants={itemVariants}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-white text-center mb-3 tracking-tight"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#2b2d42] text-center mb-3 tracking-tight"
           >
             Ready to streamline your HR processes?
           </motion.h3>
@@ -61,7 +61,7 @@ const Contact = () => {
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base md:text-lg text-white/70 text-center max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed"
+            className="text-sm sm:text-base md:text-lg text-[#4a4e69] text-center max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed"
           >
             Get in touch with us to learn how our HR Management solution can
             transform your workforce management.
@@ -76,16 +76,16 @@ const Contact = () => {
             <div>
               <label
                 htmlFor="fullName"
-                className="block text-xs sm:text-sm font-medium text-white/80 mb-1 sm:mb-2"
+                className="block text-xs sm:text-sm font-medium text-[#2b2d42] mb-1 sm:mb-2"
               >
-                Full Name <span className="text-[#D51C3D]">*</span>
+                Full Name <span className="text-[#d62828]">*</span>
               </label>
               <input
                 type="text"
                 id="fullName"
                 name="fullName"
                 placeholder="Juan Dela Cruz"
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-white/20 focus:border-[#D51C3D] focus:outline-none focus:ring-1 focus:ring-[#D51C3D] transition-colors bg-white/10 text-white placeholder-white/50 text-sm sm:text-base"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 border-[#780000] focus:border-[#d62828] focus:outline-none focus:ring-1 focus:ring-[#d62828] transition-colors bg-white/90 text-[#2b2d42] placeholder-[#4a4e69]/60 text-sm sm:text-base"
                 required
               />
             </div>
@@ -95,16 +95,16 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="contactNumber"
-                  className="block text-xs sm:text-sm font-medium text-white/80 mb-1 sm:mb-2"
+                  className="block text-xs sm:text-sm font-medium text-[#2b2d42] mb-1 sm:mb-2"
                 >
-                  Contact Number <span className="text-[#D51C3D]">*</span>
+                  Contact Number <span className="text-[#d62828]">*</span>
                 </label>
                 <input
                   type="tel"
                   id="contactNumber"
                   name="contactNumber"
                   placeholder="+63 912 345 6789"
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-white/20 focus:border-[#D51C3D] focus:outline-none focus:ring-1 focus:ring-[#D51C3D] transition-colors bg-white/10 text-white placeholder-white/50 text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 border-[#780000] focus:border-[#d62828] focus:outline-none focus:ring-1 focus:ring-[#d62828] transition-colors bg-white/90 text-[#2b2d42] placeholder-[#4a4e69]/60 text-sm sm:text-base"
                   required
                 />
               </div>
@@ -112,16 +112,16 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-xs sm:text-sm font-medium text-white/80 mb-1 sm:mb-2"
+                  className="block text-xs sm:text-sm font-medium text-[#2b2d42] mb-1 sm:mb-2"
                 >
-                  Email Address <span className="text-[#D51C3D]">*</span>
+                  Email Address <span className="text-[#d62828]">*</span>
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   placeholder="juan.delacruz@example.com"
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-white/20 focus:border-[#D51C3D] focus:outline-none focus:ring-1 focus:ring-[#D51C3D] transition-colors bg-white/10 text-white placeholder-white/50 text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 border-[#780000] focus:border-[#d62828] focus:outline-none focus:ring-1 focus:ring-[#d62828] transition-colors bg-white/90 text-[#2b2d42] placeholder-[#4a4e69]/60 text-sm sm:text-base"
                   required
                 />
               </div>
@@ -131,16 +131,16 @@ const Contact = () => {
             <div>
               <label
                 htmlFor="message"
-                className="block text-xs sm:text-sm font-medium text-white/80 mb-1 sm:mb-2"
+                className="block text-xs sm:text-sm font-medium text-[#2b2d42] mb-1 sm:mb-2"
               >
-                Message <span className="text-[#D51C3D]">*</span>
+                Message <span className="text-[#d62828]">*</span>
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows={4}
                 placeholder="Tell us about your HR needs..."
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-white/20 focus:border-[#D51C3D] focus:outline-none focus:ring-1 focus:ring-[#D51C3D] transition-colors bg-white/10 text-white placeholder-white/50 resize-none text-sm sm:text-base"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 border-[#780000] focus:border-[#d62828] focus:outline-none focus:ring-1 focus:ring-[#d62828] transition-colors bg-white/90 text-[#2b2d42] placeholder-[#4a4e69]/60 resize-none text-sm sm:text-base"
                 required
               />
             </div>
@@ -155,20 +155,23 @@ const Contact = () => {
                 type="submit"
                 variant="primary"
                 size="lg"
-                className="w-full bg-[#D51C3D] hover:bg-[#B5172E] text-white shadow-lg shadow-[#D51C3D]/20 py-2.5 sm:py-3 text-sm sm:text-base flex items-center justify-center gap-2"
+                className="w-full bg-[#a41313] hover:bg-[#780000] text-white shadow-lg shadow-[#d62828]/30 py-2.5 sm:py-3 text-sm sm:text-base flex items-center justify-center gap-2"
               >
                 <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 Send Message
               </Button>
             </motion.div>
 
-            {/* Privacy Policy */}
+            {/* Privacy Policy - Updated font color */}
             <motion.p
               variants={itemVariants}
-              className="text-xs text-white/60 text-center mt-3 sm:mt-4"
+              className="text-xs text-white text-center mt-3 sm:mt-4"
             >
               By submitting this form, you agree to our{" "}
-              <a href="#" className="text-[#D51C3D] hover:underline">
+              <a
+                href="#"
+                className="text-black hover:text-[#cbb3b3] hover:underline transition-colors"
+              >
                 Privacy Policy
               </a>{" "}
               and consent to be contacted.

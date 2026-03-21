@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import Button from "../components/Buttons";
-import whyChooseImage from "../assets/whychoose.png";
+import Button from "../../components/Buttons";
+import whyChooseImage from "../../assets/whychoose.png";
 import { Users, Calculator, Workflow } from "lucide-react";
 
 const Why = () => {

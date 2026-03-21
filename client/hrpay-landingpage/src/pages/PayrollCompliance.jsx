@@ -1,27 +1,9 @@
 import { motion } from "framer-motion";
-import {
-  Wallet,
-  FileText,
-  Calculator,
-  Receipt,
-  Award,
-  Clock,
-  TrendingUp,
-  Users,
-  Settings,
-  CheckCircle,
-  BarChart,
-  PieChart,
-  Download,
-  AlertCircle,
-  Layers,
-  BookOpen,
-  Shield,
-} from "lucide-react";
 import Button from "../components/Buttons";
-import payrollModule from "../assets/Payroll Module.png";
-import reportsCompliance from "../assets/Reports & Compliance.png";
+import redBg from "../assets/ctabg.png";
 import Contact from "../components/Contact";
+import PayrollModule from "../section/payroll-compliance/PayrollModule";
+import ReportsCompliance from "../section/payroll-compliance/ReportsCompliance";
 
 const PayrollCompliance = () => {
   const fadeUpVariants = {
@@ -29,61 +11,29 @@ const PayrollCompliance = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const fadeInLeftVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: { opacity: 1, x: 0 },
-  };
-
-  const fadeInRightVariants = {
-    hidden: { opacity: 0, x: 30 },
-    visible: { opacity: 1, x: 0 },
-  };
-
-  const payrollModules = [
-    { name: "Payroll computation", icon: Calculator },
-    { name: "Salary structures", icon: Layers },
-    { name: "Automatic deductions", icon: Receipt },
-    { name: "Overtime calculations", icon: Clock },
-    { name: "Allowances & bonuses", icon: Award },
-    { name: "13th month pay", icon: TrendingUp },
-    { name: "Government contributions", icon: Shield },
-    { name: "Tax computation", icon: Calculator },
-    { name: "Payslip generation", icon: FileText },
-    { name: "Payroll history", icon: BookOpen },
-    { name: "Bank payroll export", icon: Download },
-    { name: "Payroll approval workflow", icon: CheckCircle },
-    { name: "Cutoff management", icon: Settings },
-    { name: "Payroll summary reports", icon: PieChart },
-  ];
-
-  const reportsComplianceModules = [
-    { name: "Payroll reports", icon: BarChart },
-    { name: "Attendance reports", icon: Clock },
-    { name: "Employee reports", icon: Users },
-    { name: "Government compliance reports", icon: Shield },
-    { name: "BIR / SSS / PhilHealth / Pag-IBIG reports", icon: FileText },
-    { name: "Audit logs", icon: AlertCircle },
-    { name: "Custom report generation", icon: Settings },
-    { name: "HR analytics dashboards", icon: PieChart },
-    { name: "Workforce statistics", icon: TrendingUp },
-  ];
-
   return (
     <div className="min-h-screen bg-white pt-32 sm:pt-36 md:pt-40 pb-0">
+      {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#a41313]/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#780000]/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header Section */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeUpVariants}
-          className="w-full mb-16 md:mb-20"
+        {/* Header Section with redbg container */}
+        <div
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden mb-16 md:mb-20"
+          style={{
+            backgroundImage: `url(${redBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
-          <div className="bg-gradient-to-br from-[#faf7f2] via-white to-[#f5e6d3] backdrop-blur-sm rounded-2xl border border-[#a41313]/20 shadow-lg p-8 md:p-10 w-full">
+          {/* Semi-transparent overlay for better text contrast */}
+          <div className="absolute inset-0 bg-black/5" />
+
+          {/* Content */}
+          <div className="relative z-10 py-10 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-[#2b2d42] mb-4 tracking-tight leading-[1.1]">
                 Payroll & <span className="text-[#d62828]">Compliance</span>
@@ -110,131 +60,13 @@ const PayrollCompliance = () => {
               </motion.div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Payroll Module Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mb-16 md:mb-20"
-        >
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Image - Left side */}
-            <motion.div
-              variants={fadeInLeftVariants}
-              className="order-1 flex justify-center w-full"
-            >
-              <div className="relative w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px]">
-                <img
-                  src={payrollModule}
-                  alt="Payroll Module Dashboard"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            </motion.div>
+        {/* Payroll Module Component */}
+        <PayrollModule />
 
-            {/* Content */}
-            <div className="order-2 w-full">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#d62828]/10 rounded-xl flex items-center justify-center text-[#d62828]">
-                  <Wallet className="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-[#2b2d42]">
-                  Payroll Module
-                </h2>
-              </div>
-
-              <p className="text-sm sm:text-base text-[#4a4e69] mb-8 leading-relaxed">
-                Comprehensive payroll processing with automated calculations,
-                deductions, and government contributions.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-                {payrollModules.map((module, index) => {
-                  const IconComponent = module.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.03 }}
-                      className="flex items-start gap-3"
-                    >
-                      <IconComponent className="w-4 h-4 text-[#d62828] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-[#2b2d42]">
-                        {module.name}
-                      </span>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Reports & Compliance Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mb-16 md:mb-20"
-        >
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Content */}
-            <div className="order-2 lg:order-1 w-full">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#d62828]/10 rounded-xl flex items-center justify-center text-[#d62828]">
-                  <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-[#2b2d42]">
-                  Reports & Compliance
-                </h2>
-              </div>
-
-              <p className="text-sm sm:text-base text-[#4a4e69] mb-8 leading-relaxed">
-                Generate comprehensive reports and ensure compliance with
-                government regulations through automated reporting.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-                {reportsComplianceModules.map((module, index) => {
-                  const IconComponent = module.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.03 }}
-                      className="flex items-start gap-3"
-                    >
-                      <IconComponent className="w-4 h-4 text-[#d62828] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-[#2b2d42]">
-                        {module.name}
-                      </span>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Image */}
-            <motion.div
-              variants={fadeInRightVariants}
-              className="order-1 lg:order-2 flex justify-center w-full"
-            >
-              <div className="relative w-[90%] sm:w-[85%] md:w-[500px] lg:w-[550px] xl:w-[600px]">
-                <img
-                  src={reportsCompliance}
-                  alt="Reports & Compliance Dashboard"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+        {/* Reports & Compliance Component */}
+        <ReportsCompliance />
 
         {/* Contact Section */}
         <Contact />
