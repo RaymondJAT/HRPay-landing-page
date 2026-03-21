@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Button from "../../components/Buttons";
 import ctaBg from "../../assets/ctabg.png";
 
@@ -98,13 +99,15 @@ const CTA = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-10 px-4 sm:px-0"
             >
-              <Button
-                variant="primary"
-                size="lg"
-                className="bg-[#a41313] hover:bg-[#780000] min-w-[160px] sm:min-w-[180px] shadow-lg shadow-[#a41313]/30 text-white text-sm sm:text-base py-2.5 sm:py-3"
-              >
-                Book a Demo
-              </Button>
+              <Link to="/contact">
+                <Button
+                  variant="primary"
+                  size="md"
+                  className="min-w-[140px] sm:min-w-[160px] bg-[#a41313] hover:bg-[#780000] text-white shadow-md px-5 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base"
+                >
+                  Book a Demo
+                </Button>
+              </Link>
             </motion.div>
 
             {/* Feature badges */}

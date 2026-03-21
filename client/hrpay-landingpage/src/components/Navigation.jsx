@@ -152,7 +152,7 @@ const Navigation = () => {
                 variant="primary"
                 size="md"
                 className="px-6 py-2.5 text-base bg-[#a41313] hover:bg-[#780000]"
-                onClick={() => handleNavigation("/book-demo")}
+                onClick={() => handleNavigation("/contact")}
               >
                 Book a Demo
               </Button>
@@ -342,7 +342,7 @@ const Navigation = () => {
                 <Button
                   variant="primary"
                   className="w-full py-3.5 text-base bg-[#a41313] hover:bg-[#780000]"
-                  onClick={() => handleNavigation("/book-demo")}
+                  onClick={() => handleNavigation("/contact")}
                 >
                   Book a Demo
                 </Button>

@@ -20,13 +20,12 @@ const Footer = () => {
       { name: "Technology & Startups", href: "/industries/technology" },
       { name: "Finance", href: "/industries/finance" },
     ],
-    Legal: [
-      { name: "Privacy", href: "/privacy" },
-      { name: "Terms", href: "/terms" },
-    ],
+    Legal: [{ name: "Privacy Policy", href: "/privacy" }],
   };
 
-  const socialLinks = [{ icon: Facebook, name: "Facebook", href: "https://facebook.com" }];
+  const socialLinks = [
+    { icon: Facebook, name: "Facebook", href: "https://facebook.com" },
+  ];
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -38,8 +37,8 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 mb-6 md:mb-8 lg:mb-12">
           <div className="lg:col-span-4 text-left md:text-center lg:text-left">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               onClick={scrollToTop}
               className="inline-flex items-center justify-start md:justify-center lg:justify-start gap-2 mb-4"
             >

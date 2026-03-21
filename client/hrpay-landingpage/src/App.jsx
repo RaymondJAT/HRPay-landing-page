@@ -11,6 +11,8 @@ import Footer from "./section/homepage/Footer";
 import Why from "./section/homepage/Why";
 import Solutions from "./section/homepage/Solutions";
 import MobileApp from "./section/homepage/MobileApp";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import BookDemo from "./components/BookDemo";
 
 // solutions
 import HRManagement from "./pages/Hrmanagement";
@@ -127,6 +129,26 @@ function App() {
             element={
               <main className="flex-grow">
                 <Technology />
+              </main>
+            }
+          />
+
+          {/* Book a Demo */}
+          <Route
+            path="/contact"
+            element={
+              <main className="flex-grow">
+                <BookDemo />
+              </main>
+            }
+          />
+
+          {/* Privacy Policy */}
+          <Route
+            path="/privacy"
+            element={
+              <main className="flex-grow">
+                <PrivacyPolicy />
               </main>
             }
           />
