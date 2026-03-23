@@ -15,6 +15,7 @@ import {
   Zap,
   Users,
 } from "lucide-react";
+import usePageTitle from "../../hooks/usePageTitle";
 import Button from "../../components/Buttons";
 import retailImage from "../../assets/industry/Retail.png";
 import redBg from "../../assets/ctabg.png";
@@ -23,6 +24,8 @@ import Contact from "../../components/Contact";
 import ChronusMTK from "../../components/ChronusMTK";
 
 const Retail = () => {
+  usePageTitle("HRPay Companion | Retail HR");
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },

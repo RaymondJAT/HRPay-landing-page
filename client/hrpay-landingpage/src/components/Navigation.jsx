@@ -17,6 +17,9 @@ import {
   X,
   Menu,
   Landmark,
+  Info,
+  Calculator,
+  Mail,
 } from "lucide-react";
 
 const Navigation = () => {
@@ -63,8 +66,8 @@ const Navigation = () => {
   const tabs = [
     {
       id: 1,
-      title: "About Us",
-      Component: null,
+      title: "Company",
+      Component: CompanyContent,
     },
     {
       id: 2,
@@ -75,6 +78,11 @@ const Navigation = () => {
       id: 3,
       title: "Industries",
       Component: IndustriesContent,
+    },
+    {
+      id: 4,
+      title: "Resources",
+      Component: ResourcesContent,
     },
   ];
 
@@ -87,10 +95,10 @@ const Navigation = () => {
         className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled || isOpen
             ? "bg-white/95 backdrop-blur-md shadow-sm py-4"
-            : "bg-transparent py-12 md:py-14"
+            : "bg-transparent py-6 sm:py-8 md:py-12 lg:py-14"
         }`}
       >
-        <div className="container max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="container max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <motion.div
@@ -101,38 +109,25 @@ const Navigation = () => {
               <img
                 src={logo}
                 alt="HRPayCompanion Logo"
-                className="h-12 md:h-14 w-auto cursor-pointer"
+                className="h-10 sm:h-11 md:h-12 lg:h-14 w-auto cursor-pointer"
               />
             </motion.div>
 
-            {/* Desktop Menu */}
+            {/* Desktop Menu - Hidden on tablet and mobile */}
             <div
               onMouseLeave={() => handleSetSelected(null)}
-              className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2 gap-2"
+              className="hidden lg:flex items-center absolute left-1/2 transform -translate-x-1/2 gap-2"
             >
-              {tabs.map((tab) => {
-                if (tab.title === "About Us") {
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => handleNavigation("/about")}
-                      className="px-4 py-2 text-[#0D141A]/80 hover:text-[#D51C3D] font-medium transition-colors text-base cursor-pointer"
-                    >
-                      {tab.title}
-                    </button>
-                  );
-                }
-                return (
-                  <Tab
-                    key={tab.id}
-                    selected={selectedTab}
-                    handleSetSelected={handleSetSelected}
-                    tab={tab.id}
-                  >
-                    {tab.title}
-                  </Tab>
-                );
-              })}
+              {tabs.map((tab) => (
+                <Tab
+                  key={tab.id}
+                  selected={selectedTab}
+                  handleSetSelected={handleSetSelected}
+                  tab={tab.id}
+                >
+                  {tab.title}
+                </Tab>
+              ))}
 
               <AnimatePresence>
                 {selectedTab && (
@@ -146,8 +141,8 @@ const Navigation = () => {
               </AnimatePresence>
             </div>
 
-            {/* CTA Button */}
-            <div className="hidden md:block">
+            {/* CTA Button - Hidden on tablet and mobile */}
+            <div className="hidden lg:block">
               <Button
                 variant="primary"
                 size="md"
@@ -158,9 +153,9 @@ const Navigation = () => {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Visible on tablet and mobile */}
             <button
-              className="md:hidden text-[#0D141A] p-2 hover:bg-[#F8F5F2] rounded-lg transition-colors relative z-50 cursor-pointer"
+              className="lg:hidden text-[#0D141A] p-2 hover:bg-[#F8F5F2] rounded-lg transition-colors relative z-50 cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -174,7 +169,7 @@ const Navigation = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Now works for tablet as well */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -182,7 +177,7 @@ const Navigation = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden cursor-pointer"
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden cursor-pointer"
               onClick={() => setIsOpen(false)}
             />
 
@@ -191,7 +186,7 @@ const Navigation = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-40 md:hidden overflow-hidden flex flex-col"
+              className="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-40 lg:hidden overflow-hidden flex flex-col"
             >
               <div className="flex items-center justify-end p-5 border-b border-gray-100">
                 <button
@@ -204,13 +199,36 @@ const Navigation = () => {
 
               <div className="flex-1 overflow-y-auto py-2 px-5">
                 <div className="flex flex-col space-y-6">
-                  {/* About Us Mobile */}
-                  <button
-                    onClick={() => handleNavigation("/about")}
-                    className="block w-full text-left text-[#0D141A] hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-3 px-3 rounded-lg text-lg font-medium transition-colors cursor-pointer"
-                  >
-                    About Us
-                  </button>
+                  {/* Company Mobile */}
+                  <div className="space-y-3">
+                    <div className="text-[#0D141A] font-semibold text-lg">
+                      Company
+                    </div>
+                    <div className="pl-4 space-y-3 border-l-2 border-[#D51C3D]/20">
+                      <button
+                        onClick={() => handleNavigation("/about")}
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors cursor-pointer"
+                      >
+                        <span className="font-medium text-[#0D141A]">
+                          About Us
+                        </span>
+                        <span className="block text-xs text-[#4a4e69] mt-0.5">
+                          Learn more about our company and mission
+                        </span>
+                      </button>
+                      <button
+                        onClick={() => handleNavigation("/contact")}
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors cursor-pointer"
+                      >
+                        <span className="font-medium text-[#0D141A]">
+                          Contact Us
+                        </span>
+                        <span className="block text-xs text-[#4a4e69] mt-0.5">
+                          Get in touch with our team
+                        </span>
+                      </button>
+                    </div>
+                  </div>
 
                   {/* Solutions Mobile */}
                   <div className="space-y-3">
@@ -222,13 +240,13 @@ const Navigation = () => {
                         onClick={() =>
                           handleNavigation("/solutions/hr-management")
                         }
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
+                        className="block w-full text-left text-[#0D141A] hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
                       >
                         HR Management
                       </button>
                       <button
                         onClick={() => handleNavigation("/solutions/payroll")}
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
+                        className="block w-full text-left text-[#0D141A] hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
                       >
                         Payroll & Compliance
                       </button>
@@ -236,13 +254,13 @@ const Navigation = () => {
                         onClick={() =>
                           handleNavigation("/solutions/employee-experience")
                         }
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
+                        className="block w-full text-left text-[#0D141A] hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
                       >
                         Employee Experience
                       </button>
                       <button
                         onClick={() => handleNavigation("/solutions/platform")}
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
+                        className="block w-full text-left text-[#0D141A] hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
                       >
                         Platform & Integrations
                       </button>
@@ -331,6 +349,26 @@ const Navigation = () => {
                         <span className="block text-xs text-[#4a4e69] mt-0.5">
                           Streamline HR operations for financial institutions
                           and banks.
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Resources Mobile */}
+                  <div className="space-y-3">
+                    <div className="text-[#0D141A] font-semibold text-lg">
+                      Resources
+                    </div>
+                    <div className="pl-4 space-y-3 border-l-2 border-[#D51C3D]/20">
+                      <button
+                        onClick={() => handleNavigation("/tax-calculator")}
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors cursor-pointer"
+                      >
+                        <span className="font-medium text-[#0D141A]">
+                          Tax Calculator
+                        </span>
+                        <span className="block text-xs text-[#4a4e69] mt-0.5">
+                          Calculate your net pay after deductions
                         </span>
                       </button>
                     </div>
@@ -437,6 +475,56 @@ const Nub = ({ left }) => (
     transition={{ duration: 0.25 }}
     className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-tl border-t border-l border-gray-200 bg-white"
   />
+);
+
+const CompanyContent = ({ onNavigate }) => (
+  <div className="grid grid-cols-2 gap-4">
+    <button
+      onClick={() => onNavigate("/about")}
+      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
+    >
+      <Info className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+      <div>
+        <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+          About Us
+        </p>
+        <p className="text-xs text-[#4a4e69]">
+          Learn more about our company and mission
+        </p>
+      </div>
+    </button>
+    <button
+      onClick={() => onNavigate("/contact")}
+      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
+    >
+      <Mail className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+      <div>
+        <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+          Contact Us
+        </p>
+        <p className="text-xs text-[#4a4e69]">Get in touch with our team</p>
+      </div>
+    </button>
+  </div>
+);
+
+const ResourcesContent = ({ onNavigate }) => (
+  <div className="grid grid-cols-1 gap-4">
+    <button
+      onClick={() => onNavigate("/tax-calculator")}
+      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
+    >
+      <Calculator className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
+      <div>
+        <p className="text-sm font-medium text-[#2b2d42] group-hover:text-[#a41313]">
+          Tax Calculator
+        </p>
+        <p className="text-xs text-[#4a4e69]">
+          Calculate your net pay after deductions
+        </p>
+      </div>
+    </button>
+  </div>
 );
 
 const SolutionsContent = ({ onNavigate }) => (

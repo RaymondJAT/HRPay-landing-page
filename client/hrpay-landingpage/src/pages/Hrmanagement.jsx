@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import usePageTitle from "../hooks/usePageTitle";
 import Button from "../components/Buttons";
 import redBg from "../assets/ctabg.png";
 import Contact from "../components/Contact";
@@ -8,6 +9,8 @@ import TimeAttendance from "../section/Hrmanagement/TimeAttendance";
 import LeaveManagement from "../section/Hrmanagement/LeaveManagement";
 
 const HRManagement = () => {
+  usePageTitle("HRPay Companion | HR Management");
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },

@@ -1,3 +1,4 @@
+import usePageTitle from "../hooks/usePageTitle";
 import HeroSection from "../section/about/HeroSection";
 import OurStory from "../section/about/OurStory";
 import Different from "../section/about/Different";
@@ -6,6 +7,8 @@ import Commitment from "../section/about/Commitment";
 import Contact from "../components/Contact";
 
 const About = () => {
+  usePageTitle("HRPay Companion | About Us");
+
   return (
     <div className="min-h-screen bg-white pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-0">
       {/* Decorative elements */}

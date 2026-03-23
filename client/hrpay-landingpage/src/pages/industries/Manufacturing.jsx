@@ -16,6 +16,7 @@ import {
   Users,
   Gauge,
 } from "lucide-react";
+import usePageTitle from "../../hooks/usePageTitle";
 import Button from "../../components/Buttons";
 import manufacturingImage from "../../assets/industry/Manufacture.png";
 import redBg from "../../assets/ctabg.png";
@@ -24,6 +25,8 @@ import industryBg from "../../assets/industrybg.png";
 import ChronusMTK from "../../components/ChronusMTK";
 
 const Manufacturing = () => {
+  usePageTitle("HRPay Companion | Manufacturing HR");
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },

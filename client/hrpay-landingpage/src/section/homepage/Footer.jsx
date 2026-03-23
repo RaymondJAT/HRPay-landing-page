@@ -5,7 +5,10 @@ import { Facebook } from "lucide-react";
 
 const Footer = () => {
   const footerSections = {
-    HRPay: [{ name: "About Us", href: "/about" }],
+    Company: [
+      { name: "About Us", href: "/about" },
+      { name: "Contact Us", href: "/contact" },
+    ],
     Solutions: [
       { name: "HR Management", href: "/solutions/hr-management" },
       { name: "Payroll & Compliance", href: "/solutions/payroll" },
@@ -20,7 +23,7 @@ const Footer = () => {
       { name: "Technology & Startups", href: "/industries/technology" },
       { name: "Finance", href: "/industries/finance" },
     ],
-    Legal: [{ name: "Privacy Policy", href: "/privacy" }],
+    Resources: [{ name: "Tax Calculator", href: "/tax-calculator" }],
   };
 
   const socialLinks = [
@@ -77,7 +80,7 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
               {Object.entries(footerSections).map(([title, links]) => (
                 <div
                   key={title}
@@ -109,10 +112,17 @@ const Footer = () => {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-[#E8E0D9] to-transparent my-6 sm:my-7 md:my-8" />
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 sm:gap-4">
-          <p className="text-xs sm:text-sm text-[#9B8F85] order-2 md:order-1 text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+          <p className="text-xs sm:text-sm text-[#9B8F85] order-2 md:order-1">
             © {new Date().getFullYear()} HRPay Companion. All rights reserved.
           </p>
+          <Link
+            to="/privacy"
+            onClick={scrollToTop}
+            className="text-xs sm:text-sm text-[#6B625A] hover:text-[#d62828] transition-colors order-1 md:order-2"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

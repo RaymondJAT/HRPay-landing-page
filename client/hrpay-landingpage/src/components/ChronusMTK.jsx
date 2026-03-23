@@ -64,8 +64,8 @@ const ChronusMTK = () => {
               anytime, anywhere. Perfect for remote teams and field workers.
             </p>
 
-            {/* Feature list */}
-            <div className="grid grid-cols-2 gap-3 mb-6 max-w-md">
+            {/* Feature list - responsive grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 max-w-md">
               {features.map((feature, index) => {
                 const IconComponent = feature.icon;
                 return (
@@ -79,11 +79,11 @@ const ChronusMTK = () => {
               })}
             </div>
 
-            {/* Download buttons with store icons */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            {/* Download buttons - in 2 columns */}
+            <div className="grid grid-cols-2 gap-3 max-w-md">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 bg-[#2b2d42] hover:bg-[#4a4e69] text-white px-5 py-2.5 rounded-lg transition-colors shadow-md"
+                className="inline-flex items-center justify-center gap-2 bg-[#a41313] hover:bg-[#780000] text-white px-3 sm:px-4 py-2.5 rounded-lg transition-colors shadow-md"
               >
                 <AppStoreIcon />
                 <div className="text-left">
@@ -95,7 +95,7 @@ const ChronusMTK = () => {
               </a>
               <a
                 href="#"
-                className="inline-flex items-center gap-2 bg-[#2b2d42] hover:bg-[#4a4e69] text-white px-5 py-2.5 rounded-lg transition-colors shadow-md"
+                className="inline-flex items-center justify-center gap-2 bg-[#a41313] hover:bg-[#780000] text-white px-3 sm:px-4 py-2.5 rounded-lg transition-colors shadow-md"
               >
                 <GooglePlayIcon />
                 <div className="text-left">
@@ -118,8 +118,8 @@ const ChronusMTK = () => {
               {/* Subtle glow effect */}
               <div className="absolute -inset-4 bg-gradient-to-br from-[#d62828]/5 via-[#a41313]/5 to-transparent rounded-[40px] blur-2xl"></div>
 
-              {/* App mockup image */}
-              <div className="relative w-[220px] sm:w-[260px] md:w-[300px]">
+              {/* App mockup image - responsive sizing */}
+              <div className="relative w-[180px] sm:w-[220px] md:w-[260px] lg:w-[300px]">
                 <div className="bg-white rounded-3xl p-2 border-2 border-[#780000] shadow-xl">
                   <img
                     src={mobileAppImage}
@@ -129,10 +129,10 @@ const ChronusMTK = () => {
                 </div>
               </div>
 
-              {/* QR Code Icon */}
-              <div className="absolute -left-12 bottom-12 hidden lg:block">
-                <div className="bg-white p-3 rounded-lg shadow-md border-2 border-[#780000]">
-                  <QrCode className="w-10 h-10" />
+              {/* QR Code Icon - hidden on smaller screens */}
+              <div className="absolute -left-8 lg:-left-12 bottom-8 lg:bottom-12 hidden md:block">
+                <div className="bg-white p-2 sm:p-3 rounded-lg shadow-md border-2 border-[#780000]">
+                  <QrCode className="w-8 h-8 sm:w-10 sm:h-10" />
                 </div>
               </div>
             </div>

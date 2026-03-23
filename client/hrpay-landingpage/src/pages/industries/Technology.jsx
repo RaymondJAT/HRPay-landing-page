@@ -15,6 +15,7 @@ import {
   UserPlus,
   Laptop,
 } from "lucide-react";
+import usePageTitle from "../../hooks/usePageTitle";
 import Button from "../../components/Buttons";
 import technologyImage from "../../assets/industry/startup.png";
 import redBg from "../../assets/ctabg.png";
@@ -23,6 +24,8 @@ import Contact from "../../components/Contact";
 import ChronusMTK from "../../components/ChronusMTK";
 
 const Technology = () => {
+  usePageTitle("HRPay Companion | Technology & Startups");
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },

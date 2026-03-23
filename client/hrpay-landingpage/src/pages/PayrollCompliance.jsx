@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import usePageTitle from "../hooks/usePageTitle";
 import Button from "../components/Buttons";
 import redBg from "../assets/ctabg.png";
 import Contact from "../components/Contact";
@@ -7,6 +8,8 @@ import PayrollModule from "../section/payroll-compliance/PayrollModule";
 import ReportsCompliance from "../section/payroll-compliance/ReportsCompliance";
 
 const PayrollCompliance = () => {
+  usePageTitle("HRPay Companion | Payroll & Compliance");
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },

@@ -14,6 +14,7 @@ import {
   School,
   UserCheck,
 } from "lucide-react";
+import usePageTitle from "../../hooks/usePageTitle";
 import Button from "../../components/Buttons";
 import educationImage from "../../assets/industry/Education.png";
 import redBg from "../../assets/ctabg.png";
@@ -22,6 +23,8 @@ import Contact from "../../components/Contact";
 import ChronusMTK from "../../components/ChronusMTK";
 
 const Education = () => {
+  usePageTitle("HRPay Companion | Education HR");
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },

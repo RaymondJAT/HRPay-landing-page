@@ -1,6 +1,9 @@
+import usePageTitle from "../hooks/usePageTitle";
 import Contact from "./Contact";
 
 const BookDemo = () => {
+  usePageTitle("HRPay Companion | Book a Demo");
+
   return (
     <div className="min-h-screen bg-white pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-0">
       {/* Decorative elements */}

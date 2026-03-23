@@ -16,6 +16,7 @@ import {
   Syringe,
   Stethoscope,
 } from "lucide-react";
+import usePageTitle from "../../hooks/usePageTitle";
 import Button from "../../components/Buttons";
 import healthcareImage from "../../assets/industry/Healthcare.png";
 import redBg from "../../assets/ctabg.png";
@@ -24,6 +25,8 @@ import Contact from "../../components/Contact";
 import ChronusMTK from "../../components/ChronusMTK";
 
 const Healthcare = () => {
+  usePageTitle("HRPay Companion | Healthcare HR");
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },

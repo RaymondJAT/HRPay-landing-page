@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import usePageTitle from "../hooks/usePageTitle";
 import Button from "../components/Buttons";
 import redBg from "../assets/ctabg.png";
 import Contact from "../components/Contact";
 import SystemAccess from "../section/platform-integration/SystemAccess";
 
 const PlatformIntegration = () => {
+  usePageTitle("HRPay Companion | Platform & Integrations");
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },

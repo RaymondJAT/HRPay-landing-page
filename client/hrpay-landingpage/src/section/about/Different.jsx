@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Building2,
-  Sparkles,
-  Layers,
-  Smartphone,
-  HeadphonesIcon,
-} from "lucide-react";
+import { Sparkles, Layers, Smartphone, HeadphonesIcon } from "lucide-react";
 
 const Different = () => {
   const fadeUpVariants = {
@@ -14,12 +8,6 @@ const Different = () => {
   };
 
   const features = [
-    {
-      title: "Built for Local Businesses",
-      description:
-        "We understand local labor laws, government contributions, and the unique needs of businesses. No generic solutions — just what works for you.",
-      icon: Building2,
-    },
     {
       title: "Simple & Intuitive",
       description:
@@ -46,10 +34,6 @@ const Different = () => {
     },
   ];
 
-  // Split features
-  const topRowFeatures = features.slice(0, 3);
-  const bottomRowFeatures = features.slice(3, 5);
-
   return (
     <motion.div
       initial="hidden"
@@ -58,18 +42,18 @@ const Different = () => {
       variants={fadeUpVariants}
       className="mb-16 md:mb-20 lg:mb-24"
     >
-      <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#2b2d42] mb-4">
+      <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-12">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#2b2d42] mb-2 sm:mb-3 md:mb-4">
           What Makes Us <span className="text-[#d62828]">Different</span>
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-[#4a4e69]">
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#4a4e69]">
           We're not just another HR platform. Here's what sets us apart.
         </p>
       </div>
 
-      {/* Top Row - 3 columns */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-        {topRowFeatures.map((feature, index) => {
+      {/* 2x2 Grid - Perfect for all devices */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+        {features.map((feature, index) => {
           const IconComponent = feature.icon;
           return (
             <motion.div
@@ -78,46 +62,17 @@ const Different = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-xl p-6 border-2 border-[#780000] hover:border-[#d62828]/30 hover:shadow-md transition-all duration-300 flex flex-col h-full"
+              className="bg-white rounded-xl p-4 sm:p-5 md:p-6 border-2 border-[#780000] hover:border-[#d62828]/30 hover:shadow-md transition-all duration-300 flex flex-col h-full"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[#a41313]">
-                  <IconComponent className="w-5 h-5" />
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-xl flex items-center justify-center text-[#a41313]">
+                  <IconComponent className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" />
                 </div>
-                <h3 className="text-lg font-semibold text-[#2b2d42]">
+                <h3 className="text-base sm:text-lg font-semibold text-[#2b2d42]">
                   {feature.title}
                 </h3>
               </div>
-              <p className="text-sm text-[#4a4e69] leading-relaxed flex-1 ml-13">
-                {feature.description}
-              </p>
-            </motion.div>
-          );
-        })}
-      </div>
-
-      {/* Bottom Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {bottomRowFeatures.map((feature, index) => {
-          const IconComponent = feature.icon;
-          return (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: (index + 3) * 0.1 }}
-              className="bg-white rounded-xl p-6 border-2 border-[#780000] hover:border-[#d62828]/30 hover:shadow-md transition-all duration-300 flex flex-col h-full"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-[#a41313]">
-                  <IconComponent className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#2b2d42]">
-                  {feature.title}
-                </h3>
-              </div>
-              <p className="text-sm text-[#4a4e69] leading-relaxed flex-1 ml-13">
+              <p className="text-xs sm:text-sm text-[#4a4e69] leading-relaxed flex-1 ml-8 sm:ml-10 md:ml-12">
                 {feature.description}
               </p>
             </motion.div>
