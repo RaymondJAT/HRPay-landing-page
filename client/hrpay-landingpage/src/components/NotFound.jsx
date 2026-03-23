@@ -18,7 +18,7 @@ const NotFound = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="relative mb-4 sm:mb-6 md:mb-8"
         >
-          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-[#D51C3D] opacity-10">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-[#a41313] opacity-10">
             404
           </h1>
           <div className="absolute inset-0 flex items-center justify-center">
@@ -57,7 +57,7 @@ const NotFound = () => {
           <Link to="/" className="w-full sm:w-auto">
             <Button
               variant="primary"
-              className="w-full sm:w-auto bg-[#D51C3D] hover:bg-[#B5172E] flex items-center justify-center gap-2 text-sm sm:text-base py-2.5 sm:py-2.5 px-5 sm:px-6"
+              className="w-full sm:w-auto bg-[#a41313] hover:bg-[#780000] flex items-center justify-center gap-2 text-sm sm:text-base py-2.5 sm:py-2.5 px-5 sm:px-6 cursor-pointer"
             >
               <Home className="w-4 h-4 sm:w-4 sm:h-4" />
               Go to Homepage

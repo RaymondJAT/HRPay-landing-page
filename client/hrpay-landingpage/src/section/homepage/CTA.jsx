@@ -103,7 +103,7 @@ const CTA = () => {
                 <Button
                   variant="primary"
                   size="md"
-                  className="min-w-[140px] sm:min-w-[160px] bg-[#a41313] hover:bg-[#780000] text-white shadow-md px-5 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base"
+                  className="min-w-[140px] sm:min-w-[160px] bg-[#a41313] hover:bg-[#780000] text-white shadow-md px-5 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base cursor-pointer"
                 >
                   Book a Demo
                 </Button>

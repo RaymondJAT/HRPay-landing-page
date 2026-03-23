@@ -1,9 +1,21 @@
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
+import { useState } from "react";
 import Button from "../components/Buttons";
 import ctaBg from "../assets/redbg.png";
 
+const API = import.meta.env.VITE_PRODUCTION_API;
+
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    fullname: "",
+    mobile: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -30,6 +42,60 @@ const Contact = () => {
         ease: "easeOut",
       },
     },
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // const response = await fetch("/api/inquiries/save", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
+
+      const response = await fetch(`${API}/inquiries/save`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      console.log("Result:", response);
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({
+          fullname: "",
+          mobile: "",
+          email: "",
+          message: "",
+        });
+        setTimeout(() => setSubmitStatus(null), 5000);
+      } else {
+        setSubmitStatus("error");
+        setTimeout(() => setSubmitStatus(null), 5000);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -67,23 +133,38 @@ const Contact = () => {
             transform your workforce management.
           </motion.p>
 
+          {/* Success/Error Message */}
+          {submitStatus === "success" && (
+            <div className="max-w-2xl mx-auto mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center">
+              Thank you for your message! We'll get back to you soon.
+            </div>
+          )}
+          {submitStatus === "error" && (
+            <div className="max-w-2xl mx-auto mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg text-center">
+              Something went wrong. Please try again later.
+            </div>
+          )}
+
           {/* Form */}
           <motion.form
             variants={itemVariants}
             className="max-w-2xl mx-auto space-y-4 sm:space-y-5"
+            onSubmit={handleSubmit}
           >
             {/* Full Name */}
             <div>
               <label
-                htmlFor="fullName"
+                htmlFor="fullname"
                 className="block text-xs sm:text-sm font-medium text-[#2b2d42] mb-1 sm:mb-2"
               >
                 Full Name <span className="text-[#d62828]">*</span>
               </label>
               <input
                 type="text"
-                id="fullName"
-                name="fullName"
+                id="fullname"
+                name="fullname"
+                value={formData.fullname}
+                onChange={handleChange}
                 placeholder="Juan Dela Cruz"
                 className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 border-[#780000] focus:border-[#d62828] focus:outline-none focus:ring-1 focus:ring-[#d62828] transition-colors bg-white/90 text-[#2b2d42] placeholder-[#4a4e69]/60 text-sm sm:text-base"
                 required
@@ -94,15 +175,17 @@ const Contact = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <div>
                 <label
-                  htmlFor="contactNumber"
+                  htmlFor="mobile"
                   className="block text-xs sm:text-sm font-medium text-[#2b2d42] mb-1 sm:mb-2"
                 >
                   Contact Number <span className="text-[#d62828]">*</span>
                 </label>
                 <input
                   type="tel"
-                  id="contactNumber"
-                  name="contactNumber"
+                  id="mobile"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleChange}
                   placeholder="+63 912 345 6789"
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 border-[#780000] focus:border-[#d62828] focus:outline-none focus:ring-1 focus:ring-[#d62828] transition-colors bg-white/90 text-[#2b2d42] placeholder-[#4a4e69]/60 text-sm sm:text-base"
                   required
@@ -120,6 +203,8 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="juan.delacruz@example.com"
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 border-[#780000] focus:border-[#d62828] focus:outline-none focus:ring-1 focus:ring-[#d62828] transition-colors bg-white/90 text-[#2b2d42] placeholder-[#4a4e69]/60 text-sm sm:text-base"
                   required
@@ -138,6 +223,8 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
+                value={formData.message}
+                onChange={handleChange}
                 rows={4}
                 placeholder="Tell us about your HR needs..."
                 className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 border-[#780000] focus:border-[#d62828] focus:outline-none focus:ring-1 focus:ring-[#d62828] transition-colors bg-white/90 text-[#2b2d42] placeholder-[#4a4e69]/60 resize-none text-sm sm:text-base"
@@ -155,14 +242,15 @@ const Contact = () => {
                 type="submit"
                 variant="primary"
                 size="lg"
-                className="w-full bg-[#a41313] hover:bg-[#780000] text-white shadow-lg shadow-[#d62828]/30 py-2.5 sm:py-3 text-sm sm:text-base flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className="w-full bg-[#a41313] hover:bg-[#780000] text-white shadow-lg shadow-[#d62828]/30 py-2.5 sm:py-3 text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </motion.div>
 
-            {/* Privacy Policy - Updated font color */}
+            {/* Privacy Policy */}
             <motion.p
               variants={itemVariants}
               className="text-xs text-white text-center mt-3 sm:mt-4"

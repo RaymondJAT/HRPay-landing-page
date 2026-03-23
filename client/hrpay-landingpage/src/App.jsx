@@ -14,6 +14,9 @@ import MobileApp from "./section/homepage/MobileApp";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import BookDemo from "./components/BookDemo";
 
+// about
+import About from "./pages/About";
+
 // solutions
 import HRManagement from "./pages/Hrmanagement";
 import PayrollCompliance from "./pages/PayrollCompliance";
@@ -45,6 +48,16 @@ function App() {
                 <MobileApp />
                 <Why />
                 <CTA />
+              </main>
+            }
+          />
+
+          {/* about */}
+          <Route
+            path="/about"
+            element={
+              <main className="flex-grow">
+                <About />
               </main>
             }
           />

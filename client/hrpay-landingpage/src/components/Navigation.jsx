@@ -63,7 +63,7 @@ const Navigation = () => {
   const tabs = [
     {
       id: 1,
-      title: "About",
+      title: "About Us",
       Component: null,
     },
     {
@@ -101,7 +101,7 @@ const Navigation = () => {
               <img
                 src={logo}
                 alt="HRPayCompanion Logo"
-                className="h-12 md:h-14 w-auto"
+                className="h-12 md:h-14 w-auto cursor-pointer"
               />
             </motion.div>
 
@@ -111,12 +111,12 @@ const Navigation = () => {
               className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2 gap-2"
             >
               {tabs.map((tab) => {
-                if (tab.title === "About") {
+                if (tab.title === "About Us") {
                   return (
                     <button
                       key={tab.id}
                       onClick={() => handleNavigation("/about")}
-                      className="px-4 py-2 text-[#0D141A]/80 hover:text-[#D51C3D] font-medium transition-colors text-base"
+                      className="px-4 py-2 text-[#0D141A]/80 hover:text-[#D51C3D] font-medium transition-colors text-base cursor-pointer"
                     >
                       {tab.title}
                     </button>
@@ -151,7 +151,7 @@ const Navigation = () => {
               <Button
                 variant="primary"
                 size="md"
-                className="px-6 py-2.5 text-base bg-[#a41313] hover:bg-[#780000]"
+                className="px-6 py-2.5 text-base bg-[#a41313] hover:bg-[#780000] cursor-pointer"
                 onClick={() => handleNavigation("/contact")}
               >
                 Book a Demo
@@ -160,7 +160,7 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-[#0D141A] p-2 hover:bg-[#F8F5F2] rounded-lg transition-colors relative z-50"
+              className="md:hidden text-[#0D141A] p-2 hover:bg-[#F8F5F2] rounded-lg transition-colors relative z-50 cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -182,7 +182,7 @@ const Navigation = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden cursor-pointer"
               onClick={() => setIsOpen(false)}
             />
 
@@ -196,7 +196,7 @@ const Navigation = () => {
               <div className="flex items-center justify-end p-5 border-b border-gray-100">
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 hover:bg-[#F8F5F2] rounded-lg transition-colors"
+                  className="p-2 hover:bg-[#F8F5F2] rounded-lg transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5 text-[#0D141A]" />
                 </button>
@@ -204,12 +204,12 @@ const Navigation = () => {
 
               <div className="flex-1 overflow-y-auto py-2 px-5">
                 <div className="flex flex-col space-y-6">
-                  {/* About Mobile */}
+                  {/* About Us Mobile */}
                   <button
                     onClick={() => handleNavigation("/about")}
-                    className="block w-full text-left text-[#0D141A] hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-3 px-3 rounded-lg text-lg font-medium transition-colors"
+                    className="block w-full text-left text-[#0D141A] hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-3 px-3 rounded-lg text-lg font-medium transition-colors cursor-pointer"
                   >
-                    About
+                    About Us
                   </button>
 
                   {/* Solutions Mobile */}
@@ -222,13 +222,13 @@ const Navigation = () => {
                         onClick={() =>
                           handleNavigation("/solutions/hr-management")
                         }
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
                       >
                         HR Management
                       </button>
                       <button
                         onClick={() => handleNavigation("/solutions/payroll")}
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
                       >
                         Payroll & Compliance
                       </button>
@@ -236,13 +236,13 @@ const Navigation = () => {
                         onClick={() =>
                           handleNavigation("/solutions/employee-experience")
                         }
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
                       >
                         Employee Experience
                       </button>
                       <button
                         onClick={() => handleNavigation("/solutions/platform")}
-                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors"
+                        className="block w-full text-left text-[#0D141A]/70 hover:text-[#D51C3D] hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg text-base transition-colors cursor-pointer"
                       >
                         Platform & Integrations
                       </button>
@@ -257,7 +257,7 @@ const Navigation = () => {
                     <div className="pl-4 space-y-3 border-l-2 border-[#D51C3D]/20">
                       <button
                         onClick={() => handleNavigation("/industries/retail")}
-                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors cursor-pointer"
                       >
                         <span className="font-medium text-[#0D141A]">
                           Retail
@@ -271,7 +271,7 @@ const Navigation = () => {
                         onClick={() =>
                           handleNavigation("/industries/manufacturing")
                         }
-                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors cursor-pointer"
                       >
                         <span className="font-medium text-[#0D141A]">
                           Manufacturing
@@ -285,7 +285,7 @@ const Navigation = () => {
                         onClick={() =>
                           handleNavigation("/industries/healthcare")
                         }
-                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors cursor-pointer"
                       >
                         <span className="font-medium text-[#0D141A]">
                           Healthcare
@@ -298,7 +298,7 @@ const Navigation = () => {
                         onClick={() =>
                           handleNavigation("/industries/education")
                         }
-                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors cursor-pointer"
                       >
                         <span className="font-medium text-[#0D141A]">
                           Education
@@ -312,7 +312,7 @@ const Navigation = () => {
                         onClick={() =>
                           handleNavigation("/industries/technology")
                         }
-                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors cursor-pointer"
                       >
                         <span className="font-medium text-[#0D141A]">
                           Technology & Startups
@@ -323,7 +323,7 @@ const Navigation = () => {
                       </button>
                       <button
                         onClick={() => handleNavigation("/industries/finance")}
-                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors"
+                        className="block w-full text-left hover:bg-[#F8F5F2] py-2.5 px-3 rounded-lg transition-colors cursor-pointer"
                       >
                         <span className="font-medium text-[#0D141A]">
                           Finance
@@ -341,7 +341,7 @@ const Navigation = () => {
               <div className="p-5 border-t border-gray-100">
                 <Button
                   variant="primary"
-                  className="w-full py-3.5 text-base bg-[#a41313] hover:bg-[#780000]"
+                  className="w-full py-3.5 text-base bg-[#a41313] hover:bg-[#780000] cursor-pointer"
                   onClick={() => handleNavigation("/contact")}
                 >
                   Book a Demo
@@ -361,7 +361,7 @@ const Tab = ({ children, tab, handleSetSelected, selected }) => {
       id={`shift-tab-${tab}`}
       onMouseEnter={() => handleSetSelected(tab)}
       onClick={() => handleSetSelected(tab)}
-      className={`flex items-center gap-1 px-4 py-2 text-base transition-colors ${
+      className={`flex items-center gap-1 px-4 py-2 text-base transition-colors cursor-pointer ${
         selected === tab
           ? "text-[#D51C3D]"
           : "text-[#0D141A]/80 hover:text-[#D51C3D]"
@@ -444,7 +444,7 @@ const SolutionsContent = ({ onNavigate }) => (
     <div className="space-y-4">
       <button
         onClick={() => onNavigate("/solutions/hr-management")}
-        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
       >
         <Users className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
         <div>
@@ -458,7 +458,7 @@ const SolutionsContent = ({ onNavigate }) => (
       </button>
       <button
         onClick={() => onNavigate("/solutions/payroll")}
-        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
       >
         <Wallet className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
         <div>
@@ -474,7 +474,7 @@ const SolutionsContent = ({ onNavigate }) => (
     <div className="space-y-4">
       <button
         onClick={() => onNavigate("/solutions/employee-experience")}
-        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
       >
         <Award className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
         <div>
@@ -488,7 +488,7 @@ const SolutionsContent = ({ onNavigate }) => (
       </button>
       <button
         onClick={() => onNavigate("/solutions/platform")}
-        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+        className="flex items-start gap-3 group p-2 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
       >
         <Layers className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
         <div>
@@ -509,7 +509,7 @@ const IndustriesContent = ({ onNavigate }) => (
     {/* Row 1 */}
     <button
       onClick={() => onNavigate("/industries/retail")}
-      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
     >
       <Building2 className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
       <div>
@@ -524,7 +524,7 @@ const IndustriesContent = ({ onNavigate }) => (
 
     <button
       onClick={() => onNavigate("/industries/manufacturing")}
-      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
     >
       <Factory className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
       <div>
@@ -540,7 +540,7 @@ const IndustriesContent = ({ onNavigate }) => (
     {/* Row 2 */}
     <button
       onClick={() => onNavigate("/industries/healthcare")}
-      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
     >
       <Heart className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
       <div>
@@ -555,7 +555,7 @@ const IndustriesContent = ({ onNavigate }) => (
 
     <button
       onClick={() => onNavigate("/industries/education")}
-      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
     >
       <GraduationCap className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
       <div>
@@ -571,7 +571,7 @@ const IndustriesContent = ({ onNavigate }) => (
     {/* Row 3 */}
     <button
       onClick={() => onNavigate("/industries/technology")}
-      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
     >
       <Cpu className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
       <div>
@@ -586,7 +586,7 @@ const IndustriesContent = ({ onNavigate }) => (
 
     <button
       onClick={() => onNavigate("/industries/finance")}
-      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left"
+      className="flex items-start gap-3 group p-3 rounded-lg hover:bg-[#F8F5F2] transition-colors w-full text-left cursor-pointer"
     >
       <Landmark className="w-5 h-5 text-[#a41313] flex-shrink-0 mt-0.5" />
       <div>

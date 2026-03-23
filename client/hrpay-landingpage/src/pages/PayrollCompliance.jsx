@@ -31,7 +31,7 @@ const PayrollCompliance = () => {
           }}
         >
           {/* Semi-transparent overlay for better text contrast */}
-          <div className="absolute inset-0 bg-black/5" />
+          <div className="absolute inset-0" />
 
           {/* Content */}
           <div className="relative z-10 py-10 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12">
