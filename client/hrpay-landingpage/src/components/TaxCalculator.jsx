@@ -326,7 +326,7 @@ const TaxCalculator = () => {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white rounded-xl p-4 sm:p-5 md:p-6 border-2 border-[#780000] shadow-md text-center hover:shadow-lg transition-all duration-300 group"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-[#d62828]/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-[#d62828]/20 transition-all duration-300">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 transition-all duration-300">
                     <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#d62828]" />
                   </div>
                   <h3 className="text-base sm:text-lg font-semibold text-[#2b2d42] mb-2">
